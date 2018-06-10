@@ -15,6 +15,26 @@
 			font-style: normal;
 		}
 
+		.msg-game-over {
+
+
+
+				&:before {
+
+					position: absolute;
+					left: 56px;
+					top: 0;
+					content: "Você não tem vidas ainda para voltar a jogar :(";
+					background-color: #000;
+					color: #fff;
+					width: 100px;
+					padding: 9px;
+					text-align: left;
+					font-size: 1.2em;
+				}
+
+		}
+
 
 		.icon-loose {
 
@@ -84,13 +104,14 @@
 		.close-nivel {
 
 			width: 30px;
-			height: 30px;
-			position: absolute;
-			top: 0;
-			right: 0;
-			background: url(../../src/images/sprite.png) no-repeat;
-			background-position: -74px -229px;
-			cursor: pointer;
+		    height: 30px;
+		    position: absolute;
+		    top: 0;
+		    right: 0;
+		    background: url(../../src/images/sprite.png) no-repeat;
+		    background-position: -74px -229px;
+		    cursor: pointer;
+		    background-color: #614439;
 		}
 
 		.status-nivel {
@@ -401,7 +422,7 @@
 				}
 			}
 
-			.item-left {
+			.item-left, .msg-game-over {
 
 				left: 0;
 				-webkit-border-top-right-radius: 20px;

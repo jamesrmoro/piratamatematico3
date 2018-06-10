@@ -315,33 +315,47 @@ $(document).ready(function(){
 					$("#"+nivel+" .close-nivel").hide();
 					$("#"+nivel+" .time-box").html("Espere um pouquinho para recarregarmos as pilhas");
 					$("#"+nivel+" .time-box").append("<i id='time-game-over'></i>segundos restantes");
-				}
-				console.log(lifes);
 
-				var timeLeft = 5;
+					// Bloqueia temporariamente para não voltar a trilha do mapa
+					$(".msg-game-over").removeClass("item-left");
+
+					// Mostra mensagem que não há vida se o usuário tenta voltar ao mapa
+					$("body").on("click", ".msg-game-over", function() {
+						$(this).addClass('show').delay(3000).queue(function(next){
+					        $(this).removeClass('show');
+					        next();
+					    });
+					});
+				}
+
+				var tempo_vida = 30;
 				var elem = document.getElementById('time-game-over');
 				var timerId = setInterval(countdown, 1000);
-
-				function countdown() {
-				    if (timeLeft == -1) {
-				        clearTimeout(timerId);
-				        aguarda_vida_voltar();
-				    } else {
-				        elem.innerHTML = timeLeft;
-				        timeLeft--;
-				    }
-				}
 
 				function aguarda_vida_voltar() {
 				    $("#"+nivel+" .status-msg").html("Pilhas recarregadas");
 				    $("#"+nivel+" .time-box").html("Você ganhou 5 novas vidas :)");
 				    $("#"+nivel+" .proximo-nivel").css("display", "block");
 				    $("#"+nivel+" .proximo-nivel").html("Voltar ao jogo");
+				    $("#"+nivel+" .status-msg").removeClass("icon-loose").addClass("icon-win");
 				    $("#"+nivel+" .close-nivel").show();
 				    $(".msg-life").html("Vidas");
 				    $(".lifes").html("<li class='heart'></li><li class='heart'></li><li class='heart'></li><li class='heart'></li><li class='heart'></li>");
+
+				    // Desbloqueia para voltar a trilha do mapa
+				    $(".msg-game-over").addClass("item-left");
+				    $(".status-top .item").removeClass("msg-game-over");
 				}
 
+				function countdown() {
+				    if (tempo_vida == -1) {
+				        clearTimeout(timerId);
+				        aguarda_vida_voltar();
+				    } else {
+				        elem.innerHTML = tempo_vida;
+				        tempo_vida--;
+				    }
+				}
 				
 			}
 			if (novomovimento === 0) {
