@@ -314,6 +314,8 @@
 			.time-box {
 
 				color: #fff;
+				width: 100%;
+				display: inline-block;
 
 				i {
 
@@ -428,7 +430,7 @@
 			margin: 0;
 			padding: 0;
 
-			li {
+			li.heart {
 
 				display: inline-block;
 				background: url(../../src/images/shapes.svg) no-repeat;
@@ -523,11 +525,57 @@
 				font-size: 1.5em;
 				position: relative;
 				z-index: 2;
+				cursor: no-drop;
+
+				&:after {
+
+					width: 14px;
+					height: 18px;
+					content: "";
+					right: -24px;
+					position: absolute;
+					bottom: 13px;
+					background: url(../../src/images/sprite.png) no-repeat -50px -129px;
+				}
+
+				&.msg-nivel {
+
+					&:before {
+
+						content: "Nível bloqueado";
+						position: absolute;
+						left: -33px;
+						top: 4px;
+						background-color: #000;
+						width: 100px;
+						margin: 0 auto;
+						right: 0;
+						color: #fff;
+						line-height: 20px;
+						font-size: 0.7em;
+						padding: 8px;
+						z-index: 9;
+						text-transform: uppercase;
+						opacity: 1;
+						@include transition(1s);
+					}
+				}
 
 				&.desbloqueado {
 
 					background-color: #ffc107;
 					color: #fff;
+					cursor: pointer;
+
+					&:before {
+
+						display: none;
+					}
+
+					&:after {
+
+						display: none;
+					}
 				}
 			}
 		}
