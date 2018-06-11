@@ -373,14 +373,14 @@ $(document).ready(function(){
 
 					// Mostra mensagem que não há vida se o usuário tenta voltar ao mapa
 					$("body").on("click", ".msg-game-over", function() {
-						$(this).addClass('show').delay(30000).queue(function(next){
+						$(this).addClass('show').delay(3000).queue(function(next){
 					        $(this).removeClass('show');
 					        next();
 					    });
 					});
 				}
 
-				var tempo_vida = 300;
+				var tempo_vida = 30;
 				var elem = document.getElementById('time-game-over');
 				var timerId = setInterval(countdown, 1000);
 
