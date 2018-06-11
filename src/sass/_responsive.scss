@@ -1,5 +1,234 @@
 @media screen and (max-width: 800px) {
 
+	.bg-noite {
+
+		display: none;
+	}
+
+	.ceu-tarde {
+
+		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fc3232+0,f7b634+100 */
+		background: #fc3232;
+		background: -moz-linear-gradient(top, #fc3232 0%, #f7b634 100%);
+		background: -webkit-linear-gradient(top, #fc3232 0%, #f7b634 100%);
+		background: linear-gradient(to bottom, #fc3232 0%, #f7b634 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc3232', endColorstr='#f7b634',GradientType=0 );
+		height: 400px;
+		position: absolute;
+		z-index: 9;
+		top: 0;
+		left: 0;
+		width: 100%;
+
+		&:before {
+
+			background-color: #fedd33;
+			width: 140px;
+			height: 140px;
+			border-radius: 100%;
+			content: "";
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+			bottom: -10px;
+			z-index: 1;
+			position: absolute;
+		}
+	}
+
+	.noite {
+
+		.bg-noite {
+
+			display: block;
+		}
+	}
+
+	@keyframes move-twink-back {
+
+	    from {background-position:0 0;}
+	    to {background-position:-10000px 5000px;}
+	}
+	@-webkit-keyframes move-twink-back {
+
+	    from {background-position:0 0;}
+	    to {background-position:-10000px 5000px;}
+	}
+	@-moz-keyframes move-twink-back {
+
+	    from {background-position:0 0;}
+	    to {background-position:-10000px 5000px;}
+	}
+	@-ms-keyframes move-twink-back {
+
+	    from {background-position:0 0;}
+	    to {background-position:-10000px 5000px;}
+	}
+
+	.stars, .twinkling {
+
+		position:absolute;
+		top:0;
+		left:0;
+		right:0;
+		bottom:0;
+		width:100%;
+		height:100%;
+		display:block;
+		z-index: 999;
+	}
+
+	.stars {
+
+		background:#000 url(../../src/images/stars.png) repeat top center;
+		z-index:0;
+	}
+
+	.twinkling{
+
+		background: transparent url(../../src/images/twinkling.png) repeat top center;
+		z-index:1;
+
+		-moz-animation:move-twink-back 200s linear infinite;
+		-ms-animation:move-twink-back 200s linear infinite;
+		-o-animation:move-twink-back 200s linear infinite;
+		-webkit-animation:move-twink-back 200s linear infinite;
+		animation:move-twink-back 200s linear infinite;
+	}
+
+	.clouds {
+
+		height: 320px;
+		position: absolute;
+		z-index: 999;
+		width: 100%;
+		overflow: hidden;
+		top: -20px;
+	}
+
+	.cloud {
+
+	    width: 200px;
+	    height: 60px;
+	    background: #fff;    
+	    border-radius: 200px;
+	    position: relative;
+	    z-index: 9;
+
+	    &:before, &:after {
+
+		    content: '';
+		    position: absolute; 
+		    background: #fff;
+		    width: 100px;
+		    height: 80px;
+		    position: absolute;
+		    top: -15px;
+		    left: 10px;
+		    
+		    border-radius: 100px;
+		    -moz-border-radius: 100px;
+		    -webkit-border-radius: 100px;
+		    
+		    -webkit-transform: rotate(30deg);
+		    transform: rotate(30deg);
+		    -moz-transform: rotate(30deg);
+		}
+
+		&:after {
+
+		    width: 120px;
+		    height: 120px;
+		    top: -55px;
+		    left: auto;
+		    right: 15px;
+		}
+	}
+
+
+	.c1 {
+	    -webkit-animation: moveclouds 70s linear infinite;
+	    -moz-animation: moveclouds 70s linear infinite;
+	    -o-animation: moveclouds 70s linear infinite;
+	    top: 185px;
+	}
+
+	.c2 {
+
+	    left: 200px;
+	    top: 70px;
+	    
+	    -webkit-transform: scale(0.6);
+	    -moz-transform: scale(0.6);
+	    transform: scale(0.6);
+	    opacity: 0.6;
+
+	    -webkit-animation: moveclouds 65s linear infinite;
+	    -moz-animation: moveclouds 65s linear infinite;
+	    -o-animation: moveclouds 65s linear infinite;
+	}
+
+	.c3 {
+
+	    left: -250px;
+	    top: -300px;
+	    
+	    -webkit-transform: scale(0.8);
+	    -moz-transform: scale(0.8);
+	    transform: scale(0.8);
+	    opacity: 0.8;
+	    
+	    -webkit-animation: moveclouds 60s linear infinite;
+	    -moz-animation: moveclouds 60s linear infinite;
+	    -o-animation: moveclouds 60s linear infinite;
+	}
+
+	.c4 {
+
+	    left: 470px;
+	    top: -250px;
+	    
+	    -webkit-transform: scale(0.75);
+	    -moz-transform: scale(0.75);
+	    transform: scale(0.75);
+	    opacity: 0.75;
+	    
+	    -webkit-animation: moveclouds 58s linear infinite;
+	    -moz-animation: moveclouds 58s linear infinite;
+	    -o-animation: moveclouds 58s linear infinite;
+	}
+
+	.c5 {
+	    left: -150px;
+	    top: -110px;
+	    
+	    -webkit-transform: scale(0.8);
+	    -moz-transform: scale(0.8);
+	    transform: scale(0.8);
+	    opacity: 0.8;
+	    
+	    -webkit-animation: moveclouds 60s linear infinite;
+	    -moz-animation: moveclouds 60s linear infinite;
+	    -o-animation: moveclouds 60s linear infinite;
+	}
+
+	@-webkit-keyframes moveclouds {
+
+	    0% {margin-left: 600px;}
+	    100% {margin-left: -600px;}
+	}
+
+	@-moz-keyframes moveclouds {
+
+	    0% {margin-left: 600px;}
+	    100% {margin-left: -600px;}
+	}
+
+	@-o-keyframes moveclouds {
+	    0% {margin-left: 600px;}
+	    100% {margin-left: -600px;}
+	}
+
 	#game {
 
 		height: 100vh;
@@ -15,9 +244,346 @@
 			font-style: normal;
 		}
 
+		.sea {
+
+			overflow: hidden;
+			position: relative;
+			z-index: 999;
+			width: 100%;
+			bottom: -245px;
+
+		    .submarine-wrapper {
+
+				height: 200px;
+				width: 200px;
+				padding: 0;
+				animation: diving 3s ease-in-out infinite, diving-rotate 3s ease-in-out infinite;
+				margin: 0 auto;
+				left: 0;
+				right: 0;
+		        
+		       .submarine-body {
+		           
+					width: 175px;
+					height: 100px;
+					position: absolute;
+					margin-top: 50px;
+					left: 0px;
+					background-color: #FFC107;
+					border-radius: 50%;
+					background: linear-gradient(#FFC107, #FF9800);
+					overflow: hidden;
+
+					&:before {
+
+						width: 30px;
+						content: "";
+						left: -10px;
+						background-color: #000;
+						height: 100%;
+						position: absolute;
+						border-bottom-left-radius: 100%;
+						border-top-left-radius: 100%;
+						top: 0;
+					}
+		          
+		           .janela {
+
+						width: 37px;
+						height: 37px;
+						position: absolute;
+						margin-top: 31px;
+						background: linear-gradient(#ffffff, #9ce3ff);
+						border-radius: 50%;
+						border: 3px solid #000000;
+
+						&.janela1 {
+
+							left: 35px;
+						}
+
+						&.janela2 {
+
+							right: 56px;
+						}
+		               
+						&:after {
+
+							content: "";
+							position: absolute;
+							margin-top: 3px;
+							margin-left: 3px;
+							width: 25px;
+							height: 25px;
+							left: 0;
+							border-radius: 50%;
+							background-color: transparent;
+							opacity: 0.8;
+							border-top: 3px solid #a0b8c3;
+							transform: rotate(-45deg);
+						}
+		           }
+		           
+		           .motor {
+
+						width: 30px;
+						height: 30px;
+						position: absolute;
+						margin-top: 32px;
+						right: 20px;
+						background-color: #1a1a1a;
+						border-radius: 50%;
+						border: 5px solid #333;
+						top: 3px;
+		               
+						&:after, &:before {
+
+							position: absolute;
+							content: "";
+							border-radius: 2px;
+							background-color: white;
+							animation:spin 900ms linear infinite;
+							opacity:0.8;
+						}
+
+						&:after {
+
+							top:8px;
+							width: 20px;
+							height: 4px;
+							left: 0;
+
+						}
+
+						&:before {
+
+							left:8px;
+							width: 4px;
+							height: 20px;
+
+						}
+		           }
+		        }
+		       
+		        .helice {
+
+					width: 30px;
+					height: 48px;
+					position: absolute;
+					margin-top: 75px;
+					right: 0px;
+					background-color: #333;
+					border-radius: 7px;
+					background: linear-gradient(#333, #1a1a1a);
+					overflow: hidden;
+
+		            &:after {
+
+						content: "";
+						position: absolute;
+						margin-top: 6px;
+						margin-left: 7px;
+						width: 17px;
+						height: 35px;
+						left: 0;
+						border-radius: 3px;
+						background-color: transparent;
+						opacity: 0.8;
+						background: linear-gradient(to bottom, #333, #333 50%, #595959 50%, #595959);
+						background-size: 100% 20px;
+						animation: movimento_helice 110ms linear infinite;
+
+		            }
+		        }
+		        
+		        .topo-cabine {
+
+					width: 65px;
+					height: 25px;
+					position: absolute;
+					margin-top: 29px;
+					left: 58px;
+					background-color: #333;
+					border-radius: 10px 10px 0 0;
+					background: linear-gradient(#333, #2b2b2b);
+		           
+		            .cano {
+
+		                position: absolute;
+		                width: 7px;
+		                height: 20px;
+		                background-color: #9e9e9e;
+		                margin-top: -27px;
+		                margin-left: 24px;
+		                border-radius: 5px 5px 0 0;
+		                
+		                &:after, &:before {
+		                    content: "";
+		                    position: absolute;
+		                    width: 15px;
+		                    height: 7px;
+		                    border-radius: 5px;
+		                    background-color: #9e9e9e;
+		                }
+
+		                &:before {
+
+		                	right: 4px;
+		                }
+
+		                &:after {
+
+		                	right: 0;
+		                }
+		            }
+		            
+		            .luzes-area {
+
+						width: 53px;
+						height: 13px;
+						position: relative;
+						top:7px;
+						left:7px;
+						background-color: #333;
+						border-radius: 10px;
+						background: linear-gradient(darken(#333, 12%), darken(#333, 16%));
+		                
+		                .luzes {
+
+		                    position: absolute;
+		                    margin-top: 4px;
+		                    margin-left: 7px;
+		                    width: 5px;
+		                    height: 5px;
+		                    border-radius: 50%;
+		                    background-color: #fff;
+		                    animation: leds-off 500ms linear infinite;
+
+		                    &:after, &:before {
+
+		                        content: "";
+		                        position: absolute;
+		                        width: 5px;
+		                        height: 5px;
+		                        border-radius: 50%;
+		                        background-color: #fff;
+		                    }
+
+		                    &:after {
+
+		                        margin-top:0px;
+		                        margin-left:17px;
+		                    }
+
+		                    &:before {
+
+		                        margin-top: 0px;
+		                        margin-left: 34px;
+		                    }
+		                }
+		            }
+		        }
+		        
+		    }
+		}
+
+		@keyframes spin {
+
+		    100% { 
+		        transform:rotate(360deg); 
+		    } 
+		}
+
+		@keyframes leds-off {
+
+		    100% { 
+		        opacity:0.3;
+		    } 
+		}
+
+		@keyframes movimento_helice {
+
+		    100% {
+		        background: linear-gradient(
+		          to bottom,
+		          lighten(#333, 15%) 50%,
+		          lighten(#333, 15%),
+		          #333,
+		          #333 50%
+		        );
+		        background-size: 100% 20px;
+		    }
+		}
+
+		@keyframes diving {
+		
+			0% {
+		         margin-top:5px;
+			}
+		    50% {
+				 margin-top:15px;
+			}
+		    
+		    100% {
+				 margin-top:5px;
+			}
+		}
+
+		@keyframes diving-rotate {
+
+			0% {
+		         transform:rotate(0deg); 
+			}
+		    50% {
+		         transform:rotate(3deg); 
+			}
+		    75% {
+		        transform:rotate(-2deg); 
+			}
+		    100% {
+		        transform:rotate(0deg); 
+			}
+		}
+
+		.onda {
+
+			display: block;
+			position: absolute;
+			height: 100px;
+			z-index: 999;
+			width: 100%;
+			top: 275px;
+		}
+
+		.msg {
+
+		    width: 130px;
+		    display: inline-block;
+		    margin: 0 auto;
+		    left: -43px;
+		    right: 0;
+		    line-height: 19px;
+		    position: relative;
+		    padding: 12px;
+		    padding-top: 25px;
+		    background: url(../../src/images/sprite.png) no-repeat;
+		    background-position: -139px -403px;
+		    height: 130px;
+		    top: -1px;
+		    font-size: 0.8em;
+
+		    strong {
+
+				width: 100%;
+				display: inline-block;
+				font-size: 1.3em;
+				color: #009688;
+		    }
+		}
+
 		.msg-game-over {
 
-
+			&.show {
 
 				&:before {
 
@@ -25,13 +591,18 @@
 					left: 56px;
 					top: 0;
 					content: "Você não tem vidas ainda para voltar a jogar :(";
-					background-color: #000;
-					color: #fff;
-					width: 100px;
-					padding: 9px;
+					background: url(../../src/images/sprite.png) no-repeat;
+					background-position: 1px -369px;
+					color: #333;
+					width: 140px;
+					padding: 24px;
 					text-align: left;
 					font-size: 1.2em;
+					height: 125px;
+					padding-top: 28px;
 				}
+
+			}
 
 		}
 
@@ -397,7 +968,7 @@
 			-moz-border-radius-bottomleft: 20px;
 			border-bottom-right-radius: 20px;
 			border-bottom-left-radius: 20px;
-			z-index: 99;
+			z-index: 999999;
 			display: block;
 			height: 65px;
 			left: 0;
@@ -515,8 +1086,9 @@
 			left: 0;
 			right: 0;
 			margin: 0 auto;
-			bottom: 20px;
+			top: 400px;
 			z-index: 3;
+			padding-bottom: 60px;
 
 			&:before {
 
@@ -542,11 +1114,12 @@
 				border: 3px solid #ff6b5a;
 				border-radius: 100%;
 				color: #333;
-				margin-top: 20px;
+				margin-top: 63.65%;
 				font-size: 1.5em;
 				position: relative;
 				z-index: 2;
 				cursor: no-drop;
+
 
 				&:after {
 
@@ -565,7 +1138,7 @@
 
 						content: "Nível bloqueado";
 						position: absolute;
-						left: -33px;
+						left: -27px;
 						top: 4px;
 						background-color: #000;
 						width: 100px;
@@ -640,10 +1213,22 @@
 
 					height: 1900px;
 					overflow: auto;
-					background: url("../../src/images/bg2.jpg");
-					background-position: center top;
+					background: #6dafe1 url(../../src/images/bg2.jpg);
 					background-size: 100%;
 					position: relative;
+					background-position: 0 400px;
+					background-repeat: no-repeat;
+
+					&:after {
+
+						height: 300px;
+						content: "";
+						left: 0;
+						top: 0;
+						position: absolute;
+						width: 100%;
+						background-color: #353b71;
+					}
 				}
 			}
 
