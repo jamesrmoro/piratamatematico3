@@ -5,6 +5,49 @@
 		display: none;
 	}
 
+	.click-down {
+
+		background: #ff5722f5;
+	    z-index: 9999999999;
+	    position: absolute;
+	    color: #fff;
+	    left: 0;
+	    top: 122px;
+	    width: 100%;
+	    padding: 35px;
+	    font-size: 1.4em;
+	    display: inline-block;
+
+	    i {
+
+	    	width: 40px;
+		    height: 40px;
+		    background-color: #1b1b1b;
+		    position: absolute;
+		    right: 0;
+		    top: 0;
+		    font-style: normal;
+		    font-size: 1.1em;
+		    line-height: 37px;
+		    font-family: arial;
+		    font-weight: bold;
+		    cursor: pointer;
+	    }
+
+		strong {
+
+		    color: #fff;
+		    background-color: #8BC34A;
+		    display: inline-block;
+		    padding: 9px;
+		    margin-top: 10px;
+		    font-weight: normal;
+		    cursor: pointer;
+		    width: 100%;
+		}
+
+	}
+
 	.ceu-tarde {
 
 		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fc3232+0,f7b634+100 */
@@ -598,7 +641,7 @@
 					padding: 24px;
 					text-align: left;
 					font-size: 1.2em;
-					height: 64px;
+					height:73px;
 					padding-top: 28px;
 				}
 
@@ -1138,7 +1181,7 @@
 
 						content: "Nível bloqueado";
 						position: absolute;
-						left: -27px;
+						left: -36px;
 						top: 4px;
 						background-color: #000;
 						width: 100px;

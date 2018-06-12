@@ -1,5 +1,15 @@
 $(document).ready(function(){
 
+	function descer_nivel () {
+  		var scroll = $('#c-nivel-1').offset();
+		$('.conteudo').animate({ scrollTop: scroll.top }, 900);
+	}
+
+	$("body").on("click", ".click-down", function() {
+		descer_nivel();
+	});
+
+
 	// Telas de início do jogo
 		
 	$("body").on("click", ".button-start", function() {
@@ -308,6 +318,8 @@ $(document).ready(function(){
 
 			explosao();
 
+			// Verifica se ganhou ou perdeu e exibe mensagens
+
 	       	if (meta_inicial == resultado) {
 	       		pega_debloqueado();
 				para_tempo();	
@@ -315,7 +327,9 @@ $(document).ready(function(){
 				
 				$("#"+nivel+" .mensagem-1").addClass("exibe");
 				$("#"+nivel+" .mensagem-1").addClass("acertou");
+				$("#"+nivel+" .mensagem-1").removeClass("errou");
 				$("#"+nivel+" .status-msg").addClass("icon-win");
+				$("#"+nivel+" .proximo-nivel").show();
 
 				var frase_acertou = $(".frase_acertou").html()
 				$("#"+nivel+" .mensagem-1 .status-win-or-loose").html(frase_acertou);
@@ -337,6 +351,7 @@ $(document).ready(function(){
 				$("#"+nivel+" .mensagem-1").addClass("exibe");
 				$("#"+nivel+" .mensagem-1").addClass("errou");
 				$("#"+nivel+" .status-msg").addClass("icon-loose");
+				$("#"+nivel+" .proximo-nivel").hide();
 
 				var frase_errou = $(".frase_errou").html()
 				$("#"+nivel+" .mensagem-1 .status-win-or-loose").html(frase_errou);
@@ -345,7 +360,6 @@ $(document).ready(function(){
 				setTimeout(function() {
 			       $("#"+nivel+" .mensagem-1").removeClass("exibe");
 			       $("#"+nivel+" .mensagem-2").addClass("exibe");
-			       $("#"+nivel+" .mensagem-2").addClass("errou");
 			       $("#"+nivel+" .mensagem-2").removeClass("acertou");
 			    }, 1500);
 
@@ -373,14 +387,14 @@ $(document).ready(function(){
 
 					// Mostra mensagem que não há vida se o usuário tenta voltar ao mapa
 					$("body").on("click", ".msg-game-over", function() {
-						$(this).addClass('show').delay(3000).queue(function(next){
+						$(this).addClass('show').delay(563000).queue(function(next){
 					        $(this).removeClass('show');
 					        next();
 					    });
 					});
 				}
 
-				var tempo_vida = 30;
+				var tempo_vida = 110;
 				var elem = document.getElementById('time-game-over');
 				var timerId = setInterval(countdown, 1000);
 
@@ -438,9 +452,11 @@ $(document).ready(function(){
 		$("body").on("click", ".item-left img, .close, .close-nivel", function() {
 			$(".nivel").fadeOut();
 			$(".wrapper-calculadora").removeClass("hide");
+			$(".mensagem-1").removeClass("exibe");
+			$(".mensagem-2").removeClass("exibe");
 			para_tempo();
 			limpa_tempo(nivel)
-			pega_limpa_jogada();
+			pega_limpa_jogada(nivel);
 		});
 
 		$('body').on('click', ".calculadora li.start-time", function(){
