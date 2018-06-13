@@ -1,3 +1,20 @@
+#html2canvas{
+    width:150px;
+    text-align:center;
+    padding:30px;
+    font-weight:bolder;
+    color:#FFF;
+    font-size:25px;
+    background:#000;
+}
+
+canvas {
+
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
 @media screen and (max-width: 800px) {
 
 	.bg-noite {

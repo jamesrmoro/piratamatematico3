@@ -8,9 +8,14 @@
 	<link rel="stylesheet" href="build/css/main.css?v=3.0.2">
 	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/css?family=Mouse+Memoirs" rel="stylesheet">
+
 </head>
 <body>
 	<div id="game">
+		<div id="compartilhar">capturar</div>
+		<div id="html2canvas">Tela</div>
+		<div class="imagem-compartilhada"></div>
+		<canvas id="myCanvas" width="500" height="500"></canvas>
 		<div class="tela tela-1" style="display: none">
 			<div class="wrapper-button">
 				<span class="button button-start">Jogar</span>
@@ -106,5 +111,6 @@
 		</div>
 	</div>
 	<script src="build/js/script.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 </body>
 </html>
