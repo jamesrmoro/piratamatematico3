@@ -7,31 +7,33 @@
 
 	.click-down {
 
-		background: #ff5722f5;
-	    z-index: 9999999999;
-	    position: absolute;
-	    color: #fff;
-	    left: 0;
-	    top: 122px;
-	    width: 100%;
-	    padding: 35px;
-	    font-size: 1.4em;
-	    display: inline-block;
+		background: rgba(97, 82, 77, 0.6705882352941176);
+		z-index: 91;
+		position: absolute;
+		color: #fff;
+		left: 0;
+		top: 0;
+		width: 100%;
+		padding: 35px;
+		font-size: 1.5em;
+		display: inline-block;
+		height: 100%;
+		padding-top: 130px;
 
 	    i {
 
-	    	width: 40px;
-		    height: 40px;
-		    background-color: #1b1b1b;
-		    position: absolute;
-		    right: 0;
-		    top: 0;
-		    font-style: normal;
-		    font-size: 1.1em;
-		    line-height: 37px;
-		    font-family: arial;
-		    font-weight: bold;
-		    cursor: pointer;
+			width: 40px;
+			height: 40px;
+			position: absolute;
+			right: 25px;
+			top: 95px;
+			font-style: normal;
+			font-size: 1.1em;
+			line-height: 37px;
+			font-family: arial;
+			font-weight: bold;
+			cursor: pointer;
+			color: #FFEB3B
 	    }
 
 		strong {

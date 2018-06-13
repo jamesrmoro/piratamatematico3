@@ -1,14 +1,16 @@
 $(document).ready(function(){
 
 	function descer_nivel () {
+		var $elem = $('.conteudo');
+		$('html, body').animate({scrollTop: $elem.height()}, 900);
   		var scroll = $('#c-nivel-1').offset();
 		$('.conteudo').animate({ scrollTop: scroll.top }, 900);
 	}
 
 	$("body").on("click", ".click-down", function() {
 		descer_nivel();
+		$(this).fadeOut();
 	});
-
 
 	// Telas de início do jogo
 		
@@ -98,9 +100,9 @@ $(document).ready(function(){
 					for (x = 1; x <= 9; x++) {
 						var valor_botao = 'botao'+x;
 						if (v.operador[valor_botao] === "") { 
-							retorno += '<li id="run">'+ v.numeros[valor_botao] +'</li>';
+							retorno += '<li>'+ v.numeros[valor_botao] +'</li>';
 						} else {
-							retorno += '<li id="run" class="start-time operador-'+ v.operador[valor_botao] +'" data-operador="'+ v.operador[valor_botao] +'"><span><em>+</em><i>'+ v.numeros[valor_botao] +'</i></span></li>';
+							retorno += '<li class="start-time operador-'+ v.operador[valor_botao] +'" data-operador="'+ v.operador[valor_botao] +'"><span><em>+</em><i>'+ v.numeros[valor_botao] +'</i></span></li>';
 						}
 					}		
 				retorno += '</ul></div>';
@@ -149,27 +151,6 @@ $(document).ready(function(){
 		$("#number").html("Níveis do jogo: "+game);
 	})
 	.then(function(data){
-
-		$('.calculadora li').each(function (index) {
-
-			simbolo = $(this).attr("class");
-
-				switch(simbolo) {
-	            case "operador-soma":
-	                $('.operador-soma span em').html("+");
-	            break;
-	            case "operador-divisao":
-	                $('.operador-divisao span em').html("/");
-	            break;
-	            case "operador-subtracao":
-	                $('.operador-subtracao span em').html("-");
-	            break;
-	            case "operador-multiplicacao":
-	                $('.operador-multiplicacao span em').html("*");
-	            break;
-	        }
-
-		});
 
 		function pega_nivel(a) {
 			nivel = $(a).closest('.nivel').attr("id");
@@ -331,7 +312,7 @@ $(document).ready(function(){
 				$("#"+nivel+" .status-msg").addClass("icon-win");
 				$("#"+nivel+" .proximo-nivel").show();
 
-				var frase_acertou = $(".frase_acertou").html()
+				var frase_acertou = $("#"+nivel+" .frase_acertou").html()
 				$("#"+nivel+" .mensagem-1 .status-win-or-loose").html(frase_acertou);
 				$("#"+nivel+" .status-msg").html("Você acertou!");
 
@@ -353,7 +334,7 @@ $(document).ready(function(){
 				$("#"+nivel+" .status-msg").addClass("icon-loose");
 				$("#"+nivel+" .proximo-nivel").hide();
 
-				var frase_errou = $(".frase_errou").html()
+				var frase_errou = $("#"+nivel+" .frase_errou").html()
 				$("#"+nivel+" .mensagem-1 .status-win-or-loose").html(frase_errou);
 				$("#"+nivel+" .status-msg").html("Você errou!");
 
@@ -387,42 +368,42 @@ $(document).ready(function(){
 
 					// Mostra mensagem que não há vida se o usuário tenta voltar ao mapa
 					$("body").on("click", ".msg-game-over", function() {
-						$(this).addClass('show').delay(563000).queue(function(next){
+						$(this).addClass('show').delay(1000).queue(function(next){
 					        $(this).removeClass('show');
 					        next();
 					    });
 					});
+
+					var tempo_vida = 30;
+					var elem = document.getElementById('time-game-over');
+					var timerId = setInterval(countdown, 1000);
+
+					function vida_volta() {
+					    $("#"+nivel+" .status-msg").html("Pilhas recarregadas");
+					    $("#"+nivel+" .time-box").html("Você ganhou 5 novas vidas :)");
+					    $("#"+nivel+" .proximo-nivel").css("display", "block");
+					    $("#"+nivel+" .proximo-nivel").html("Voltar ao jogo");
+					    $("#"+nivel+" .status-msg").removeClass("icon-loose").addClass("icon-win");
+					    $("#"+nivel+" .close-nivel").show();
+					    $(".msg-life").html("Vidas");
+					    $(".lifes").html("<li class='heart'></li><li class='heart'></li><li class='heart'></li><li class='heart'></li><li class='heart'></li>");
+
+					    // Desbloqueia para voltar a trilha do mapa
+					    $(".msg-game-over").addClass("item-left");
+					    $(".status-top .item").removeClass("msg-game-over");
+					}
+
+					function countdown() {
+					    if (tempo_vida == -1) {
+					        clearTimeout(timerId);
+					        vida_volta();
+					    } else {
+					        elem.innerHTML = tempo_vida;
+					        tempo_vida--;
+					    }
+					}
 				}
 
-				var tempo_vida = 110;
-				var elem = document.getElementById('time-game-over');
-				var timerId = setInterval(countdown, 1000);
-
-				function aguarda_vida_voltar() {
-				    $("#"+nivel+" .status-msg").html("Pilhas recarregadas");
-				    $("#"+nivel+" .time-box").html("Você ganhou 5 novas vidas :)");
-				    $("#"+nivel+" .proximo-nivel").css("display", "block");
-				    $("#"+nivel+" .proximo-nivel").html("Voltar ao jogo");
-				    $("#"+nivel+" .status-msg").removeClass("icon-loose").addClass("icon-win");
-				    $("#"+nivel+" .close-nivel").show();
-				    $(".msg-life").html("Vidas");
-				    $(".lifes").html("<li class='heart'></li><li class='heart'></li><li class='heart'></li><li class='heart'></li><li class='heart'></li>");
-
-				    // Desbloqueia para voltar a trilha do mapa
-				    $(".msg-game-over").addClass("item-left");
-				    $(".status-top .item").removeClass("msg-game-over");
-				}
-
-				function countdown() {
-				    if (tempo_vida == -1) {
-				        clearTimeout(timerId);
-				        aguarda_vida_voltar();
-				    } else {
-				        elem.innerHTML = tempo_vida;
-				        tempo_vida--;
-				    }
-				}
-				
 			}
 			if (novomovimento === 0) {
 				$("#"+nivel+" .calculadora li[data-operador]").addClass("disabled");
@@ -505,6 +486,30 @@ $(document).ready(function(){
 	    	limpa_tempo(nivel);
 			pega_limpa_jogada();
 	    });
+
+	    // Insere os símbolos dos operadores dinamicamente
+
+	    $(".calculadora li").each(function (index) {
+
+			simbolo = $(this).attr("data-operador");
+			var nivel = $(this).closest('.nivel').attr("id");
+
+			switch(simbolo) {
+	            case "soma":
+	                $("#"+nivel+" .operador-soma span em").html("+");
+	            break;
+	            case "divisao":
+	                $("#"+nivel+" .operador-divisao span em").html("/");
+	            break;
+	            case "subtracao":
+	                $("#"+nivel+" .operador-subtracao span em").html("-");
+	            break;
+	            case "multiplicacao":
+	                $("#"+nivel+" .operador-multiplicacao span em").html("*");
+	            break;
+	        }
+
+		});
 
 	})
 	.then(function(){
