@@ -398,7 +398,7 @@ $(document).ready(function(){
 					        clearTimeout(timerId);
 					        vida_volta();
 					    } else {
-					        elem.innerHTML = tempo_vida;
+					        elem.innerHTML = ( tempo_vida < 10 ? "00:0" : "00:" ) + tempo_vida;
 					        tempo_vida--;
 					    }
 					}
@@ -515,27 +515,12 @@ $(document).ready(function(){
 		        html2canvas($("#html2canvas"), {
 		            onrendered: function(canvas) {
 		                $(".imagem-compartilhada").append(canvas);
+		                var img = canvas.toDataURL();
+       					$('#calendar_to_canvas').attr('src', img);
 		        	}
 		    	});
 		  	});
 
-		  	var canvas = $(".imagem-compartilhada canvas");
-			var context = canvas.get(0).getContext("2d");
-
-			context.save();
-			context.fillRect(50, 50, 100, 100);
-
-			context.fillStyle = "rgb(255, 0, 0)";
-			context.fillRect(100, 100, 100, 100);
-
-			context.restore();
-			context.fillRect(150, 150, 100, 100);
-
-			var dataURL = canvas.get(0).toDataURL();
-			var img = $("<img></img>");
-			img.attr("src", dataURL);
-
-			canvas.replaceWith(img);
 
 
 	})
