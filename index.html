@@ -5,25 +5,25 @@
 	<title>Pirata Matemático 3</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0, width=device-width" />
-	<link rel="stylesheet" href="build/css/main.css?v=3.0.2">
+	<link rel="stylesheet" href="build/css/main.css?v=3.0.4">
 	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/css?family=Mouse+Memoirs" rel="stylesheet">
 
 </head>
 <body>
 	<div id="game">
-		<div id="compartilhar">capturar</div>
+		<!-- <div id="compartilhar">capturar</div>
 		<div id="html2canvas">Tela</div>
 		<div class="imagem-compartilhada"></div>
 		<div id="calendar_to_canvas"></div>
-		<canvas id="myCanvas" width="500" height="500"></canvas>
-		<div class="tela tela-1" style="display: none">
+		<canvas id="myCanvas" width="500" height="500"></canvas> -->
+		<div class="tela tela-1">
 			<div class="wrapper-button">
 				<span class="button button-start">Jogar</span>
 				<span class="button button-api">Conectar com Google</span>
 			</div>
 		</div>
-		<div class="tela tela-2" style="display: none">
+		<div class="tela tela-2">
 			<div class="content-center">
 				<div class="logo">
 					<img src="src/images/logo.png" alt="">
@@ -33,12 +33,13 @@
 				</div>
 			</div>
 		</div>
-		<div class="tela tela-3" style="display: block">
+		<div class="tela tela-3">
 			<div class="conteudo">
 
 				<div class="clouds">
 
-					<span class="click-down">Seu objetivo é chegar neste submarino abaixo. Resolva cálculos e fuja da ilha antes da grande onda chegar. <i>x</i><strong>Começar</strong></span>
+					<span class="click-down">
+						Seu objetivo é chegar neste submarino abaixo. Resolva cálculos e fuja da ilha antes da grande onda chegar. <i>x</i><strong>Começar</strong></span>
 
 					<div class="bg-noite">
 						<div class="stars"></div>
@@ -73,6 +74,13 @@
 				<div class="status-top">
 					<div class="item item-left msg-game-over"><img src="src/images/compass.svg" alt=""></div>
 					<div class="item item-right"><img src="src/images/settings.svg" alt=""></div>
+					<audio id="player" loop="true">
+    					<source src="musica/pirate.mp3" />
+					    <source src="musica/pirate.m4a" />
+					    <source src="musica/pirate.ogg" />
+  					</audio>
+  					<span id="button" class="button-song active"></span>
+  					<span class="msg-life">Vidas</span>
 					<ul class="lifes vidas">
 						<li class="heart"><i>1</i></li>
 						<li class="heart"><i>2</i></li>
@@ -80,7 +88,6 @@
 						<li class="heart"><i>4</i></li>
 						<li class="heart"><i>5</i></li>
 					</ul>
-					<span class="msg-life">Vidas</span>
 				</div>
 				<div id="number" class="numero-niveis"></div>
 				<div id="controle"></div>

@@ -1,25 +1,45 @@
-#html2canvas{
-    width:150px;
-    text-align:center;
-    padding:30px;
-    font-weight:bolder;
-    color:#FFF;
-    font-size:25px;
-    background:#000;
-}
+// #html2canvas{
+//     width:150px;
+//     text-align:center;
+//     padding:30px;
+//     font-weight:bolder;
+//     color:#FFF;
+//     font-size:25px;
+//     background:#000;
+// }
 
-canvas {
+// canvas {
 
-	position: absolute;
-	right: 0;
-	top: 0;
+// 	position: absolute;
+// 	right: 0;
+// 	top: 0;
+// }
+
+#game {
+
+	display: none;
 }
 
 @media screen and (max-width: 800px) {
 
+	#game {
+
+		display: block;
+	}
+
 	.bg-noite {
 
 		display: none;
+	}
+
+	.logo {
+
+		width: 270px;
+
+		img {
+
+			max-width: 100%;
+		}
 	}
 
 	.click-down {
@@ -32,7 +52,7 @@ canvas {
 		top: 0;
 		width: 100%;
 		padding: 35px;
-		font-size: 1.5em;
+		font-size: 1.25em;
 		display: inline-block;
 		height: 100%;
 		padding-top: 130px;
@@ -65,6 +85,44 @@ canvas {
 		    width: 100%;
 		}
 
+	}
+
+	.button-song {
+
+		position: absolute;
+	    bottom: 17px;
+	    right: 65px;
+	    background: url(../../src/images/sprite.png) no-repeat;
+	    width: 34px;
+	    height: 40px;
+	    border: none;
+	    outline: none;
+	    background-position: -66px -500px;
+	    cursor: pointer;
+
+	    &:after {
+
+			content: "Música";
+			position: absolute;
+			bottom: -8px;
+			left: 0;
+			font-family: arial;
+			font-size: 0.6em;
+			font-weight: bold;
+			text-decoration: line-through;
+    		color: #d66868;
+	    }
+
+	    &.active {
+
+	    	background-position: -9px -500px;
+
+	    	&:after {
+
+	    		color: #000;
+	    		text-decoration: initial;
+	    	}
+	    }
 	}
 
 	.ceu-tarde {
@@ -310,7 +368,7 @@ canvas {
 
 			overflow: hidden;
 			position: relative;
-			z-index: 999;
+			z-index: 9999;
 			width: 100%;
 			bottom: -245px;
 
@@ -1007,6 +1065,10 @@ canvas {
 		.msg-life {
 
 			font-size: 1.4em;
+		    width: 100%;
+		    text-align: left;
+		    padding-left: 64px;
+		    display: inline-block;
 		}
 
 		#controle {
@@ -1080,9 +1142,10 @@ canvas {
 
 		.lifes {
 
-			text-align: center;
+			text-align: left;
 			margin: 0;
 			padding: 0;
+			padding-left: 60px;
 
 			li.heart {
 
@@ -1355,7 +1418,7 @@ canvas {
 			height: 100%;
 			position: fixed;
 			background-color: rgba(0, 0, 0, 0.85);
-			z-index: 4;
+			z-index: 9999;
 			top: 0;
 			padding: 20px;
 			padding-top: 80px;
@@ -1395,18 +1458,19 @@ canvas {
 
 			.movimento {
 
-				width: 60%;
+				width: 44%;
 				vertical-align: top;
 				display: inline-block;
 				text-transform: uppercase;
 				margin-top: 10px;
 				margin-bottom: 10px;
 				color: orange;
-				text-align: left;
+				text-align: right;
 				font-size: 1.6em;
 				letter-spacing: 1px;
 				position: relative;
 				padding-left: 40px;
+				float: right;
 
 				span {
 
@@ -1565,9 +1629,12 @@ canvas {
 						em {
 
 							font-style: normal;
-							font-size: 3em;
+							font-size: 1.4em;
 							display: inline-block;
 							margin-right: 5px;
+							font-family: arial;
+							position: relative;
+							top: -3px;
 						}
 
 						i {
@@ -1576,7 +1643,7 @@ canvas {
 							font-size: 1.7em;
 							display: inline-block;
 							position: relative;
-							top: -8px;
+							top: -2px;
 						}
 
 						&.disabled {
