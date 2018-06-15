@@ -18,10 +18,9 @@ $(document).ready(function(){
 
 		// Música do jogo
 
-		var button = document.getElementById("button");
 		var audio = document.getElementById("player");
 
-		button.addEventListener("click", function(){
+		$('body').on("click", "#button", function(){
 		  if(audio.paused){
 		    audio.play();
 		    //button.innerHTML = "Música rolando...";
@@ -29,6 +28,19 @@ $(document).ready(function(){
 		    audio.pause();
 		    //button.innerHTML = "Música pausada...";
 		  }
+		});
+
+		function song() {
+			var click = document.getElementById("song");
+			click.play();
+		}
+
+		$('body').on("click", ".calculadora li", function(){
+
+			
+			song();
+
+
 		});
 
 		$("body").on("click", ".button-song", function() {
@@ -115,7 +127,7 @@ $(document).ready(function(){
 				retorno += '<time class="tempo"><i>00:00</i></time>';
 				retorno += '<span class="nome-nivel"><span>Você está no nível: </span>' + v.id + '</span>';
 				retorno += '<span class="meta" data-meta="'+ v.meta +'">Meta: <span>' + v.meta + '</span></span>';
-				retorno += '<span class="movimento" data-movimentos="'+ v.jogadas + '">Movimentos:  <span class="valor-movimentos">'+ v.jogadas + '</span></span>';
+				retorno += '<span class="movimento" data-movimentos="'+ v.jogadas + '"><i>Movimentos:</i>  <span class="valor-movimentos">'+ v.jogadas + '</span></span>';
 				retorno += '<span style="display: none" class="frase frase_acertou">' + v.frase_acertou + '</span>';
 				retorno += '<span style="display: none" class="frase frase_errou">' + v.frase_errou + '</span>';
 					retorno += '<div class="wrapper-calculadora">';

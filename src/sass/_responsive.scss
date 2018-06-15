@@ -1458,7 +1458,7 @@
 
 			.movimento {
 
-				width: 44%;
+				width: 60%;
 				vertical-align: top;
 				display: inline-block;
 				text-transform: uppercase;
@@ -1477,15 +1477,21 @@
 					color: #fff;
 				}
 
-				&:before {
+				i {
 
-					width: 30px;
-					height: 30px;
-					content: "";
-					left: 0;
-					position: absolute;
-					background: url(../../src/images/sprite.png) no-repeat;
-				    background-position: -98px -129px;
+					position: relative;
+					font-style: normal;
+
+					&:before {
+
+						width: 30px;
+						height: 30px;
+						content: "";
+						left: -40px;
+						position: absolute;
+						background: url(../../src/images/sprite.png) no-repeat;
+					    background-position: -98px -129px;
+					}
 				}
 			}
 

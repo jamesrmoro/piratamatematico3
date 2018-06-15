@@ -17,13 +17,13 @@
 		<div class="imagem-compartilhada"></div>
 		<div id="calendar_to_canvas"></div>
 		<canvas id="myCanvas" width="500" height="500"></canvas> -->
-		<div class="tela tela-1">
+		<div class="tela tela-1" style="display: none">
 			<div class="wrapper-button">
 				<span class="button button-start">Jogar</span>
 				<span class="button button-api">Conectar com Google</span>
 			</div>
 		</div>
-		<div class="tela tela-2">
+		<div class="tela tela-2" style="display: none">
 			<div class="content-center">
 				<div class="logo">
 					<img src="src/images/logo.png" alt="">
@@ -33,7 +33,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="tela tela-3">
+		<div class="tela tela-3" style="display: block">
 			<div class="conteudo">
 
 				<div class="clouds">
@@ -76,8 +76,14 @@
 					<div class="item item-right"><img src="src/images/settings.svg" alt=""></div>
 					<audio id="player" loop="true">
     					<source src="musica/pirate.mp3" />
-					    <source src="musica/pirate.m4a" />
-					    <source src="musica/pirate.ogg" />
+<!-- 					    <source src="musica/pirate.m4a" />
+					    <source src="musica/pirate.ogg" /> -->
+  					</audio>
+
+  					<audio id="song" loop="false">
+    					<source src="http://www.freesfx.co.uk/rx2/mp3s/5/16961_1461335343.mp3" />
+<!-- 					    <source src="musica/pirate.m4a" />
+					    <source src="musica/pirate.ogg" /> -->
   					</audio>
   					<span id="button" class="button-song active"></span>
   					<span class="msg-life">Vidas</span>
