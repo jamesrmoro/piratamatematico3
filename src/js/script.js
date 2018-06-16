@@ -11,7 +11,7 @@ $(document).ready(function(){
 			$('.conteudo').animate({ scrollTop: scroll.top }, 900);
 		}
 
-		$("body").on("click", ".click-down", function() {
+		$("body").on("touchstart", ".click-down", function() {
 			descer_nivel();
 			$(this).fadeOut();
 		});
@@ -20,7 +20,7 @@ $(document).ready(function(){
 
 		var audio = document.getElementById("player");
 
-		$('body').on("click", "#button", function(){
+		$('body').on("touchstart", "#button", function(){
 		  if(audio.paused){
 		    audio.play();
 		    //button.innerHTML = "Música rolando...";
@@ -35,20 +35,58 @@ $(document).ready(function(){
 		    snd.play();
 		}
 
-		$('body').on("click", ".calculadora li", function(){
+		function beep2() {
+		    var snd = new Audio("http://orteil.dashnet.org/cookieclicker/snd/press.mp3");  
+		    snd.play();
+		}
+
+		function beep3() {
+		    var snd = new Audio("http://orteil.dashnet.org/cookieclicker/snd/sell1.mp3");  
+		    snd.play();
+		}
+
+		function beep4() {
+		    var snd = new Audio("musica/limpar.mp3");  
+		    snd.play();
+		}
+
+		function beep5() {
+		    var snd = new Audio("musica/error.mp3");  
+		    snd.play();
+		}
+
+		$('body').on("touchstart", ".calculadora li[data-operador]", function(){
 			beep();
+		});
+
+		$('body').on("touchstart", ".calculadora li:not(.clear, .operador)", function(){
+			
+		    beep5();      
+
+		});
+
+		$('body').on("touchstart", ".jogar-novamente", function(){
+			beep2();
+		});
+
+		$('body').on("touchstart", ".proximo-nivel", function(){
+			beep3();
+		});
+
+		$('body').on("touchstart", ".clear", function(){
+			beep4();
 		});
 
 
 
 
-		$("body").on("click", ".button-song", function() {
+		$("body").on("touchstart", ".button-song", function() {
 			$(this).toggleClass("active");
 		});
 
 		// Telas de início do jogo
 			
-		$("body").on("click", ".button-start", function() {
+		$("body").on("touchstart", ".button-start", function() {
 			audio.play();
 			$(".tela-1").fadeOut();
 			$(".tela-2").fadeIn();
@@ -60,7 +98,7 @@ $(document).ready(function(){
 		   }, 2000);
 		});
 
-		$("body").on("click", ".button-start-nivel", function() {
+		$("body").on("touchstart", ".button-start-nivel", function() {
 			var nivel = $(this).closest('.nivel').attr("id");
 			$("#"+nivel+"").addClass("remove-msg");
 			$(".meta-do-jogo").css("display", "none");
@@ -137,7 +175,7 @@ $(document).ready(function(){
 							if (v.operador[valor_botao] === "") { 
 								retorno += '<li>'+ v.numeros[valor_botao] +'</li>';
 							} else {
-								retorno += '<li class="start-time operador-'+ v.operador[valor_botao] +'" data-operador="'+ v.operador[valor_botao] +'"><span><em>+</em><i>'+ v.numeros[valor_botao] +'</i></span></li>';
+								retorno += '<li class="start-time operador operador-'+ v.operador[valor_botao] +'" data-operador="'+ v.operador[valor_botao] +'"><span><em>+</em><i>'+ v.numeros[valor_botao] +'</i></span></li>';
 							}
 						}		
 					retorno += '</ul></div>';
@@ -221,7 +259,6 @@ $(document).ready(function(){
 		    	reseta_movimento = $("#"+nivel+" .movimento .valor-movimentos").html(movimento_inicial);
 		    	$("#"+nivel+" .total span").html(limpa_jogada);
 		    	$("#"+nivel+" .calculadora li[data-operador]").removeClass("disabled");
-		    	$("#"+nivel+" time i").html("00:00");
 		    	$("#"+nivel+" .clear").addClass("clear-bloqueado");
 		    	$("#"+nivel+" .frase").removeClass("perdeu, ganhou");
 		    }
@@ -304,7 +341,7 @@ $(document).ready(function(){
 
 			var click = 0;
 
-			$('body').on('click', ".calculadora li[data-operador]", function(){
+			$('body').on('touchstart', ".calculadora li[data-operador]", function(){
 				pega_nivel(this);
 				pega_inicia();
 				pega_valor(this);
@@ -356,7 +393,14 @@ $(document).ready(function(){
 				       $("#"+nivel+" .mensagem-2").addClass("exibe");
 				       $("#"+nivel+" .mensagem-2").addClass("acertou");
 				       $("#"+nivel+" .mensagem-2").removeClass("errou");
-				    }, 1500);
+				    }, 1100);
+
+				    function win() {
+					    var snd = new Audio("musica/win.mp3");  
+					    snd.play();
+					}
+
+					win();
 
 				    time = $("#"+nivel+" time i").html();
 					$("#"+nivel+" .time-box i").html(time);
@@ -383,6 +427,13 @@ $(document).ready(function(){
 					$("#"+nivel+" .time-box i").html(time);
 					para_tempo();
 
+					function loose() {
+					    var snd = new Audio("musica/loose.mp3");  
+					    snd.play();
+					}
+
+					loose();
+
 					$(".lifes li:last-child").remove();
 
 					lifes = $(".lifes li").length;
@@ -402,7 +453,7 @@ $(document).ready(function(){
 						$(".msg-game-over").removeClass("item-left");
 
 						// Mostra mensagem que não há vida se o usuário tenta voltar ao mapa
-						$("body").on("click", ".msg-game-over", function() {
+						$("body").on("touchstart", ".msg-game-over", function() {
 							$(this).addClass('show').delay(1000).queue(function(next){
 						        $(this).removeClass('show');
 						        next();
@@ -427,6 +478,12 @@ $(document).ready(function(){
 						    // Desbloqueia para voltar a trilha do mapa
 						    $(".msg-game-over").addClass("item-left");
 						    $(".status-top .item").removeClass("msg-game-over");
+						    function recuperou() {
+							    var snd = new Audio("musica/recuperou.mp3");  
+							    snd.play();
+							}
+
+							recuperou();
 						}
 
 						function countdown() {
@@ -450,7 +507,7 @@ $(document).ready(function(){
 
 			// Libera nível da trilha ao passar de nível
 
-			$("body").on("click", ".proximo-nivel", function() {
+			$("body").on("touchstart", ".proximo-nivel", function() {
 				nivel = $(this).closest(".nivel").attr("id");
 				$(this).closest(".conteudo").find(".niveis-controle #c-"+nivel+".desbloqueado").prev().addClass("desbloqueado");
 				$("#"+nivel).fadeOut();
@@ -458,7 +515,7 @@ $(document).ready(function(){
 				$(".meta-do-jogo").fadeIn();
 			});
 
-			$("body").on("click", ".mensagem-2.acertou .close-nivel", function() {
+			$("body").on("touchstart", ".mensagem-2.acertou .close-nivel", function() {
 				nivel = $(this).closest(".nivel").attr("id");
 				$(this).closest(".conteudo").find(".niveis-controle #c-"+nivel+".desbloqueado").prev().addClass("desbloqueado");
 				$("#"+nivel).fadeOut();
@@ -466,7 +523,15 @@ $(document).ready(function(){
 
 			// Ao clicar sai da fase e volta ao mapa
 
-			$("body").on("click", ".item-left img, .close, .close-nivel", function() {
+				function sair() {
+				    var snd = new Audio("musica/sair.mp3");  
+				    snd.play();
+				}
+
+			$("body").on("touchstart", ".item-left, .item-left img, .close, .close-nivel", function() {
+
+
+				sair();
 				$(".nivel").fadeOut();
 				$(".wrapper-calculadora").removeClass("hide");
 				$(".mensagem-1").removeClass("exibe");
@@ -476,14 +541,14 @@ $(document).ready(function(){
 				pega_limpa_jogada(nivel);
 			});
 
-			$('body').on('click', ".calculadora li.start-time", function(){
+			$('body').on('touchstart', ".calculadora li.start-time", function(){
 				$("#"+nivel+"").find(".calculadora li").removeClass("start-time");
 				inicia_tempo(nivel);
 			});
 
 			// Exibe mensagem que nível da trilha está bloqueado
 
-			$("body").on("click", ".niveis-controle li", function() {
+			$("body").on("touchstart", ".niveis-controle li", function() {
 				$(this).addClass('msg-nivel').delay(500).queue(function(next){
 			        $(this).removeClass('msg-nivel');
 			        next();
@@ -492,7 +557,7 @@ $(document).ready(function(){
 
 			// Abre nível para jogar
 
-			$("body").on("click", ".niveis-controle li.desbloqueado", function() {
+			$("body").on("touchstart", ".niveis-controle li.desbloqueado", function() {
 				n = $(this).attr("data-n");
 				$("#nivel-"+n+"").fadeIn();
 				$("#"+n+"").removeClass("remove-msg");
@@ -504,11 +569,12 @@ $(document).ready(function(){
 
 			// Joga novamente
 
-			$('body').on('click', ".clear, .jogar-novamente", function(){
+			$('body').on('touchstart', ".jogar-novamente", function(){
 				pega_nivel(this);
 				pega_inicia();
 				para_tempo();
 				limpa_tempo(nivel);
+				$("#"+nivel+" time i").html("00:00");
 				pega_limpa_jogada();
 				var teste = $(this).closest(".nivel").find(".star").attr("data-adquiridas");
 				var valor_estrelas_nivel = $(this).closest(".nivel").find(".estrelas i").html();
@@ -517,7 +583,18 @@ $(document).ready(function(){
 				
 			});
 
-			$('body').on('click', ".close-nivel, .jogar-novamente", function(){
+			$('body').on('touchstart', ".clear", function(){
+				pega_nivel(this);
+				pega_inicia();
+				pega_limpa_jogada();
+				var teste = $(this).closest(".nivel").find(".star").attr("data-adquiridas");
+				var valor_estrelas_nivel = $(this).closest(".nivel").find(".estrelas i").html();
+				$("#"+nivel+"").find(".star").attr("data-adquiridas", teste);
+				$("#"+nivel+" .desbloqueado").closest(".nivel").find(".estrelas i").text(valor_estrelas_nivel);
+				
+			});
+
+			$('body').on('touchstart', ".close-nivel, .jogar-novamente", function(){
 		    	$(".mensagem-2").removeClass("exibe");
 		    	limpa_tempo(nivel);
 				pega_limpa_jogada();
@@ -547,7 +624,7 @@ $(document).ready(function(){
 
 			});
 
-			    $("body").on("click", "#compartilhar", function(){
+			    $("body").on("touchstart", "#compartilhar", function(){
 			        html2canvas($("#html2canvas"), {
 			            onrendered: function(canvas) {
 			                $(".imagem-compartilhada").append(canvas);

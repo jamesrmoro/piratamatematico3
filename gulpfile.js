@@ -151,7 +151,7 @@ gulp.task('sprite-generator', function generateSpritesheets () {
 
 gulp.task('browser-sync', function() {
     browserSync.init({
-        proxy: "http://localhost/projeto/pirata3",
+        proxy: "http://192.168.1.173/projeto/pirata3",
     });
 });
 
