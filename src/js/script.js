@@ -30,18 +30,17 @@ $(document).ready(function(){
 		  }
 		});
 
-		function song() {
-			var click = document.getElementById("song");
-			click.play();
+		function beep() {
+		    var snd = new Audio("http://orteil.dashnet.org/cookieclicker/snd/clickb2.mp3");  
+		    snd.play();
 		}
 
 		$('body').on("click", ".calculadora li", function(){
-
-			
-			song();
-
-
+			beep();
 		});
+
+
+
 
 		$("body").on("click", ".button-song", function() {
 			$(this).toggleClass("active");
