@@ -337,8 +337,8 @@ $(document).ready(function(){
 			    });
 			}
 
-			$("#c-nivel-8").addClass("desbloqueado");
-			$("#c-nivel-8").removeClass("bloqueado");
+			$("#c-nivel-14").addClass("desbloqueado");
+			$("#c-nivel-14").removeClass("bloqueado");
 
 			// Remove números
 

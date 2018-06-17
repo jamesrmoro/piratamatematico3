@@ -1425,7 +1425,7 @@
 
 			.meta {
 
-				width: 40%;
+				width: 39%;
 				float: left;
 				display: inline-block;
 				vertical-align: top;
@@ -1433,9 +1433,9 @@
 				margin-bottom: 10px;
 				color: #b696ee;
 				text-align: left;
-				font-size: 1.6em;
+				font-size: 1.5em;
 				position: relative;
-				padding-left: 40px;
+				padding-left: 33px;
 				text-transform: uppercase;
 				letter-spacing: 1px;
 
@@ -1458,7 +1458,7 @@
 
 			.movimento {
 
-				width: 60%;
+				width: 59%;
 				vertical-align: top;
 				display: inline-block;
 				text-transform: uppercase;
@@ -1466,7 +1466,7 @@
 				margin-bottom: 10px;
 				color: orange;
 				text-align: right;
-				font-size: 1.6em;
+				font-size: 1.5em;
 				letter-spacing: 1px;
 				position: relative;
 				padding-left: 40px;
@@ -1726,6 +1726,20 @@
 							box-shadow: 0 5px #181a19;
 						}
 					}
+
+					.operador-remover {
+
+						background-color: #FF5722;
+						box-shadow: 0 9px darken(#FF5722, 20%);
+						height: 40px;
+
+						&:active {
+
+							box-shadow: 0 5px darken(#FF5722, 20%);
+						}
+					}
+
+					
 
 				}
 			}
