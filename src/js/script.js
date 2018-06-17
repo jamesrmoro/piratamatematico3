@@ -337,6 +337,16 @@ $(document).ready(function(){
 			    });
 			}
 
+			$("#c-nivel-8").addClass("desbloqueado");
+			$("#c-nivel-8").removeClass("bloqueado");
+
+			// Remove números
+
+			function remove_ultimo_numero(d) {
+				novo_valor = $("#"+nivel+" .total span").text().slice(0, -1);
+				$("#"+nivel+" .total span").html(novo_valor);
+			}
+
 			// Realiza o cálculo
 
 			var click = 0;
@@ -350,6 +360,7 @@ $(document).ready(function(){
 				pega_movimento_inicial();
 				pega_movimento();
 				click++;
+				
 		        switch(operador) {
 		            case "soma":
 		                valor_inicial = valor_inicial+valor;
@@ -363,6 +374,12 @@ $(document).ready(function(){
 		            case "divisao":
 		                valor_inicial = valor_inicial/valor;
 		            break;
+		            case "remover":
+		                remove_ultimo_numero();
+		                valor_inicial = novo_valor;
+		            break;
+
+		            
 		        }
 		       	resultado = Number($("#"+nivel+" .total span").html(valor_inicial));
 				resultado = eval(valor_inicial);
@@ -373,6 +390,7 @@ $(document).ready(function(){
 
 				// Verifica se ganhou ou perdeu e exibe mensagens
 
+				// Aqui ganhou 
 		       	if (meta_inicial == resultado) {
 		       		pega_debloqueado();
 					para_tempo();	
@@ -406,6 +424,7 @@ $(document).ready(function(){
 					$("#"+nivel+" .time-box i").html(time);
 					para_tempo();
 
+				//  aqui errou
 				} else if (resultado != meta_inicial && novomovimento === 0)	{
 
 					$("#"+nivel+" .mensagem-1").addClass("exibe");
@@ -618,7 +637,10 @@ $(document).ready(function(){
 		                $("#"+nivel+" .operador-subtracao span em").html("-");
 		            break;
 		            case "multiplicacao":
-		                $("#"+nivel+" .operador-multiplicacao span em").html("*");
+		                $("#"+nivel+" .operador-multiplicacao span em").html("x");
+		            break;
+		            case "remover":
+		                $("#"+nivel+" .operador-remover span em").html("&laquo;");
 		            break;
 		        }
 
