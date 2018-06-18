@@ -11,7 +11,7 @@ $(document).ready(function(){
 			$('.conteudo').animate({ scrollTop: scroll.top }, 900);
 		}
 
-		$("body").on("touchstart", ".click-down", function() {
+		$("body").on("click", ".click-down", function() {
 			descer_nivel();
 			$(this).fadeOut();
 		});
@@ -20,7 +20,7 @@ $(document).ready(function(){
 
 		var audio = document.getElementById("player");
 
-		$('body').on("touchstart", "#button", function(){
+		$('body').on("click", "#button", function(){
 		  if(audio.paused){
 		    audio.play();
 		    //button.innerHTML = "Música rolando...";
@@ -55,38 +55,35 @@ $(document).ready(function(){
 		    snd.play();
 		}
 
-		$('body').on("touchstart", ".calculadora li[data-operador]", function(){
+		$('body').on("click", ".calculadora li[data-operador]", function(){
 			beep();
 		});
 
-		$('body').on("touchstart", ".calculadora li:not(.clear, .operador)", function(){
+		$('body').on("click", ".calculadora li:not(.clear, .operador)", function(){
 			
 		    beep5();      
 
 		});
 
-		$('body').on("touchstart", ".jogar-novamente", function(){
+		$('body').on("click", ".jogar-novamente", function(){
 			beep2();
 		});
 
-		$('body').on("touchstart", ".proximo-nivel", function(){
+		$('body').on("click", ".proximo-nivel", function(){
 			beep3();
 		});
 
-		$('body').on("touchstart", ".clear", function(){
+		$('body').on("click", ".clear", function(){
 			beep4();
 		});
 
-
-
-
-		$("body").on("touchstart", ".button-song", function() {
+		$("body").on("click", ".button-song", function() {
 			$(this).toggleClass("active");
 		});
 
 		// Telas de início do jogo
 			
-		$("body").on("touchstart", ".button-start", function() {
+		$("body").on("click", ".button-start", function() {
 			audio.play();
 			$(".tela-1").fadeOut();
 			$(".tela-2").fadeIn();
@@ -98,7 +95,7 @@ $(document).ready(function(){
 		   }, 2000);
 		});
 
-		$("body").on("touchstart", ".button-start-nivel", function() {
+		$("body").on("click", ".button-start-nivel", function() {
 			var nivel = $(this).closest('.nivel').attr("id");
 			$("#"+nivel+"").addClass("remove-msg");
 			$(".meta-do-jogo").css("display", "none");
@@ -351,7 +348,7 @@ $(document).ready(function(){
 
 			var click = 0;
 
-			$('body').on('touchstart', ".calculadora li[data-operador]", function(){
+			$('body').on('click', ".calculadora li[data-operador]", function(){
 				pega_nivel(this);
 				pega_inicia();
 				pega_valor(this);
@@ -455,78 +452,89 @@ $(document).ready(function(){
 
 					$(".lifes li:last-child").remove();
 
-					lifes = $(".lifes li").length;
-
-					if (lifes <= 0) {
-						$(".lifes").append('<li>Suas vidas acabaram!</li>');
-						$(".msg-life").html("Aguarde...");
-						$("#"+nivel+" .conteudo-box").addClass("game-over");
-						$("#"+nivel+" .status-msg").html("Você ficou sem vida!");
-						$("#"+nivel+" .conteudo-box .jogar-novamente").hide();
-						$("#"+nivel+" .star").hide();
-						$("#"+nivel+" .close-nivel").hide();
-						$("#"+nivel+" .time-box").html("Espere um pouquinho para recarregarmos as pilhas");
-						$("#"+nivel+" .time-box").append("<i id='time-game-over'></i>segundos restantes");
-
-						// Bloqueia temporariamente para não voltar a trilha do mapa
-						$(".msg-game-over").removeClass("item-left");
-
-						// Mostra mensagem que não há vida se o usuário tenta voltar ao mapa
-						$("body").on("touchstart", ".msg-game-over", function() {
-							$(this).addClass('show').delay(1000).queue(function(next){
-						        $(this).removeClass('show');
-						        next();
-						    });
-						});
-
-						//
-						var tempo_vida = 30;
-						var elem = document.getElementById('time-game-over');
-						var timerId = setInterval(countdown, 1000);
-
-						function vida_volta() {
-						    $("#"+nivel+" .status-msg").html("Pilhas recarregadas");
-						    $("#"+nivel+" .time-box").html("Você ganhou 5 novas vidas :)");
-						    $("#"+nivel+" .proximo-nivel").css("display", "block");
-						    $("#"+nivel+" .proximo-nivel").html("Voltar ao jogo");
-						    $("#"+nivel+" .status-msg").removeClass("icon-loose").addClass("icon-win");
-						    $("#"+nivel+" .close-nivel").show();
-						    $(".msg-life").html("Vidas");
-						    $(".lifes").html("<li class='heart'></li><li class='heart'></li><li class='heart'></li><li class='heart'></li><li class='heart'></li>");
-
-						    // Desbloqueia para voltar a trilha do mapa
-						    $(".msg-game-over").addClass("item-left");
-						    $(".status-top .item").removeClass("msg-game-over");
-						    function recuperou() {
-							    var snd = new Audio("musica/recuperou.mp3");  
-							    snd.play();
-							}
-
-							recuperou();
-						}
-
-						function countdown() {
-						    if (tempo_vida == -1) {
-						        clearTimeout(timerId);
-						        vida_volta();
-						    } else {
-						        elem.innerHTML = ( tempo_vida < 10 ? "00:0" : "00:" ) + tempo_vida;
-						        tempo_vida--;
-						    }
-						}
-					}
-
 				}
 				if (novomovimento === 0) {
 					$("#"+nivel+" .calculadora li[data-operador]").addClass("disabled");
 
 				}
 
+				lifes = $(".lifes li").length;
+
+				if (lifes <= 3) {
+					$(".lifes").append('<li>Suas vidas acabaram!</li>');
+					$(".msg-life").html("Aguarde...");
+					$("#"+nivel+" .grupo-msg").addClass("game-over");
+					$(".item-left").addClass("msg-game-over");
+					$("#"+nivel+" .game-over .status-msg").html("Você ficou sem vida!");
+					$("#"+nivel+" .conteudo-box .jogar-novamente").hide();
+					$("#"+nivel+" .game-over .star").hide();
+					$("#"+nivel+" .game-over .close-nivel").hide();
+					$("#"+nivel+" .game-over .time-box").html("Espere um pouquinho para recarregarmos as pilhas");
+					$("#"+nivel+" .game-over .time-box").append("<i id='time-game-over'></i>segundos restantes");
+
+					// Bloqueia temporariamente para não voltar a trilha do mapa
+					$(".msg-game-over").removeClass("item-left");
+
+					// Mostra mensagem que não há vida se o usuário tenta voltar ao mapa
+					$("body").on("click", ".msg-game-over", function() {
+						$(this).addClass('show').delay(1000).queue(function(next){
+					        $(this).removeClass('show');
+					        next();
+					    });
+					});
+
+					// Ao clicar em next remove a mensagem de pilhas recarregadas
+					$("body").on("click", ".game-over .close-nivel", function() {
+						$(this).closest(".grupo-msg").removeClass("game-over");
+					});
+
+					$("body").on("click", ".game-over .proximo-nivel", function() {
+						$(this).closest(".grupo-msg").removeClass("game-over");
+					});
+
+					var tempo_vida = 2;
+					var elem = document.getElementById('time-game-over');
+					var timerId = setInterval(countdown, 1000);
+
+					function vida_volta() {
+					    $("#"+nivel+" .game-over .status-msg").html("Pilhas recarregadas");
+					    if ($(".grupo-msg").hasClass("game-over")) {
+					    	$("#"+nivel+" .game-over .time-box").html("Você ganhou 5 novas vidas :)");
+					    }
+					    $("#"+nivel+" .proximo-nivel").css("display", "block");
+					    $("#"+nivel+" .proximo-nivel").html("Voltar ao jogo");
+					    $("#"+nivel+" .game-over .status-msg").removeClass("icon-loose").addClass("icon-win");
+					    $("#"+nivel+" .close-nivel").show();
+					    $(".msg-life").html("Vidas");
+					    $(".lifes").html("<li class='heart'></li><li class='heart'></li><li class='heart'></li><li class='heart'></li><li class='heart'></li>");
+
+					    // Desbloqueia para voltar a trilha do mapa
+					    $(".msg-game-over").addClass("item-left");
+					    $(".status-top .item").removeClass("msg-game-over");
+					    function recuperou() {
+						    var snd = new Audio("musica/recuperou.mp3");  
+						    snd.play();
+						}
+
+						recuperou();
+					}
+
+					function countdown() {
+					    if (tempo_vida == -1) {
+					        clearTimeout(timerId);
+					        vida_volta();
+					    } else {
+					        elem.innerHTML = ( tempo_vida < 10 ? "00:0" : "00:" ) + tempo_vida;
+					        tempo_vida--;
+					    }
+					}
+				}
+
 			});
 
 			// Libera nível da trilha ao passar de nível
 
-			$("body").on("touchstart", ".proximo-nivel", function() {
+			$("body").on("click", ".proximo-nivel", function() {
 				nivel = $(this).closest(".nivel").attr("id");
 				$(this).closest(".conteudo").find(".niveis-controle #c-"+nivel+".desbloqueado").prev().addClass("desbloqueado");
 				$("#"+nivel).fadeOut();
@@ -534,7 +542,7 @@ $(document).ready(function(){
 				$(".meta-do-jogo").fadeIn();
 			});
 
-			$("body").on("touchstart", ".mensagem-2.acertou .close-nivel", function() {
+			$("body").on("click", ".mensagem-2.acertou .close-nivel", function() {
 				nivel = $(this).closest(".nivel").attr("id");
 				$(this).closest(".conteudo").find(".niveis-controle #c-"+nivel+".desbloqueado").prev().addClass("desbloqueado");
 				$("#"+nivel).fadeOut();
@@ -547,7 +555,7 @@ $(document).ready(function(){
 				    snd.play();
 				}
 
-			$("body").on("touchstart", ".item-left, .item-left img, .close, .close-nivel", function() {
+			$("body").on("click", ".item-left, .item-left img, .close, .close-nivel", function() {
 
 
 				sair();
@@ -560,14 +568,14 @@ $(document).ready(function(){
 				pega_limpa_jogada(nivel);
 			});
 
-			$('body').on('touchstart', ".calculadora li.start-time", function(){
+			$('body').on('click', ".calculadora li.start-time", function(){
 				$("#"+nivel+"").find(".calculadora li").removeClass("start-time");
 				inicia_tempo(nivel);
 			});
 
 			// Exibe mensagem que nível da trilha está bloqueado
 
-			$("body").on("touchstart", ".niveis-controle li", function() {
+			$("body").on("click", ".niveis-controle li", function() {
 				$(this).addClass('msg-nivel').delay(500).queue(function(next){
 			        $(this).removeClass('msg-nivel');
 			        next();
@@ -576,7 +584,7 @@ $(document).ready(function(){
 
 			// Abre nível para jogar
 
-			$("body").on("touchstart", ".niveis-controle li.desbloqueado", function() {
+			$("body").on("click", ".niveis-controle li.desbloqueado", function() {
 				n = $(this).attr("data-n");
 				$("#nivel-"+n+"").fadeIn();
 				$("#"+n+"").removeClass("remove-msg");
@@ -588,7 +596,7 @@ $(document).ready(function(){
 
 			// Joga novamente
 
-			$('body').on('touchstart', ".jogar-novamente", function(){
+			$('body').on('click', ".jogar-novamente", function(){
 				pega_nivel(this);
 				pega_inicia();
 				para_tempo();
@@ -602,7 +610,7 @@ $(document).ready(function(){
 				
 			});
 
-			$('body').on('touchstart', ".clear", function(){
+			$('body').on('click', ".clear", function(){
 				pega_nivel(this);
 				pega_inicia();
 				pega_limpa_jogada();
@@ -613,7 +621,7 @@ $(document).ready(function(){
 				
 			});
 
-			$('body').on('touchstart', ".close-nivel, .jogar-novamente", function(){
+			$('body').on('click', ".close-nivel, .jogar-novamente", function(){
 		    	$(".mensagem-2").removeClass("exibe");
 		    	limpa_tempo(nivel);
 				pega_limpa_jogada();
@@ -646,7 +654,7 @@ $(document).ready(function(){
 
 			});
 
-			    $("body").on("touchstart", "#compartilhar", function(){
+			    $("body").on("click", "#compartilhar", function(){
 			        html2canvas($("#html2canvas"), {
 			            onrendered: function(canvas) {
 			                $(".imagem-compartilhada").append(canvas);
@@ -660,6 +668,8 @@ $(document).ready(function(){
 
 		})
 		.then(function(){
+
+
 
 		})
 		.fail(function(){
