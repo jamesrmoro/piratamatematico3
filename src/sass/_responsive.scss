@@ -1739,6 +1739,18 @@
 						}
 					}
 
+					.operador-agregar {
+
+						background-color: #be18da;
+						box-shadow: 0 9px darken(#be18da, 20%);
+						height: 40px;
+
+						&:active {
+
+							box-shadow: 0 5px darken(#be18da, 20%);
+						}
+					}
+
 					
 
 				}

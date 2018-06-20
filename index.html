@@ -1,9 +1,8 @@
 <!--
 
 PARA CORRIGIR
-1º - Quando o usuário joga a mesma fase depois do tempo acabar, a mensagem de vida não é removida quando ele joga novamente;
-2º - Quando é exibido a mensagem que o tempo voltou com vidas, ao clicar em "voltar ao jogo" desbloqueia o próximo nível;
-3º - Deixar a mensagem de Boas vindas apenas no primeiro nível. Nos níveis em diante mostrar: "Nível 2" etc..
+1º - No nível 18 é necessário criar o número 101. Onde deve ser feito a junção dos números, sem haver soma.
+2º - Colocar um if ao começar o jogo quando houver a opção de remover numeral, pois se é 0 ao clicar está sumindo o número;
 
 PARA CONVERTER MÚSICAS
 Música: https://soundcloud.com/urbanpiratesoundtrack/theme-of-the-urban-pirate
@@ -29,13 +28,13 @@ Converter som: https://convertio.co/pt/wav-converter
 		<div class="imagem-compartilhada"></div>
 		<div id="calendar_to_canvas"></div>
 		<canvas id="myCanvas" width="500" height="500"></canvas> -->
-		<div class="tela tela-1">
+		<div class="tela tela-1" style="display: none">
 			<div class="wrapper-button">
 				<span class="button button-start">Jogar</span>
 				<span class="button button-api">Conectar com Google</span>
 			</div>
 		</div>
-		<div class="tela tela-2">
+		<div class="tela tela-2" style="display: none">
 			<div class="content-center">
 				<div class="logo">
 					<img src="src/images/logo.png" alt="">
@@ -45,7 +44,7 @@ Converter som: https://convertio.co/pt/wav-converter
 				</div>
 			</div>
 		</div>
-		<div class="tela tela-3">
+		<div class="tela tela-3" style="display: block">
 			<div class="conteudo">
 
 				<div class="clouds">
