@@ -340,19 +340,36 @@ $(document).ready(function(){
 			}
 
 			$("#c-nivel-18").addClass("desbloqueado");
+			$("#c-nivel-14").addClass("desbloqueado");
 			$("#c-nivel-18").removeClass("bloqueado");
+			$("#c-nivel-14").removeClass("bloqueado");
 
 			// Remove números
 
 			function remove_ultimo_numero(d) {
-				novo_valor = $("#"+nivel+" .total span").text().slice(0, -1);
-				$("#"+nivel+" .total span").html(novo_valor);
+
+				var g = $("#"+nivel+" .total span").html();
+
+				if (g <= 9) {
+					novo_valor = 0;
+				} else {
+					novo_valor = $("#"+nivel+" .total span").text().slice(0, -1);
+					$("#"+nivel+" .total span").html(novo_valor);
+				}
 			}
 
 			function agregar_numero(h) {
 
+				var f = $("#"+nivel+" .total span").html();
 				valor_juntado = $(h).find("span i").html();
-				Number($("#"+nivel+" .total span").html(valor_juntado));
+
+				if (f >= 1) {
+					Number($("#"+nivel+" .total span").html(valor_juntado));
+				} else {
+					valor_inicial = $("#"+nivel+" .total span").text().slice(0, -1);
+					$("#"+nivel+" .total span").html(valor_inicial);
+				}
+
 			}
 
 			// Realiza o cálculo
@@ -388,7 +405,7 @@ $(document).ready(function(){
 					break;
 					case "agregar":
 						agregar_numero(this);
-						valor_inicial = valor_juntado;
+						valor_inicial = valor_inicial+valor_juntado;
 					break;
 
 
