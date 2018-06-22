@@ -422,9 +422,6 @@ $(document).ready(function(){
 						
 					break;
 
-					
-
-
 				}
 				resultado = Number($("#"+nivel+" .total span").html(valor_inicial));
 				resultado = eval(valor_inicial);
