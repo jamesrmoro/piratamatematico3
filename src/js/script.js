@@ -339,8 +339,8 @@ $(document).ready(function(){
 				});
 			}
 
-			$("#c-nivel-27").addClass("desbloqueado");
-			$("#c-nivel-27").removeClass("bloqueado");
+			$("#c-nivel-31").addClass("desbloqueado");
+			$("#c-nivel-31").removeClass("bloqueado");
 
 			// Remove números
 
@@ -368,6 +368,17 @@ $(document).ready(function(){
 					$("#"+nivel+" .total span").html(valor_inicial);
 				}
 
+			}
+
+			function trocar(p) {
+				teste = $(p).find("span i").html();
+	    		var first = teste.charAt(0);
+	    		var last = teste.charAt(8);
+	    		var regex = new RegExp("" + first + "", "g");
+
+	    		temp = $("#"+nivel+" .total span").html();
+	    		temp2 = temp.replace(regex, last);
+	    		console.log(temp2);
 			}
 
 			// Realiza o cálculo
@@ -405,6 +416,13 @@ $(document).ready(function(){
 						agregar_numero(this);
 						valor_inicial = valor_inicial+valor_juntado;
 					break;
+					case "trocar":
+						trocar(this);
+						valor_inicial = temp2;
+						
+					break;
+
+					
 
 
 				}
@@ -690,6 +708,9 @@ $(document).ready(function(){
 		    		break;
 		    		case "agregar":
 		    			$("#"+nivel+" .operador-agregar span em").html("");
+		    		break;
+		    		case "trocar":
+		    			$("#"+nivel+" .operador-trocar span em").html("");
 		    		break;
 		    	}
 

@@ -1646,10 +1646,10 @@
 						i {
 
 							font-style: normal;
-							font-size: 1.7em;
-							display: inline-block;
-							position: relative;
-							top: -2px;
+						    font-size: 1.55em;
+						    display: inline-block;
+						    position: relative;
+						    top: 0px;
 						}
 
 						&.disabled {
@@ -1748,6 +1748,18 @@
 						&:active {
 
 							box-shadow: 0 5px darken(#be18da, 20%);
+						}
+					}
+
+					.operador-trocar {
+
+						background-color: #009688;
+						box-shadow: 0 9px darken(#009688, 20%);
+						height: 40px;
+
+						&:active {
+
+							box-shadow: 0 5px darken(#009688, 20%);
 						}
 					}
 
