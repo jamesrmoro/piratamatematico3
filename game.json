@@ -1048,5 +1048,35 @@
  			"botao8": "",
  			"botao9": "14 =&gt; 2"
  		}
+ 	},
+ 	{
+ 		"id": 36,
+ 		"meta": -85,
+ 		"valor_inicial": 0,
+ 		"jogadas": 4,
+ 		"frase_errou": "Tenta de novo!",
+ 		"frase_acertou": "Wow! Você conseguiu!",
+ 		"operador": {
+ 			"botao1": "",
+ 			"botao2": "soma",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "agregar",
+ 			"botao6": "",
+ 			"botao7": "",
+ 			"botao8": "subtracao",
+ 			"botao9": ""
+ 		},
+ 		"numeros": {
+ 			"botao1": "",
+ 			"botao2": "6",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "5",
+ 			"botao6": "",
+ 			"botao7": "",
+ 			"botao8": "7",
+ 			"botao9": ""
+ 		}
  	}
  ]

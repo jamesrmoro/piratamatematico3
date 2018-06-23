@@ -339,8 +339,8 @@ $(document).ready(function(){
 				});
 			}
 
-			$("#c-nivel-35").addClass("desbloqueado");
-			$("#c-nivel-35").removeClass("bloqueado");
+			$("#c-nivel-36").addClass("desbloqueado");
+			$("#c-nivel-36").removeClass("bloqueado");
 
 			// Remove números
 
@@ -361,11 +361,13 @@ $(document).ready(function(){
 				var f = $("#"+nivel+" .total span").html();
 				valor_juntado = $(h).find("span i").html();
 
-				if (f >= 1) {
-					Number($("#"+nivel+" .total span").html(valor_juntado));
-				} else {
+				if (f == 0) {
 					valor_inicial = $("#"+nivel+" .total span").text().slice(0, -1);
 					$("#"+nivel+" .total span").html(valor_inicial);
+					console.log("0");
+				} else {
+					Number($("#"+nivel+" .total span").html(valor_juntado));
+					console.log("1");
 				}
 
 			}
