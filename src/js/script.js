@@ -1,5 +1,24 @@
 $(document).ready(function(){
 
+	var cookieColor = $.cookie("selected_class");
+	var cookieText = $.cookie("texto");
+
+
+	if (cookieColor) {
+    	$("#c-nivel-2").removeClass("bloqueado").addClass(cookieColor);
+    }
+    
+    if (cookieText) {
+    	$("#game .status-nivel i").html(cookieText);
+    }
+
+    if (($(".niveis-controle li")).hasClass("bloqueado")) {
+    	$.cookie("selected_class", "desbloqueado");
+        $.cookie("texto", "Desbloqueado");
+        $("#c-nivel-2 .bloqueado").removeClass("bloqueado").addClass("desbloqueado");
+        $("#game .status-nivel i").html("Desbloqueado");
+    }
+
 	if($(window).width() < 850) {
 
 		// Instrução para começar o jogo
