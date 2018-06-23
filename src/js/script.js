@@ -250,10 +250,12 @@ $(document).ready(function(){
 
 			function pega_movimento_inicial() {
 				movimento_inicial = Number($("#"+nivel+" .movimento").attr("data-movimentos"));
+				alert("Movimento inicial: "+movimento_inicial);
 			}
 
 			function pega_movimento() {
 				movimentos = Number($("#"+nivel+" .valor-movimentos").html());
+				alert("Pega movimento: "+movimentos);
 			}
 
 			function pega_limpa_jogada() {
@@ -293,8 +295,9 @@ $(document).ready(function(){
 				var segundos_decorrentes = 0;
 				timer = setInterval(function() {
 					segundos_decorrentes = segundos_decorrentes + 1;
-					var time = $("#"+nivel+" time").find("i").html(pega_tempoJogo(segundos_decorrentes));
+					var time = $("#"+o+" time").find("i").html(pega_tempoJogo(segundos_decorrentes));
 				}, 1000);
+				$("#"+nivel+"").find(".calculadora li").removeClass("start-time");
 			}
 
 			function para_tempo() {
@@ -661,7 +664,6 @@ $(document).ready(function(){
 			});
 
 			$('body').on('click', ".calculadora li.start-time", function(){
-				$("#"+nivel+"").find(".calculadora li").removeClass("start-time");
 				inicia_tempo(nivel);
 			});
 
