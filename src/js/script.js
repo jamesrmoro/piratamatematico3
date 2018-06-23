@@ -250,12 +250,10 @@ $(document).ready(function(){
 
 			function pega_movimento_inicial() {
 				movimento_inicial = Number($("#"+nivel+" .movimento").attr("data-movimentos"));
-				alert("Movimento inicial: "+movimento_inicial);
 			}
 
 			function pega_movimento() {
 				movimentos = Number($("#"+nivel+" .valor-movimentos").html());
-				alert("Pega movimento: "+movimentos);
 			}
 
 			function pega_limpa_jogada() {
@@ -342,11 +340,8 @@ $(document).ready(function(){
 				});
 			}
 
-			$("#c-nivel-40").addClass("desbloqueado");
-			$("#c-nivel-40").removeClass("bloqueado");
-
-			$("#c-nivel-41").addClass("desbloqueado");
-			$("#c-nivel-41").removeClass("bloqueado");
+			$("#c-nivel-50").addClass("desbloqueado");
+			$("#c-nivel-50").removeClass("bloqueado");
 
 			// Remove números
 
@@ -651,8 +646,6 @@ $(document).ready(function(){
 			}
 
 			$("body").on("click", ".item-left, .item-left img, .close, .close-nivel, .game-over .proximo-nivel", function() {
-
-
 				sair();
 				$(".nivel").fadeOut();
 				$(".wrapper-calculadora").removeClass("hide");

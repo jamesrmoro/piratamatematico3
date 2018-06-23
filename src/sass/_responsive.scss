@@ -1751,6 +1751,8 @@
 						}
 					}
 
+					
+
 					.operador-elevado {
 
 						background-color: #ff6b5a;
@@ -1782,6 +1784,23 @@
 						&:active {
 
 							box-shadow: 0 5px darken(#009688, 20%);
+						}
+					}
+
+					.operador-trocar3 {
+
+						background-color: #3e5bff;
+						box-shadow: 0 9px darken(#3e5bff, 20%);
+						height: 40px;
+
+						i {
+
+							font-size: 1.1em;
+						}
+
+						&:active {
+
+							box-shadow: 0 5px darken(#3e5bff, 20%);
 						}
 					}
 
