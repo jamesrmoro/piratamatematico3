@@ -339,8 +339,8 @@ $(document).ready(function(){
 				});
 			}
 
-			$("#c-nivel-36").addClass("desbloqueado");
-			$("#c-nivel-36").removeClass("bloqueado");
+			$("#c-nivel-41").addClass("desbloqueado");
+			$("#c-nivel-41").removeClass("bloqueado");
 
 			// Remove números
 
@@ -364,10 +364,8 @@ $(document).ready(function(){
 				if (f == 0) {
 					valor_inicial = $("#"+nivel+" .total span").text().slice(0, -1);
 					$("#"+nivel+" .total span").html(valor_inicial);
-					console.log("0");
 				} else {
 					Number($("#"+nivel+" .total span").html(valor_juntado));
-					console.log("1");
 				}
 
 			}
@@ -392,6 +390,22 @@ $(document).ready(function(){
 	    		temp = $("#"+nivel+" .total span").html();
 	    		temp3 = temp.replace(regex, last);
 	    		console.log(temp3);
+			}
+
+			function trocar3(l) {
+				teste1 = $(l).find("span i").html();
+	    		var first1 = teste1.charAt(0);
+	    		var last1 = teste1.charAt(4);;
+	    		var regex1 = new RegExp("" + last1 + "", "g");
+
+	    		temp1 = $("#"+nivel+" .total span").html();
+	    		temp4 = temp1.replace(regex1, first1).substring(1);
+	    		temp5 = temp4;
+	    		alert(first1);
+	    		alert(last1);
+	    		alert(teste1);
+	    		alert(temp1);
+	    		alert(temp4);
 			}
 
 			// Realiza o cálculo
@@ -436,6 +450,14 @@ $(document).ready(function(){
 					case "trocar2":
 						trocar2(this);
 						valor_inicial = temp3;
+					break;
+					case "trocar3":
+						trocar3(this);
+						valor_inicial = temp5;
+						alert(valor_inicial);
+					break;
+					case "elevado":
+						valor_inicial = valor_inicial*valor_inicial;
 					break;
 
 				}
@@ -727,6 +749,12 @@ $(document).ready(function(){
 		    		break;
 		    		case "trocar2":
 		    			$("#"+nivel+" .operador-trocar2 span em").html("");
+		    		break;
+		    		case "trocar3":
+		    			$("#"+nivel+" .operador-trocar3 span em").html("");
+		    		break;
+		    		case "elevado":
+		    			$("#"+nivel+" .operador-elevado span em").html("x²");
 		    		break;
 		    	}
 
