@@ -339,8 +339,8 @@ $(document).ready(function(){
 				});
 			}
 
-			$("#c-nivel-31").addClass("desbloqueado");
-			$("#c-nivel-31").removeClass("bloqueado");
+			$("#c-nivel-35").addClass("desbloqueado");
+			$("#c-nivel-35").removeClass("bloqueado");
 
 			// Remove números
 
@@ -381,6 +381,17 @@ $(document).ready(function(){
 	    		console.log(temp2);
 			}
 
+			function trocar2(p) {
+				teste = $(p).find("span i").html();
+	    		var first = teste.substr(0, 2);
+	    		var last = teste.substr(9, 10);
+	    		var regex = new RegExp("" + first + "", "g");
+
+	    		temp = $("#"+nivel+" .total span").html();
+	    		temp3 = temp.replace(regex, last);
+	    		console.log(temp3);
+			}
+
 			// Realiza o cálculo
 
 			var click = 0;
@@ -419,7 +430,10 @@ $(document).ready(function(){
 					case "trocar":
 						trocar(this);
 						valor_inicial = temp2;
-						
+					break;
+					case "trocar2":
+						trocar2(this);
+						valor_inicial = temp3;
 					break;
 
 				}
@@ -708,6 +722,9 @@ $(document).ready(function(){
 		    		break;
 		    		case "trocar":
 		    			$("#"+nivel+" .operador-trocar span em").html("");
+		    		break;
+		    		case "trocar2":
+		    			$("#"+nivel+" .operador-trocar2 span em").html("");
 		    		break;
 		    	}
 

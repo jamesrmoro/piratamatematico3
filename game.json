@@ -928,5 +928,125 @@
  			"botao8": "",
  			"botao9": ""
  		}
+ 	},
+ 	{
+ 		"id": 32,
+ 		"meta": 29,
+ 		"valor_inicial": 11,
+ 		"jogadas": 5,
+ 		"frase_errou": "Tenta de novo!",
+ 		"frase_acertou": "Wow! Você conseguiu!",
+ 		"operador": {
+ 			"botao1": "",
+ 			"botao2": "divisao",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "soma",
+ 			"botao6": "trocar",
+ 			"botao7": "",
+ 			"botao8": "",
+ 			"botao9": "trocar"
+ 		},
+ 		"numeros": {
+ 			"botao1": "",
+ 			"botao2": "2",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "3",
+ 			"botao6": "1 =&gt; 2",
+ 			"botao7": "",
+ 			"botao8": "",
+ 			"botao9": "2 =&gt; 9"
+ 		}
+ 	},
+ 	{
+ 		"id": 33,
+ 		"meta": 20,
+ 		"valor_inicial": 36,
+ 		"jogadas": 5,
+ 		"frase_errou": "Tenta de novo!",
+ 		"frase_acertou": "Wow! Você conseguiu!",
+ 		"operador": {
+ 			"botao1": "",
+ 			"botao2": "soma",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "divisao",
+ 			"botao6": "trocar",
+ 			"botao7": "",
+ 			"botao8": "",
+ 			"botao9": ""
+ 		},
+ 		"numeros": {
+ 			"botao1": "",
+ 			"botao2": "3",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "3",
+ 			"botao6": "1 =&gt; 2",
+ 			"botao7": "",
+ 			"botao8": "",
+ 			"botao9": ""
+ 		}
+ 	},
+ 	{
+ 		"id": 34,
+ 		"meta": 15,
+ 		"valor_inicial": 2,
+ 		"jogadas": 4,
+ 		"frase_errou": "Tenta de novo!",
+ 		"frase_acertou": "Wow! Você conseguiu!",
+ 		"operador": {
+ 			"botao1": "",
+ 			"botao2": "divisao",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "agregar",
+ 			"botao6": "trocar",
+ 			"botao7": "",
+ 			"botao8": "multiplicacao",
+ 			"botao9": ""
+ 		},
+ 		"numeros": {
+ 			"botao1": "",
+ 			"botao2": "3",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "1",
+ 			"botao6": "4 =&gt; 5",
+ 			"botao7": "",
+ 			"botao8": "2",
+ 			"botao9": ""
+ 		}
+ 	},
+ 	{
+ 		"id": 35,
+ 		"meta": 414,
+ 		"valor_inicial": 1234,
+ 		"jogadas": 4,
+ 		"frase_errou": "Tenta de novo!",
+ 		"frase_acertou": "Wow! Você conseguiu!",
+ 		"operador": {
+ 			"botao1": "",
+ 			"botao2": "trocar2",
+ 			"botao3": "",
+ 			"botao4": "trocar2",
+ 			"botao5": "trocar2",
+ 			"botao6": "trocar2",
+ 			"botao7": "",
+ 			"botao8": "",
+ 			"botao9": "trocar2"
+ 		},
+ 		"numeros": {
+ 			"botao1": "",
+ 			"botao2": "23 =&gt; 41",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "24 =&gt; 14",
+ 			"botao6": "12 =&gt; 24",
+ 			"botao7": "",
+ 			"botao8": "",
+ 			"botao9": "14 =&gt; 2"
+ 		}
  	}
  ]

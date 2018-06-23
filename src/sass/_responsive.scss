@@ -1751,11 +1751,16 @@
 						}
 					}
 
-					.operador-trocar {
+					.operador-trocar, .operador-trocar2 {
 
 						background-color: #009688;
 						box-shadow: 0 9px darken(#009688, 20%);
 						height: 40px;
+
+						i {
+
+							font-size: 1.1em;
+						}
 
 						&:active {
 
