@@ -289,7 +289,7 @@ $(document).ready(function(){
 				return tempo_atual;
 			}
 
-			function inicia_tempo(){
+			function inicia_tempo(o){
 				var segundos_decorrentes = 0;
 				timer = setInterval(function() {
 					segundos_decorrentes = segundos_decorrentes + 1;
@@ -339,6 +339,9 @@ $(document).ready(function(){
 				});
 			}
 
+			$("#c-nivel-40").addClass("desbloqueado");
+			$("#c-nivel-40").removeClass("bloqueado");
+
 			$("#c-nivel-41").addClass("desbloqueado");
 			$("#c-nivel-41").removeClass("bloqueado");
 
@@ -378,7 +381,6 @@ $(document).ready(function(){
 
 	    		temp = $("#"+nivel+" .total span").html();
 	    		temp2 = temp.replace(regex, last);
-	    		console.log(temp2);
 			}
 
 			function trocar2(p) {
@@ -389,23 +391,24 @@ $(document).ready(function(){
 
 	    		temp = $("#"+nivel+" .total span").html();
 	    		temp3 = temp.replace(regex, last);
-	    		console.log(temp3);
+
 			}
 
-			function trocar3(l) {
-				teste1 = $(l).find("span i").html();
+			function trocar3(k) {
+				teste1 = $(k).find("span i").html();
 	    		var first1 = teste1.charAt(0);
 	    		var last1 = teste1.charAt(4);;
-	    		var regex1 = new RegExp("" + last1 + "", "g");
 
 	    		temp1 = $("#"+nivel+" .total span").html();
-	    		temp4 = temp1.replace(regex1, first1).substring(1);
-	    		temp5 = temp4;
-	    		alert(first1);
-	    		alert(last1);
-	    		alert(teste1);
-	    		alert(temp1);
-	    		alert(temp4);
+	    		var menos = "-";
+
+	    		if (temp1.charAt(0) == menos) {
+	    			temp4 = temp1.substring(1);
+	    			temp5 = temp4;
+	    		} else {
+					temp4 = menos+temp1;
+	    		}
+	    		
 			}
 
 			// Realiza o cálculo
@@ -453,8 +456,7 @@ $(document).ready(function(){
 					break;
 					case "trocar3":
 						trocar3(this);
-						valor_inicial = temp5;
-						alert(valor_inicial);
+						valor_inicial = temp4;
 					break;
 					case "elevado":
 						valor_inicial = valor_inicial*valor_inicial;
@@ -622,7 +624,6 @@ $(document).ready(function(){
 			$("body").on("click", ".proximo-nivel", function() {
 				nivel = $(this).closest(".nivel").attr("id");
 				if ($(".grupo-msg").hasClass("game-over")) {
-					console.log("Game over");
 					$("#"+nivel).fadeOut();
 				} else {
 					$(this).closest(".conteudo").find(".niveis-controle #c-"+nivel+".desbloqueado").prev().addClass("desbloqueado");

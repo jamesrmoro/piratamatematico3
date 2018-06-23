@@ -1171,14 +1171,14 @@
  	},
  	{
  		"id": 40,
- 		"meta": 4,
+ 		"meta": 5,
  		"valor_inicial": -5,
- 		"jogadas": 2,
+ 		"jogadas": 1,
  		"frase_errou": "Tenta de novo!",
  		"frase_acertou": "Wow! Você conseguiu!",
  		"operador": {
  			"botao1": "",
- 			"botao2": "soma",
+ 			"botao2": "",
  			"botao3": "",
  			"botao4": "",
  			"botao5": "",
@@ -1189,7 +1189,7 @@
  		},
  		"numeros": {
  			"botao1": "",
- 			"botao2": "1",
+ 			"botao2": "",
  			"botao3": "",
  			"botao4": "",
  			"botao5": "",
