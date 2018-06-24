@@ -15,7 +15,13 @@ Converter som: https://convertio.co/pt/wav-converter
 	<link rel="stylesheet" href="build/css/main.css?v=3.0.4">
 	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/css?family=Mouse+Memoirs" rel="stylesheet">
+<style>
+	#loading { 
+	display: block;
+	width: 200px;
+}
 
+</style>
 </head>
 <body>
 	<div id="game">
@@ -161,9 +167,24 @@ Converter som: https://convertio.co/pt/wav-converter
 			</div>
 		</div>
 	</div>
-	
-	<script src="build/js/script.js"></script>
 
+	<img src="http://3.bp.blogspot.com/-Bo2GNAVNb90/URkAlN-0V_I/AAAAAAAACfs/VHFT6oP1ZTk/s1600/Loading+-+Carregando+%252826%2529.gif" alt="" id="loading" class="content"/>
+	<script src="build/js/script.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+		<script type="text/javascript">
+		function id(el) {
+			return document.getElementById(el);
+		}
+		function hide(el) {
+			id(el).style.display = 'none';//escondendo tudo
+		}
+		window.onload = function() {
+			id('game').style.display = 'block';//liberando qndo terminar
+			hide('loading');
+		}
+	</script>
+	<script type="text/javascript">
+		hide('game');
+	</script>
 </body>
 </html>
