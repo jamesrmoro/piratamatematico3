@@ -1,24 +1,5 @@
 $(document).ready(function(){
 
-	var cookieColor = $.cookie("selected_class");
-	var cookieText = $.cookie("texto");
-
-
-	if (cookieColor) {
-    	$("#c-nivel-2").removeClass("bloqueado").addClass(cookieColor);
-    }
-    
-    if (cookieText) {
-    	$("#game .status-nivel i").html(cookieText);
-    }
-
-    if (($(".niveis-controle li")).hasClass("bloqueado")) {
-    	$.cookie("selected_class", "desbloqueado");
-        $.cookie("texto", "Desbloqueado");
-        $("#c-nivel-2 .bloqueado").removeClass("bloqueado").addClass("desbloqueado");
-        $("#game .status-nivel i").html("Desbloqueado");
-    }
-
 	if($(window).width() < 850) {
 
 		// Instrução para começar o jogo
@@ -42,12 +23,11 @@ $(document).ready(function(){
 		$('body').on("click", "#button", function(){
 			if(audio.paused){
 				audio.play();
-		    //button.innerHTML = "Música rolando...";
-		} else {
-			audio.pause();
-		    //button.innerHTML = "Música pausada...";
-		}
-	});
+			} else {
+				audio.pause();
+			}
+
+		});
 
 		function beep() {
 			var snd = new Audio("http://orteil.dashnet.org/cookieclicker/snd/clickb2.mp3");  
@@ -359,8 +339,8 @@ $(document).ready(function(){
 				});
 			}
 
-			$("#c-nivel-50").addClass("desbloqueado");
-			$("#c-nivel-50").removeClass("bloqueado");
+			// $("#c-nivel-50").addClass("desbloqueado");
+			// $("#c-nivel-50").removeClass("bloqueado");
 
 			// Remove números
 
@@ -426,6 +406,28 @@ $(document).ready(function(){
 					temp4 = menos+temp1;
 	    		}
 	    		
+			}
+
+			for (y = 1; y <= 50; y++) {
+				var d = "n"+y;
+				var d = $.cookie("nivel_"+y+"");
+				
+				if (d) {
+					$("#c-nivel-"+y+"").removeClass("bloqueado").addClass(d);
+				}
+			}			
+
+			function salva_fase() {
+
+				for (x = 1; x <= 50; x++) {
+					var c = "nivel_"+x;
+					var c = $.cookie("nivel_"+x+"");
+					
+					if ($("#c-nivel-"+x+"").hasClass("desbloqueado")) {
+						$.cookie("nivel_"+x+"", "desbloqueado");
+					}
+				}
+				
 			}
 
 			// Realiza o cálculo
@@ -648,13 +650,14 @@ $(document).ready(function(){
 					$("#"+nivel).next().fadeIn();
 					$(".meta-do-jogo").fadeIn();
 				}
-				
+				salva_fase();
 			});
 
 			$("body").on("click", ".mensagem-2.acertou .close-nivel", function() {
 				nivel = $(this).closest(".nivel").attr("id");
 				$(this).closest(".conteudo").find(".niveis-controle #c-"+nivel+".desbloqueado").prev().addClass("desbloqueado");
 				$("#"+nivel).fadeOut();
+				salva_fase();
 			});
 
 			// Ao clicar sai da fase e volta ao mapa
@@ -787,17 +790,18 @@ $(document).ready(function(){
 
 
 
+
+
 		})
-.then(function(){
+	.then(function(){
 
 
 
-})
-.fail(function(){
-	console.log("Fail");
-});
+	})
+	.fail(function(){
+		console.log("Fail");
+	});
 
-}
-
+	}
 
 });
