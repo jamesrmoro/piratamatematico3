@@ -1,0 +1,73 @@
+#loading {
+
+		display: block;
+	    width: 100%;
+	    position: fixed;
+	    height: 100vh;
+	    background-color: #fff;
+	    top: 0;
+	    left: 0;
+	    z-index: 999999;
+	}
+
+	#loading .content {
+
+		transform: translate(-50%, -50%);
+		-webkit-transform: translate(-50%, -50%);
+		left: 50%;
+		top: 50%;
+		position: absolute;
+		z-index: 9;
+		text-align: center;
+		width: 100%;
+		
+	}
+
+	#loading .content span {
+
+		font-size: 20px;
+		width: 100%;
+		display: inline-block;
+		font-family: Arial;
+		color: #6f6f6f;
+	}
+
+	#loading .content span strong {
+		
+		font-family: Arial;
+		color: #009688;
+		font-style: italic;
+
+	}
+
+	g{
+	  animation:rotate 1.4s linear infinite;
+	  transform-origin:center;
+	}
+	circle{
+	  animation:spin 1.4s ease-in-out infinite,colors 5.6s ease-in-out infinite;
+	  fill:none;
+	  stroke:#2196f3;
+	  stroke-dasharray:100;
+	  stroke-dashoffset:0;
+	  stroke-linecap:square;
+	  stroke-width:4;
+	  transform-origin:center;
+	}
+
+	@keyframes rotate{
+	  0%{transform:rotate(0deg);}
+	  100%{transform:rotate(270deg);}
+	}
+	@keyframes spin{
+	  0%{stroke-dashoffset:100;}
+	  50%{stroke-dashoffset:20;transform:rotate(135deg);}
+	  100%{stroke-dashoffset:100;transform:rotate(450deg);}
+	}
+	@keyframes colors{
+	  0%{stroke:#4285F4;}
+	  25%{stroke:#DE3E35;}
+	  50%{stroke:#F7C223;}
+	  75%{stroke:#1B9A59;}
+	  100%{stroke:#4285F4;}
+	}

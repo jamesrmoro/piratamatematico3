@@ -793,7 +793,6 @@ $(document).ready(function(){
 	.then(function(){
 
 
-
 	})
 	.fail(function(){
 		console.log("Fail");
@@ -802,3 +801,4 @@ $(document).ready(function(){
 	}
 
 });
+

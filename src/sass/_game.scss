@@ -5,6 +5,19 @@
     font-family: 'Mouse Memoirs', sans-serif;
 }
 
+html, body {
+
+  height: 100%;
+  overflow: hidden;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
 
 	//background: url(../../src/images/bg-principal.png) repeat;

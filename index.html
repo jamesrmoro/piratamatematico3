@@ -15,145 +15,54 @@ Converter som: https://convertio.co/pt/wav-converter
 	<link rel="stylesheet" href="build/css/main.css?v=3.0.4">
 	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/css?family=Mouse+Memoirs" rel="stylesheet">
-<style>
-	#loading {
-
-		display: block;
-	    width: 100%;
-	    position: fixed;
-	    height: 100vh;
-	    background-color: #fff;
-	    top: 0;
-	    left: 0;
-	    z-index: 999999;
-	}
-
-	#loading .content {
-
-		transform: translate(-50%, -50%);
-		-webkit-transform: translate(-50%, -50%);
-		left: 50%;
-		top: 50%;
-		position: absolute;
-		z-index: 9;
-		text-align: center;
-		width: 100%;
-		
-	}
-
-	#loading .content span {
-
-		font-size: 20px;
-		width: 100%;
-		display: inline-block;
-		font-family: Arial;
-		color: #6f6f6f;
-	}
-
-	#loading .content span strong {
-		
-		font-family: Arial;
-		color: #009688;
-		font-style: italic;
-
-	}
-
-	g{
-	  animation:rotate 1.4s linear infinite;
-	  transform-origin:center;
-	}
-	circle{
-	  animation:spin 1.4s ease-in-out infinite,colors 5.6s ease-in-out infinite;
-	  fill:none;
-	  stroke:#2196f3;
-	  stroke-dasharray:100;
-	  stroke-dashoffset:0;
-	  stroke-linecap:square;
-	  stroke-width:4;
-	  transform-origin:center;
-	}
-
-	@keyframes rotate{
-	  0%{transform:rotate(0deg);}
-	  100%{transform:rotate(270deg);}
-	}
-	@keyframes spin{
-	  0%{stroke-dashoffset:100;}
-	  50%{stroke-dashoffset:20;transform:rotate(135deg);}
-	  100%{stroke-dashoffset:100;transform:rotate(450deg);}
-	}
-	@keyframes colors{
-	  0%{stroke:#4285F4;}
-	  25%{stroke:#DE3E35;}
-	  50%{stroke:#F7C223;}
-	  75%{stroke:#1B9A59;}
-	  100%{stroke:#4285F4;}
-	}
-
-</style>
 </head>
 <body>
+
+<div class="slider-container">
+	<div class="slider-control left inactive"></div>
+	<div class="slider-control right"></div>
+	<ul class="slider-pagi"></ul>
+	<div class="slider">
+		<div class="slide slide-0 active">
+
+			<div class="slide__content">
+				<div class="slide__text">
+					<p>1 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus itaque eligendi, voluptas nesciunt eaque esse saepe repellat dolore blanditiis corporis numquam, eius iusto dignissimos vel dolor sapiente sequi alias doloremque.</p>
+				</div>
+			</div>
+		</div>
+		<div class="slide slide-1 ">
+			<div class="slide__content">
+				<div class="slide__text">
+					<p>2 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus itaque eligendi, voluptas nesciunt eaque esse saepe repellat dolore blanditiis corporis numquam, eius iusto dignissimos vel dolor sapiente sequi alias doloremque.</p>
+				</div>
+			</div>
+		</div>
+		<div class="slide slide-2">
+			<div class="slide__content">
+				<div class="slide__text">
+					<p>3 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus itaque eligendi, voluptas nesciunt eaque esse saepe repellat dolore blanditiis corporis numquam, eius iusto dignissimos vel dolor sapiente sequi alias doloremque.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<span class="pular">Pular</span>
+</div>
+
 	<div id="game">
 		<!-- <div id="compartilhar">capturar</div>
 		<div id="html2canvas">Tela</div>
 		<div class="imagem-compartilhada"></div>
 		<div id="calendar_to_canvas"></div>
 		<canvas id="myCanvas" width="500" height="500"></canvas> -->
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
-<div class="slider-container">
-  <div class="slider-control left inactive"></div>
-  <div class="slider-control right"></div>
-  <ul class="slider-pagi"></ul>
-  <div class="slider">
-    <div class="slide slide-0 active">
-      <div class="slide__bg"></div>
-      <div class="slide__content">
-        <svg class="slide__overlay" viewBox="0 0 720 405" preserveAspectRatio="xMaxYMax slice">
-          <path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
-        </svg>
-        <div class="slide__text">
-          <h2 class="slide__text-heading" style="font-family: 'Open Sans Condensed', sans-serif;">Big Data. Realtime Insight.</h2>
-          <p class="slide__text-desc" style="font-family: 'Open Sans Condensed', sans-serif;"> Content is automatically generated, sales emails, customer retention emails, and custom landing pages are generated based on site content using natural language processing to create relevant marketing content and distribute it across multiple channels.</p>
-          <a class="slide__text-link" style="font-family: 'Open Sans Condensed', sans-serif;">Learn More</a>
-        </div>
-      </div>
-    </div>
-    <div class="slide slide-1 ">
-      <div class="slide__bg"></div>
-      <div class="slide__content">
-        <svg class="slide__overlay" viewBox="0 0 720 405" preserveAspectRatio="xMaxYMax slice">
-          <path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
-        </svg>
-        <div class="slide__text">
-          <h2 class="slide__text-heading" style="font-family: 'Open Sans Condensed', sans-serif;">Disrupting Industries</h2>
-          <p class="slide__text-desc" style="font-family: 'Open Sans Condensed', sans-serif;">WebCorpCo is all about making sure your marketing stack is in alignment with your company as well as the customers you serve. There is no 'one size fits all' approach to marketing. Every business is unique, customers are unique, and your marketing should be as well.</p>
-          <a class="slide__text-link" style="font-family: 'Open Sans Condensed', sans-serif;">Learn More</a>
-        </div>
-      </div>
-    </div>
-    <div class="slide slide-2">
-      <div class="slide__bg"></div>
-      <div class="slide__content">
-        <svg class="slide__overlay" viewBox="0 0 720 405" preserveAspectRatio="xMaxYMax slice">
-          <path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
-        </svg>
-        <div class="slide__text">
-          <h2 class="slide__text-heading" style="font-family: 'Open Sans Condensed', sans-serif;">Moving Business Forward</h2>
-          <p class="slide__text-desc" style="font-family: 'Open Sans Condensed', sans-serif;">Sales is the direct result of marketing and sales data is sometimes even more important than the sales themselves. Why did they buy? What did they buy? When? Who bought? How much did it cost? Then a comparison of sales YTD or Year over Year. This analysis can optimize your ability to sell with WebCorpCo Analytics.</p>
-          <a class="slide__text-link" style="font-family: 'Open Sans Condensed', sans-serif;">Learn More</a>
-        </div>
-      </div>
-    </div>
-</div>
 
-
-		<div class="tela tela-1" style="display: none">
+		<div class="tela tela-1">
 			<div class="wrapper-button">
 				<span class="button button-start">Jogar</span>
 				<span class="button button-api">Conectar com Google</span>
 			</div>
 		</div>
-		<div class="tela tela-2" style="display: none">
+		<div class="tela tela-2">
 			<div class="content-center">
 				<div class="logo">
 					<img src="src/images/logo.png" alt="">
@@ -163,7 +72,7 @@ Converter som: https://convertio.co/pt/wav-converter
 				</div>
 			</div>
 		</div>
-		<div class="tela tela-3" style="display: none">
+		<div class="tela tela-3">
 			<div class="conteudo">
 
 				<div class="clouds">
@@ -284,7 +193,7 @@ Converter som: https://convertio.co/pt/wav-converter
 			</div>
 		</div>
 	</div>
-	<div id="loading" style="display: none">
+	<div id="loading" style="display: block">
 		<div class="content">
 			<svg height="56" viewBox="0 0 56 56" width="72">
 			  <g><circle cx="28" cy="28" id="spinner" r="16"/></g>
@@ -294,7 +203,7 @@ Converter som: https://convertio.co/pt/wav-converter
 	</div>
 	<script src="build/js/script.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-<!-- 		<script type="text/javascript">
+		<script type="text/javascript">
 		function id(el) {
 			return document.getElementById(el);
 		}
@@ -308,6 +217,7 @@ Converter som: https://convertio.co/pt/wav-converter
 	</script>
 	<script type="text/javascript">
 		hide('game');
-	</script> -->
+	</script>
+
 </body>
 </html>
