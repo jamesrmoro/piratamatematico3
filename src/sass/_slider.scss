@@ -1,14 +1,13 @@
 .pular {
 
     position: absolute;
-    bottom: 0;
+    top: 20px;
     right: 0;
     background: red;
     z-index: 9;
     cursor: pointer;
     width: 100px;
     height: 40px;
-    bottom: 20px;
     text-align: center;
     line-height: 40px;
     color: #fff;
@@ -48,14 +47,16 @@ svg {
 
     &.left {
 
-        left: 100px;
-        background-color: pink;
+        left: 20px;
+        background: url(../../src/images/sprite.png) no-repeat;
+        background-position: -4px -544px;
     }
 
     &.right {
 
-        right: 100px;
-        background-color: orange;
+        right: 20px;
+        background: url(../../src/images/sprite.png) no-repeat;
+        background-position: -58px -544px;
     }
 
 }
