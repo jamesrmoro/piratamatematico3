@@ -383,7 +383,30 @@ $(document).ready(function(){
 				if (d) {
 					$("#c-nivel-"+y+"").removeClass("bloqueado").addClass(d);
 				}
-			}			
+			}
+
+			function tela_introducao() {
+				$.cookie("introducao", "hide");
+			}
+
+			var intro = $.cookie("introducao");
+
+			if (intro) {
+				$(".slider-container").addClass("hide");
+				$(".tela-1").addClass("hide");
+				$(".tela-2").addClass("hide");
+				$(".tela-3").show();
+				$("body").removeClass("intro");
+       			$("html").removeClass("introducao");
+
+			}
+
+			$("body").on("click", ".pular", function() {
+		       tela_introducao();
+		       $(".slider-container").fadeOut();
+		       $("body").removeClass("intro");
+		       $("html").removeClass("introducao");
+		    });
 
 			function salva_fase() {
 
@@ -532,7 +555,7 @@ $(document).ready(function(){
 
 			lifes = $(".lifes li").length;
 
-			if (lifes <= 3) {
+			if (lifes <= 0) {
 				$(".lifes").append('<li>Suas vidas acabaram!</li>');
 				$(".msg-life").html("Aguarde...");
 				$("#"+nivel+" .grupo-msg").addClass("game-over");
@@ -566,7 +589,7 @@ $(document).ready(function(){
 						$("#"+nivel+" .proximo-nivel").html("Avançar");
 					});
 
-					var tempo_vida = 2;
+					var tempo_vida = 30;
 					var elem = document.getElementById('time-game-over');
 					var timerId = setInterval(countdown, 1000);
 

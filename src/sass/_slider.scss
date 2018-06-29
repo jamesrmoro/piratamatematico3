@@ -13,6 +13,12 @@
     color: #fff;
 }
 
+.teste {
+
+  height: 100%;
+  overflow: hidden;
+}
+
 svg {
 
     overflow: visible;
@@ -32,6 +38,11 @@ svg {
     height: 100%;
     user-select: none;
     cursor: all-scroll;
+
+    &.hide {
+
+      display: none;
+    }
 }
 
 .slider-control {

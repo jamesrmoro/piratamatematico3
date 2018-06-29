@@ -6,7 +6,7 @@ Converter som: https://convertio.co/pt/wav-converter
 
 -->
 <!DOCTYPE html>
-<html lang="en">
+<html class="introducao" lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>Pirata Matemático 3</title>
@@ -16,38 +16,40 @@ Converter som: https://convertio.co/pt/wav-converter
 	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/css?family=Mouse+Memoirs" rel="stylesheet">
 </head>
-<body>
+<body class="intro">
 
-<div class="slider-container">
-	<div class="slider-control left inactive"></div>
-	<div class="slider-control right"></div>
-	<ul class="slider-pagi"></ul>
-	<div class="slider">
-		<div class="slide slide-0 active">
 
-			<div class="slide__content">
-				<div class="slide__text">
-					<p>1 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus itaque eligendi, voluptas nesciunt eaque esse saepe repellat dolore blanditiis corporis numquam, eius iusto dignissimos vel dolor sapiente sequi alias doloremque.</p>
+	<div class="slider-container">
+		<div class="slider-control left inactive"></div>
+		<div class="slider-control right"></div>
+		<ul class="slider-pagi"></ul>
+		<div class="slider">
+			<div class="slide slide-0 active">
+
+				<div class="slide__content">
+					<div class="slide__text">
+						<p>1 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus itaque eligendi, voluptas nesciunt eaque esse saepe repellat dolore blanditiis corporis numquam, eius iusto dignissimos vel dolor sapiente sequi alias doloremque.</p>
+					</div>
+				</div>
+			</div>
+			<div class="slide slide-1 ">
+				<div class="slide__content">
+					<div class="slide__text">
+						<p>2 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus itaque eligendi, voluptas nesciunt eaque esse saepe repellat dolore blanditiis corporis numquam, eius iusto dignissimos vel dolor sapiente sequi alias doloremque.</p>
+					</div>
+				</div>
+			</div>
+			<div class="slide slide-2">
+				<div class="slide__content">
+					<div class="slide__text">
+						<p>3 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus itaque eligendi, voluptas nesciunt eaque esse saepe repellat dolore blanditiis corporis numquam, eius iusto dignissimos vel dolor sapiente sequi alias doloremque.</p>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="slide slide-1 ">
-			<div class="slide__content">
-				<div class="slide__text">
-					<p>2 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus itaque eligendi, voluptas nesciunt eaque esse saepe repellat dolore blanditiis corporis numquam, eius iusto dignissimos vel dolor sapiente sequi alias doloremque.</p>
-				</div>
-			</div>
-		</div>
-		<div class="slide slide-2">
-			<div class="slide__content">
-				<div class="slide__text">
-					<p>3 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus itaque eligendi, voluptas nesciunt eaque esse saepe repellat dolore blanditiis corporis numquam, eius iusto dignissimos vel dolor sapiente sequi alias doloremque.</p>
-				</div>
-			</div>
-		</div>
+		<span class="pular">Pular</span>
 	</div>
-	<span class="pular">Pular</span>
-</div>
+
 
 	<div id="game">
 		<!-- <div id="compartilhar">capturar</div>
@@ -195,10 +197,8 @@ Converter som: https://convertio.co/pt/wav-converter
 	</div>
 	<div id="loading" style="display: block">
 		<div class="content">
-			<svg height="56" viewBox="0 0 56 56" width="72">
-			  <g><circle cx="28" cy="28" id="spinner" r="16"/></g>
-			</svg>
-			<span>Acordando o Pirata ...<br> <strong>Aguarde</strong></span>
+			<img src="src/images/loading.gif" alt="">
+			<span>Acordando o Pirata<br> <strong>Aguarde...</strong></span>
 		</div>
 	</div>
 	<script src="build/js/script.js"></script>

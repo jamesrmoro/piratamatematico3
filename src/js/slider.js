@@ -1,9 +1,5 @@
 $(document).ready(function(){
 
-    $("body").on("click", ".pular", function() {
-        $(".slider-container").fadeOut();
-    });
-
     var $slider = $(".slider"),
     $slideBGs = $(".slide__bg"),
     diff = 0,

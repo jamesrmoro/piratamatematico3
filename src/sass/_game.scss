@@ -5,17 +5,17 @@
     font-family: 'Mouse Memoirs', sans-serif;
 }
 
-html, body {
+html.introducao, body.intro {
 
-  height: 100%;
-  overflow: hidden;
+    height: 100%;
+    overflow: hidden;
 }
 
 *, *:before, *:after {
-  box-sizing: border-box;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {

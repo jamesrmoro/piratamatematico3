@@ -1320,6 +1320,11 @@
 				background-position: center center;
 				background-size: 100%;
 
+				&.hide {
+
+					display: none;
+				}
+
 				&:before {
 
 					width: 100%;
