@@ -139,7 +139,7 @@ body {
     top: 0;
     z-index: 99999;
     @include transition(1s);
-    background: rgba(255, 255, 255, 0.94) url(../../src/images/lado.png) no-repeat right top;
+    background: #565A6F url(../../src/images/lado.png) no-repeat right bottom;
     background-size: cover;
 
     &.animated {
