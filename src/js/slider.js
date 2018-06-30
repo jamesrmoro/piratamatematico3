@@ -8,7 +8,7 @@ $(document).ready(function(){
     animating = false,
     animTime = 500,
     autoSlideTimeout,
-    autoSlideDelay = 6000,
+    autoSlideDelay = 60000,
     $pagination = $(".slider-pagi");
     
     function createBullets() {
@@ -40,7 +40,7 @@ $(document).ready(function(){
 
     function changeSlides(instant) {
       if (!instant) {
-        animating = true;
+        animating = false;
         manageControls();
         $slider.addClass("animating");
         $slider.css("top");

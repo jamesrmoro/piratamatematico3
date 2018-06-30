@@ -276,27 +276,46 @@ $(document).ready(function(){
 				$("#"+nivel+"").find(".calculadora li").addClass("start-time");
 			}
 
+			function somar_estrelas(){
+				var formatted = $(".nivel .estrelas i").map(function(i, el) {
+					return $(el).text();
+				}).get().join('+');
+
+				var n = $('.status-nivel i').text(formatted);
+				var j = n.html()
+				var jn = eval(j)
+
+			}
+
 			function resultado_estrelas() {
-				if (time <= "00:10") {
+
+				var valor_inicial_estrelas = Number($("#"+nivel+" .estrelas i").html());
+				var total_estrelas = Number($("#"+nivel+" .estrelas").attr("data-estrelas"));
+				var star = $("#"+nivel+" .estrelas i").html();
+
+				if (time <= "00:20") {
 					$("#"+nivel+" .star li").addClass("win");
 					$("#"+nivel+" .estrelas").attr("data-estrelas", "3");
+					(3 >= star ? $("#"+nivel+" .estrelas i").html("3") : "");
+					somar_estrelas();
 				}
-				if (time >= "00:15" && time <= "02:00") {
+				if (time >= "00:21" && time <= "00:30") {
 					$("#"+nivel+" .star li:nth-of-type(1)").addClass("win");
 					$("#"+nivel+" .star li:nth-of-type(2)").addClass("win");
 					$("#"+nivel+" .star li:nth-of-type(3)").removeClass("win");
 					$("#"+nivel+" .estrelas").attr("data-estrelas", "2");
+					(2 >= star ? $("#"+nivel+" .estrelas i").html("2") : "");
+					somar_estrelas();
 				}
-				if (time >= "02:01") {
+				if (time >= "00:31") {
 					$("#"+nivel+" .star li:nth-of-type(1)").addClass("win");
 					$("#"+nivel+" .star li:nth-of-type(2)").removeClass("win");
 					$("#"+nivel+" .star li:nth-of-type(3)").removeClass("win");
 					$("#"+nivel+" .estrelas").attr("data-estrelas", "1");
+					(1 >= star ? $("#"+nivel+" .estrelas i").html("1") : "");
+					somar_estrelas();
 				}
-				var valor_inicial_estrelas = Number($(".estrelas i").html());
-				var total_estrelas = Number($(".estrelas").attr("data-estrelas"));
-				//resultado = valor_inicial_estrelas+total_estrelas;
-				$("#"+nivel+" .estrelas i").html(total_estrelas);
+
 				var desb = $("#"+nivel+"").find(".status-nivel").attr("data-status");
 				var n = $(".desbloqueado").closest("body").find("#c-"+nivel+"").addClass("desbloqueado");
 			}
@@ -343,40 +362,40 @@ $(document).ready(function(){
 
 			function trocar(p) {
 				teste = $(p).find("span i").html();
-	    		var first = teste.charAt(0);
-	    		var last = teste.charAt(8);
-	    		var regex = new RegExp("" + first + "", "g");
+				var first = teste.charAt(0);
+				var last = teste.charAt(8);
+				var regex = new RegExp("" + first + "", "g");
 
-	    		temp = $("#"+nivel+" .total span").html();
-	    		temp2 = temp.replace(regex, last);
+				temp = $("#"+nivel+" .total span").html();
+				temp2 = temp.replace(regex, last);
 			}
 
 			function trocar2(p) {
 				teste = $(p).find("span i").html();
-	    		var first = teste.substr(0, 2);
-	    		var last = teste.substr(9, 10);
-	    		var regex = new RegExp("" + first + "", "g");
+				var first = teste.substr(0, 2);
+				var last = teste.substr(9, 10);
+				var regex = new RegExp("" + first + "", "g");
 
-	    		temp = $("#"+nivel+" .total span").html();
-	    		temp3 = temp.replace(regex, last);
+				temp = $("#"+nivel+" .total span").html();
+				temp3 = temp.replace(regex, last);
 
 			}
 
 			function trocar3(k) {
 				teste1 = $(k).find("span i").html();
-	    		var first1 = teste1.charAt(0);
-	    		var last1 = teste1.charAt(4);;
+				var first1 = teste1.charAt(0);
+				var last1 = teste1.charAt(4);;
 
-	    		temp1 = $("#"+nivel+" .total span").html();
-	    		var menos = "-";
+				temp1 = $("#"+nivel+" .total span").html();
+				var menos = "-";
 
-	    		if (temp1.charAt(0) == menos) {
-	    			temp4 = temp1.substring(1);
-	    			temp5 = temp4;
-	    		} else {
+				if (temp1.charAt(0) == menos) {
+					temp4 = temp1.substring(1);
+					temp5 = temp4;
+				} else {
 					temp4 = menos+temp1;
-	    		}
-	    		
+				}
+
 			}
 
 			for (y = 1; y <= 50; y++) {
@@ -400,16 +419,30 @@ $(document).ready(function(){
 				$(".tela-2").addClass("hide");
 				$(".tela-3").show();
 				$("body").removeClass("intro");
-       			$("html").removeClass("introducao");
+				$("html").removeClass("introducao");
 
 			}
 
+			function remove_introducao() {
+				$(".slider-container").fadeOut();
+				$("body").removeClass("intro");
+				$("html").removeClass("introducao");
+			}
+
 			$("body").on("click", ".pular", function() {
-		       tela_introducao();
-		       $(".slider-container").fadeOut();
-		       $("body").removeClass("intro");
-		       $("html").removeClass("introducao");
-		    });
+				tela_introducao();
+				remove_introducao();
+			});
+
+			$("body").on("click", ".slider-control.right.inactive", function() {
+				tela_introducao();
+				remove_introducao();
+			});
+		
+
+			$("body").on("click", ".item-right", function() {
+				$(".screen-hidden").toggleClass("animated");
+			});
 
 			function salva_fase() {
 
@@ -440,39 +473,39 @@ $(document).ready(function(){
 				
 				switch(operador) {
 					case "soma":
-						valor_inicial = valor_inicial+valor;
+					valor_inicial = valor_inicial+valor;
 					break;
 					case "multiplicacao":
-						valor_inicial = valor_inicial*valor;
+					valor_inicial = valor_inicial*valor;
 					break;
 					case "subtracao":
-						valor_inicial = valor_inicial-valor;
+					valor_inicial = valor_inicial-valor;
 					break;
 					case "divisao":
-						valor_inicial = valor_inicial/valor;
+					valor_inicial = valor_inicial/valor;
 					break;
 					case "remover":
-						remove_ultimo_numero();
-						valor_inicial = novo_valor;
+					remove_ultimo_numero();
+					valor_inicial = novo_valor;
 					break;
 					case "agregar":
-						agregar_numero(this);
-						valor_inicial = valor_inicial+valor_juntado;
+					agregar_numero(this);
+					valor_inicial = valor_inicial+valor_juntado;
 					break;
 					case "trocar":
-						trocar(this);
-						valor_inicial = temp2;
+					trocar(this);
+					valor_inicial = temp2;
 					break;
 					case "trocar2":
-						trocar2(this);
-						valor_inicial = temp3;
+					trocar2(this);
+					valor_inicial = temp3;
 					break;
 					case "trocar3":
-						trocar3(this);
-						valor_inicial = temp4;
+					trocar3(this);
+					valor_inicial = temp4;
 					break;
 					case "elevado":
-						valor_inicial = valor_inicial*valor_inicial;
+					valor_inicial = valor_inicial*valor_inicial;
 					break;
 
 				}
@@ -710,7 +743,7 @@ $(document).ready(function(){
 				var valor_estrelas_nivel = $(this).closest(".nivel").find(".estrelas i").html();
 				$("#"+nivel+"").find(".star").attr("data-adquiridas", teste);
 				$("#"+nivel+" .desbloqueado").closest(".nivel").find(".estrelas i").text(valor_estrelas_nivel);
-				
+				salva_fase();
 			});
 
 			$('body').on('click', ".clear", function(){
@@ -739,34 +772,34 @@ $(document).ready(function(){
 
 		    	switch(simbolo) {
 		    		case "soma":
-		    			$("#"+nivel+" .operador-soma span em").html("+");
+		    		$("#"+nivel+" .operador-soma span em").html("+");
 		    		break;
 		    		case "divisao":
-		    			$("#"+nivel+" .operador-divisao span em").html("/");
+		    		$("#"+nivel+" .operador-divisao span em").html("/");
 		    		break;
 		    		case "subtracao":
-		    			$("#"+nivel+" .operador-subtracao span em").html("-");
+		    		$("#"+nivel+" .operador-subtracao span em").html("-");
 		    		break;
 		    		case "multiplicacao":
-		    			$("#"+nivel+" .operador-multiplicacao span em").html("x");
+		    		$("#"+nivel+" .operador-multiplicacao span em").html("x");
 		    		break;
 		    		case "remover":
-		    			$("#"+nivel+" .operador-remover span em").html("&laquo;");
+		    		$("#"+nivel+" .operador-remover span em").html("&laquo;");
 		    		break;
 		    		case "agregar":
-		    			$("#"+nivel+" .operador-agregar span em").html("");
+		    		$("#"+nivel+" .operador-agregar span em").html("");
 		    		break;
 		    		case "trocar":
-		    			$("#"+nivel+" .operador-trocar span em").html("");
+		    		$("#"+nivel+" .operador-trocar span em").html("");
 		    		break;
 		    		case "trocar2":
-		    			$("#"+nivel+" .operador-trocar2 span em").html("");
+		    		$("#"+nivel+" .operador-trocar2 span em").html("");
 		    		break;
 		    		case "trocar3":
-		    			$("#"+nivel+" .operador-trocar3 span em").html("");
+		    		$("#"+nivel+" .operador-trocar3 span em").html("");
 		    		break;
 		    		case "elevado":
-		    			$("#"+nivel+" .operador-elevado span em").html("x²");
+		    		$("#"+nivel+" .operador-elevado span em").html("x²");
 		    		break;
 		    	}
 
@@ -784,15 +817,15 @@ $(document).ready(function(){
 
 
 		})
-	.then(function(){
+.then(function(){
 
 
-	})
-	.fail(function(){
-		console.log("Fail");
-	});
+})
+.fail(function(){
+	console.log("Fail");
+});
 
-	}
+}
 
 });
 
