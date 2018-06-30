@@ -276,16 +276,45 @@ $(document).ready(function(){
 				$("#"+nivel+"").find(".calculadora li").addClass("start-time");
 			}
 
+			function exibir_niveis() {
+				var desbloqueios = $('.niveis-controle li.desbloqueado').length;
+				$('.screen-hidden .title-nivel i.number').html(desbloqueios+1);
+			}
+
 			function somar_estrelas(){
 				var formatted = $(".nivel .estrelas i").map(function(i, el) {
 					return $(el).text();
 				}).get().join('+');
 
-				var n = $('.status-nivel i').text(formatted);
-				var j = n.html()
-				var jn = eval(j)
-
+				var n = $('.screen-hidden .title i.number').text(formatted);
+				var j = n.html();
+				var jn = eval(j);
+				$('.screen-hidden .title i.number').html(jn);
 			}
+
+			function seta_cookies() {
+
+				var estrelas = $(".screen-hidden .status-jogo .title i.number").html();
+				var numero_estrelas = $.cookie("estrelas");
+				$.cookie("star", estrelas);
+
+				var niveis = $(".screen-hidden .status-jogo .title-nivel i.number").html();
+				var nivel_desbloqueado = $.cookie("nivel");
+				$.cookie("nivel", niveis);
+
+			}	
+
+			function atualiza_cookie() {
+				var qtd_estrelas = $.cookie("star");
+				var qtd_nivel = $.cookie("nivel");
+				$(".screen-hidden .status-jogo .title i.number").html(qtd_estrelas);
+				$(".screen-hidden .status-jogo .title-nivel i.number").html(qtd_nivel);
+				if (qtd_nivel > 1) {
+					$('.screen-hidden .title-nivel i.text').html("níveis desbloqueados");
+				}
+			}
+
+			atualiza_cookie();
 
 			function resultado_estrelas() {
 
@@ -298,6 +327,10 @@ $(document).ready(function(){
 					$("#"+nivel+" .estrelas").attr("data-estrelas", "3");
 					(3 >= star ? $("#"+nivel+" .estrelas i").html("3") : "");
 					somar_estrelas();
+					exibir_niveis();
+					seta_cookies();
+					atualiza_cookie();
+					
 				}
 				if (time >= "00:21" && time <= "00:30") {
 					$("#"+nivel+" .star li:nth-of-type(1)").addClass("win");
@@ -306,6 +339,10 @@ $(document).ready(function(){
 					$("#"+nivel+" .estrelas").attr("data-estrelas", "2");
 					(2 >= star ? $("#"+nivel+" .estrelas i").html("2") : "");
 					somar_estrelas();
+					exibir_niveis();
+					seta_cookies();
+					atualiza_cookie();
+	
 				}
 				if (time >= "00:31") {
 					$("#"+nivel+" .star li:nth-of-type(1)").addClass("win");
@@ -314,6 +351,9 @@ $(document).ready(function(){
 					$("#"+nivel+" .estrelas").attr("data-estrelas", "1");
 					(1 >= star ? $("#"+nivel+" .estrelas i").html("1") : "");
 					somar_estrelas();
+					exibir_niveis();
+					seta_cookies();
+					atualiza_cookie();
 				}
 
 				var desb = $("#"+nivel+"").find(".status-nivel").attr("data-status");
@@ -403,8 +443,21 @@ $(document).ready(function(){
 				var d = $.cookie("nivel_"+y+"");
 				
 				if (d) {
-					$("#c-nivel-"+y+"").removeClass("bloqueado").addClass(d);
+					$("#c-nivel-"+y+"").removeClass("bloqueado").addClass(d);				
 				}
+			}
+
+			function salva_fase() {
+
+				for (x = 1; x <= 50; x++) {
+					var c = "nivel_"+x;
+					var c = $.cookie("nivel_"+x+"");
+					
+					if ($("#c-nivel-"+x+"").hasClass("desbloqueado")) {
+						$.cookie("nivel_"+x+"", "desbloqueado");
+					}
+				}
+				
 			}
 
 			function tela_introducao() {
@@ -444,18 +497,7 @@ $(document).ready(function(){
 				$(".screen-hidden").toggleClass("animated");
 			});
 
-			function salva_fase() {
 
-				for (x = 1; x <= 50; x++) {
-					var c = "nivel_"+x;
-					var c = $.cookie("nivel_"+x+"");
-					
-					if ($("#c-nivel-"+x+"").hasClass("desbloqueado")) {
-						$.cookie("nivel_"+x+"", "desbloqueado");
-					}
-				}
-				
-			}
 
 			// Realiza o cálculo
 
@@ -529,6 +571,7 @@ $(document).ready(function(){
 					$("#"+nivel+" .mensagem-1").removeClass("errou");
 					$("#"+nivel+" .status-msg").addClass("icon-win");
 					$("#"+nivel+" .proximo-nivel").show();
+					$("#"+nivel+" .status-nivel span i").addClass("resolvido");
 
 					var frase_acertou = $("#"+nivel+" .frase_acertou").html()
 					$("#"+nivel+" .mensagem-1 .status-win-or-loose").html(frase_acertou);

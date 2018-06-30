@@ -132,18 +132,96 @@ body {
 
 .screen-hidden {
 
-    width: 300px;
+    width: 350px;
     height: 100%;
     position: fixed;
     right: -350px;
+    padding-left: 30px;
+    padding-right: 30px;
     top: 0;
     z-index: 99999;
     @include transition(1s);
     background: #565A6F url(../../src/images/lado.png) no-repeat right bottom;
     background-size: cover;
+    padding-top: 165px;
 
     &.animated {
 
         right: 0;
     }
+
+    .status-jogo {
+
+        border: 1px dashed #b7b7b7;
+        background: rgba(255, 255, 255, 0.25);
+        padding: 10px;
+        position: relative;
+
+        &:before {
+
+            content: "Status do seu jogo";
+            left: -1px;
+            top: -28px;
+            padding: 5px 10px;
+            position: absolute;
+            background-color: #000;
+            color: #fff;
+        }
+
+        span {
+
+            width: 100%;
+            display: inline-block;
+            vertical-align: top;
+            color: #fff;
+            font-size: 1.2em;
+            position: relative;
+            padding-left: 35px;
+
+            &:before {
+
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                content: "";
+                left: 0;
+                background: url(../../src/images/sprite.png) no-repeat;
+            }
+
+            &.title {
+
+                &:before {
+
+                    top: 6px;
+                    background-position: -50px -58px;
+                }
+            }
+
+            &.title-nivel {
+
+                &:before {
+
+                    background-position: -106px -559px;
+                }
+            }
+
+            i.text {
+
+                font-style: normal;
+                color: #fff;
+                font-size: 1.2em;
+                margin-right: 6px;
+            }
+
+            i.number {
+
+                font-style: normal;
+                color: #fac917;
+                font-size: 1.6em;
+                margin-right: 6px;
+            }
+        }
+    }
+
+    
 }
