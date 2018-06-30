@@ -143,7 +143,7 @@ $(document).ready(function(){
 					}
 				}		
 				retorno += '</ul></div>';
-				retorno += '<span data-status="bloqueado" class="status-nivel"><span><strong>Nível:</strong> <i>Bloqueado</i></span></span>';
+				retorno += '<span data-status="bloqueado" class="status-nivel"><span><strong>Nível:</strong> <i>Não resolvido</i></span></span>';
 
 				retorno += '<span class="estrelas" data-estrelas="0"><strong>Estrelas conquistadas:</strong> <i>0</i></span>';
 
@@ -235,7 +235,7 @@ $(document).ready(function(){
 			function pega_debloqueado() {
 				$("#"+nivel+" .status-nivel").attr("data-status", "desbloqueado");
 				$("#"+nivel+" .status-nivel").addClass("desbloqueado");
-				$("#"+nivel+" .status-nivel span i").html("Desbloqueado");
+				$("#"+nivel+" .status-nivel span i").html("Resolvido");
 			}
 
 			function pega_tempoJogo(total_segundos) {
@@ -277,23 +277,26 @@ $(document).ready(function(){
 			}
 
 			function resultado_estrelas() {
-				if (time <= "01:00") {
+				if (time <= "00:10") {
 					$("#"+nivel+" .star li").addClass("win");
 					$("#"+nivel+" .estrelas").attr("data-estrelas", "3");
 				}
-				if (time >= "01:01" && time <= "02:00") {
+				if (time >= "00:15" && time <= "02:00") {
 					$("#"+nivel+" .star li:nth-of-type(1)").addClass("win");
 					$("#"+nivel+" .star li:nth-of-type(2)").addClass("win");
+					$("#"+nivel+" .star li:nth-of-type(3)").removeClass("win");
 					$("#"+nivel+" .estrelas").attr("data-estrelas", "2");
 				}
 				if (time >= "02:01") {
 					$("#"+nivel+" .star li:nth-of-type(1)").addClass("win");
+					$("#"+nivel+" .star li:nth-of-type(2)").removeClass("win");
+					$("#"+nivel+" .star li:nth-of-type(3)").removeClass("win");
 					$("#"+nivel+" .estrelas").attr("data-estrelas", "1");
 				}
 				var valor_inicial_estrelas = Number($(".estrelas i").html());
 				var total_estrelas = Number($(".estrelas").attr("data-estrelas"));
-				resultado = valor_inicial_estrelas+total_estrelas;
-				$(".estrelas i").html(resultado);
+				//resultado = valor_inicial_estrelas+total_estrelas;
+				$("#"+nivel+" .estrelas i").html(total_estrelas);
 				var desb = $("#"+nivel+"").find(".status-nivel").attr("data-status");
 				var n = $(".desbloqueado").closest("body").find("#c-"+nivel+"").addClass("desbloqueado");
 			}
