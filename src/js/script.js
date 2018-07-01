@@ -314,6 +314,21 @@ $(document).ready(function(){
 				}
 			}
 
+			var array_star = $(".array li").map(function() { return $(this).text() }).get();
+			$.cookie("estrelas", array_star);
+			var cookie_star =  $.cookie("estrelas");
+			console.log("Este é o array que vem do dom: "+array_star);
+			console.log("Este é o array que vem do cookie: "+cookie_star);
+			teste = cookie_star.split(/,/);  
+			console.log("A posição do array do cookie é: "+teste[5]);
+
+			var tamanho = $(".array li").length;
+			console.log("O tamanho é: "+tamanho);
+
+			for (j = 0; j <= tamanho; j++) {
+				$(".array .array-"+j+" span").html(teste[j-1]);
+			}
+
 			atualiza_cookie();
 
 			function resultado_estrelas() {
