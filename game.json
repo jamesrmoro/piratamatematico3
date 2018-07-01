@@ -1588,5 +1588,515 @@
  			"botao8": "",
  			"botao9": ""
  		}
+ 	},
+ 	{
+ 		"id": 54,
+ 		"meta": 100,
+ 		"valor_inicial": 1101,
+ 		"jogadas": 4,
+ 		"frase_errou": "Tenta de novo!",
+ 		"frase_acertou": "Wow! Você conseguiu!",
+ 		"operador": {
+ 			"botao1": "",
+ 			"botao2": "subtracao",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "",
+ 			"botao6": "remover",
+ 			"botao7": "",
+ 			"botao8": "",
+ 			"botao9": "inverter"
+ 		},
+ 		"numeros": {
+ 			"botao1": "",
+ 			"botao2": "1",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "",
+ 			"botao6": "",
+ 			"botao7": "",
+ 			"botao8": "",
+ 			"botao9": ""
+ 		}
+ 	},
+ 	{
+ 		"id": 55,
+ 		"meta": 58,
+ 		"valor_inicial": 0,
+ 		"jogadas": 4,
+ 		"frase_errou": "Tenta de novo!",
+ 		"frase_acertou": "Wow! Você conseguiu!",
+ 		"operador": {
+ 			"botao1": "",
+ 			"botao2": "soma",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "multiplicacao",
+ 			"botao6": "inverter",
+ 			"botao7": "",
+ 			"botao8": "subtracao",
+ 			"botao9": ""
+ 		},
+ 		"numeros": {
+ 			"botao1": "",
+ 			"botao2": "4",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "4",
+ 			"botao6": "",
+ 			"botao7": "",
+ 			"botao8": "3",
+ 			"botao9": ""
+ 		}
+ 	},
+ 	{
+ 		"id": 56,
+ 		"meta": 4,
+ 		"valor_inicial": 6,
+ 		"jogadas": 3,
+ 		"frase_errou": "Tenta de novo!",
+ 		"frase_acertou": "Wow! Você conseguiu!",
+ 		"operador": {
+ 			"botao1": "",
+ 			"botao2": "agregar",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "divisao",
+ 			"botao6": "inverter",
+ 			"botao7": "",
+ 			"botao8": "",
+ 			"botao9": ""
+ 		},
+ 		"numeros": {
+ 			"botao1": "",
+ 			"botao2": "1",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "4",
+ 			"botao6": "",
+ 			"botao7": "",
+ 			"botao8": "",
+ 			"botao9": ""
+ 		}
+ 	},
+ 	{
+ 		"id": 57,
+ 		"meta": 5,
+ 		"valor_inicial": 15,
+ 		"jogadas": 5,
+ 		"frase_errou": "Tenta de novo!",
+ 		"frase_acertou": "Wow! Você conseguiu!",
+ 		"operador": {
+ 			"botao1": "",
+ 			"botao2": "soma",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "multiplicacao",
+ 			"botao6": "remover",
+ 			"botao7": "",
+ 			"botao8": "",
+ 			"botao9": "inverter"
+ 		},
+ 		"numeros": {
+ 			"botao1": "",
+ 			"botao2": "9",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "5",
+ 			"botao6": "",
+ 			"botao7": "",
+ 			"botao8": "",
+ 			"botao9": ""
+ 		}
+ 	},
+ 	{
+ 		"id": 58,
+ 		"meta": 13,
+ 		"valor_inicial": 100,
+ 		"jogadas": 5,
+ 		"frase_errou": "Tenta de novo!",
+ 		"frase_acertou": "Wow! Você conseguiu!",
+ 		"operador": {
+ 			"botao1": "",
+ 			"botao2": "divisao",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "",
+ 			"botao6": "inverter",
+ 			"botao7": "",
+ 			"botao8": "",
+ 			"botao9": ""
+ 		},
+ 		"numeros": {
+ 			"botao1": "",
+ 			"botao2": "2",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "",
+ 			"botao6": "",
+ 			"botao7": "",
+ 			"botao8": "",
+ 			"botao9": ""
+ 		}
+ 	},
+ 	{
+ 		"id": 59,
+ 		"meta": 1101,
+ 		"valor_inicial": 10,
+ 		"jogadas": 3,
+ 		"frase_errou": "Tenta de novo!",
+ 		"frase_acertou": "Wow! Você conseguiu!",
+ 		"operador": {
+ 			"botao1": "",
+ 			"botao2": "agregar",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "",
+ 			"botao6": "inverter",
+ 			"botao7": "",
+ 			"botao8": "",
+ 			"botao9": ""
+ 		},
+ 		"numeros": {
+ 			"botao1": "",
+ 			"botao2": "1",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "",
+ 			"botao6": "",
+ 			"botao7": "",
+ 			"botao8": "",
+ 			"botao9": ""
+ 		}
+ 	},
+ 	{
+ 		"id": 60,
+ 		"meta": 298,
+ 		"valor_inicial": 20,
+ 		"jogadas": 5,
+ 		"frase_errou": "Tenta de novo!",
+ 		"frase_acertou": "Wow! Você conseguiu!",
+ 		"operador": {
+ 			"botao1": "",
+ 			"botao2": "agregar",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "subtracao",
+ 			"botao6": "inverter",
+ 			"botao7": "",
+ 			"botao8": "soma",
+ 			"botao9": "trocar2"
+ 		},
+ 		"numeros": {
+ 			"botao1": "",
+ 			"botao2": "10",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "4",
+ 			"botao6": "",
+ 			"botao7": "",
+ 			"botao8": "5",
+ 			"botao9": "50 =&gt; 2"
+ 		}
+ 	},
+ 	{
+ 		"id": 61,
+ 		"meta": 7,
+ 		"valor_inicial": 0,
+ 		"jogadas": 4,
+ 		"frase_errou": "Tenta de novo!",
+ 		"frase_acertou": "Wow! Você conseguiu!",
+ 		"operador": {
+ 			"botao1": "",
+ 			"botao2": "agregar",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "soma",
+ 			"botao6": "inverter",
+ 			"botao7": "",
+ 			"botao8": "divisao",
+ 			"botao9": ""
+ 		},
+ 		"numeros": {
+ 			"botao1": "",
+ 			"botao2": "2",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "1",
+ 			"botao6": "",
+ 			"botao7": "",
+ 			"botao8": "3",
+ 			"botao9": ""
+ 		}
+ 	},
+ 	{
+ 		"id": 62,
+ 		"meta": 50,
+ 		"valor_inicial": 0,
+ 		"jogadas": 5,
+ 		"frase_errou": "Tenta de novo!",
+ 		"frase_acertou": "Wow! Você conseguiu!",
+ 		"operador": {
+ 			"botao1": "",
+ 			"botao2": "agregar",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "multiplicacao",
+ 			"botao6": "inverter",
+ 			"botao7": "",
+ 			"botao8": "multiplicacao",
+ 			"botao9": "remover"
+ 		},
+ 		"numeros": {
+ 			"botao1": "",
+ 			"botao2": "5",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "4",
+ 			"botao6": "",
+ 			"botao7": "",
+ 			"botao8": "2",
+ 			"botao9": ""
+ 		}
+ 	},
+ 	{
+ 		"id": 63,
+ 		"meta": 225,
+ 		"valor_inicial": 122,
+ 		"jogadas": 4,
+ 		"frase_errou": "Tenta de novo!",
+ 		"frase_acertou": "Wow! Você conseguiu!",
+ 		"operador": {
+ 			"botao1": "",
+ 			"botao2": "agregar",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "subtracao",
+ 			"botao6": "inverter",
+ 			"botao7": "",
+ 			"botao8": "",
+ 			"botao9": "trocar2"
+ 		},
+ 		"numeros": {
+ 			"botao1": "",
+ 			"botao2": "2",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "1",
+ 			"botao6": "",
+ 			"botao7": "",
+ 			"botao8": "",
+ 			"botao9": "11 =&gt; 5"
+ 		}
+ 	},
+ 	{
+ 		"id": 64,
+ 		"meta": 9,
+ 		"valor_inicial": 8,
+ 		"jogadas": 5,
+ 		"frase_errou": "Tenta de novo!",
+ 		"frase_acertou": "Wow! Você conseguiu!",
+ 		"operador": {
+ 			"botao1": "",
+ 			"botao2": "multiplicacao",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "agregar",
+ 			"botao6": "inverter",
+ 			"botao7": "",
+ 			"botao8": "divisao",
+ 			"botao9": ""
+ 		},
+ 		"numeros": {
+ 			"botao1": "",
+ 			"botao2": "3",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "1",
+ 			"botao6": "",
+ 			"botao7": "",
+ 			"botao8": "5",
+ 			"botao9": ""
+ 		}
+ 	},
+ 	{
+ 		"id": 65,
+ 		"meta": 13,
+ 		"valor_inicial": 0,
+ 		"jogadas": 5,
+ 		"frase_errou": "Tenta de novo!",
+ 		"frase_acertou": "Wow! Você conseguiu!",
+ 		"operador": {
+ 			"botao1": "",
+ 			"botao2": "soma",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "soma",
+ 			"botao6": "inverter",
+ 			"botao7": "",
+ 			"botao8": "soma",
+ 			"botao9": ""
+ 		},
+ 		"numeros": {
+ 			"botao1": "",
+ 			"botao2": "7",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "8",
+ 			"botao6": "",
+ 			"botao7": "",
+ 			"botao8": "9",
+ 			"botao9": ""
+ 		}
+ 	},
+ 	{
+ 		"id": 66,
+ 		"meta": 123,
+ 		"valor_inicial": 0,
+ 		"jogadas": 6,
+ 		"frase_errou": "Tenta de novo!",
+ 		"frase_acertou": "Wow! Você conseguiu!",
+ 		"operador": {
+ 			"botao1": "",
+ 			"botao2": "soma",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "agregar",
+ 			"botao6": "inverter",
+ 			"botao7": "",
+ 			"botao8": "subtracao",
+ 			"botao9": ""
+ 		},
+ 		"numeros": {
+ 			"botao1": "",
+ 			"botao2": "3",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "1",
+ 			"botao6": "",
+ 			"botao7": "",
+ 			"botao8": "2",
+ 			"botao9": ""
+ 		}
+ 	},
+ 	{
+ 		"id": 67,
+ 		"meta": 424,
+ 		"valor_inicial": 0,
+ 		"jogadas": 5,
+ 		"frase_errou": "Tenta de novo!",
+ 		"frase_acertou": "Wow! Você conseguiu!",
+ 		"operador": {
+ 			"botao1": "",
+ 			"botao2": "agregar",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "soma",
+ 			"botao6": "inverter",
+ 			"botao7": "",
+ 			"botao8": "",
+ 			"botao9": ""
+ 		},
+ 		"numeros": {
+ 			"botao1": "",
+ 			"botao2": "6",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "8",
+ 			"botao6": "",
+ 			"botao7": "",
+ 			"botao8": "",
+ 			"botao9": ""
+ 		}
+ 	},
+ 	{
+ 		"id": 68,
+ 		"meta": 81,
+ 		"valor_inicial": 7,
+ 		"jogadas": 5,
+ 		"frase_errou": "Tenta de novo!",
+ 		"frase_acertou": "Wow! Você conseguiu!",
+ 		"operador": {
+ 			"botao1": "",
+ 			"botao2": "subtracao",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "multiplicacao",
+ 			"botao6": "trocar3",
+ 			"botao7": "",
+ 			"botao8": "soma",
+ 			"botao9": "inverter"
+ 		},
+ 		"numeros": {
+ 			"botao1": "",
+ 			"botao2": "9",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "3",
+ 			"botao6": "- / +",
+ 			"botao7": "",
+ 			"botao8": "4",
+ 			"botao9": ""
+ 		}
+ 	},
+ 	{
+ 		"id": 69,
+ 		"meta": 28,
+ 		"valor_inicial": 0,
+ 		"jogadas": 7,
+ 		"frase_errou": "Tenta de novo!",
+ 		"frase_acertou": "Wow! Você conseguiu!",
+ 		"operador": {
+ 			"botao1": "",
+ 			"botao2": "soma",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "subtracao",
+ 			"botao6": "inverter",
+ 			"botao7": "",
+ 			"botao8": "",
+ 			"botao9": "remover"
+ 		},
+ 		"numeros": {
+ 			"botao1": "",
+ 			"botao2": "6",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "3",
+ 			"botao6": "",
+ 			"botao7": "",
+ 			"botao8": "",
+ 			"botao9": ""
+ 		}
+ 	},
+ 	{
+ 		"id": 70,
+ 		"meta": 136,
+ 		"valor_inicial": 0,
+ 		"jogadas": 5,
+ 		"frase_errou": "Tenta de novo!",
+ 		"frase_acertou": "Wow! Você conseguiu!",
+ 		"operador": {
+ 			"botao1": "",
+ 			"botao2": "agregar",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "soma",
+ 			"botao6": "inverter",
+ 			"botao7": "",
+ 			"botao8": "multiplicacao",
+ 			"botao9": ""
+ 		},
+ 		"numeros": {
+ 			"botao1": "",
+ 			"botao2": "1",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "2",
+ 			"botao6": "",
+ 			"botao7": "",
+ 			"botao8": "3",
+ 			"botao9": ""
+ 		}
  	}
  ]

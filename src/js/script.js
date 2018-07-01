@@ -423,8 +423,10 @@ $(document).ready(function(){
 				});
 			}
 
-			$("#c-nivel-53").addClass("desbloqueado");
-			$("#c-nivel-53").removeClass("bloqueado");
+			//Para testar, abrir os níveis
+
+			// $("#c-nivel-70").addClass("desbloqueado");
+			// $("#c-nivel-70").removeClass("bloqueado");
 
 			// Remove números
 
@@ -908,7 +910,7 @@ $(document).ready(function(){
 		    		$("#"+nivel+" .operador-elevado span em").html("x²");
 		    		break;
 		    		case "inverter":
-		    		$("#"+nivel+" .operador-inverter span em").html("inverter");
+		    		$("#"+nivel+" .operador-inverter").html("Inverter");
 		    		break;
 		    	}
 
