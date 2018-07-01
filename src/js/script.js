@@ -302,31 +302,42 @@ $(document).ready(function(){
 				var nivel_desbloqueado = $.cookie("nivel");
 				$.cookie("nivel", niveis);
 
-			}	
+			}
+
+			var tamanho = $(".estrelas i").length;
+
+			function estrela_nivel() {
+
+				var array_star = $(".estrelas i").map(function() { return $(this).text() }).get();
+				$.cookie("estrelas", array_star);
+				var cookie_star =  $.cookie("estrelas");
+				teste = cookie_star.split(/,/);  
+				for (j = 0; j <= tamanho; j++) {
+					$("#nivel-"+j+" .estrelas i").html(teste[j-1]);
+				}
+			}
 
 			function atualiza_cookie() {
+				// Total de estrelas adquiridas no jogo
 				var qtd_estrelas = $.cookie("star");
-				var qtd_nivel = $.cookie("nivel");
 				$(".screen-hidden .status-jogo .title i.number").html(qtd_estrelas);
+				// Total de níveis desbloqueados
+				var qtd_nivel = $.cookie("nivel");
 				$(".screen-hidden .status-jogo .title-nivel i.number").html(qtd_nivel);
 				if (qtd_nivel > 1) {
 					$('.screen-hidden .title-nivel i.text').html("níveis desbloqueados");
 				}
-			}
-
-			var array_star = $(".array li").map(function() { return $(this).text() }).get();
-			$.cookie("estrelas", array_star);
-			var cookie_star =  $.cookie("estrelas");
-			console.log("Este é o array que vem do dom: "+array_star);
-			console.log("Este é o array que vem do cookie: "+cookie_star);
-			teste = cookie_star.split(/,/);  
-			console.log("A posição do array do cookie é: "+teste[5]);
-
-			var tamanho = $(".array li").length;
-			console.log("O tamanho é: "+tamanho);
-
-			for (j = 0; j <= tamanho; j++) {
-				$(".array .array-"+j+" span").html(teste[j-1]);
+				// Total de estrelas adquiridas na fase
+				var qtd_star =  $.cookie("estrelas");
+				if (qtd_star == null) {
+					console.log("não existe o cookie setado");
+				} else {
+					console.log("o cookie está setado");
+					teste2 = qtd_star.split(/,/);
+					for (j = 0; j <= tamanho; j++) {
+						$("#nivel-"+j+" .estrelas i").html(teste2[j-1]);
+					}
+				}				
 			}
 
 			atualiza_cookie();
@@ -344,7 +355,9 @@ $(document).ready(function(){
 					somar_estrelas();
 					exibir_niveis();
 					seta_cookies();
+					estrela_nivel();
 					atualiza_cookie();
+					
 					
 				}
 				if (time >= "00:21" && time <= "00:30") {
@@ -356,6 +369,7 @@ $(document).ready(function(){
 					somar_estrelas();
 					exibir_niveis();
 					seta_cookies();
+					estrela_nivel();
 					atualiza_cookie();
 	
 				}
@@ -368,6 +382,7 @@ $(document).ready(function(){
 					somar_estrelas();
 					exibir_niveis();
 					seta_cookies();
+					estrela_nivel();
 					atualiza_cookie();
 				}
 
