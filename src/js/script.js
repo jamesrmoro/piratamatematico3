@@ -423,8 +423,8 @@ $(document).ready(function(){
 				});
 			}
 
-			// $("#c-nivel-50").addClass("desbloqueado");
-			// $("#c-nivel-50").removeClass("bloqueado");
+			$("#c-nivel-53").addClass("desbloqueado");
+			$("#c-nivel-53").removeClass("bloqueado");
 
 			// Remove números
 
@@ -501,6 +501,11 @@ $(document).ready(function(){
 				}
 			}
 
+			function inverte(p) {
+				temp = $("#"+nivel+" .total span").html();
+				temp5 = temp.split("").reverse().join("");;
+			}
+
 			function salva_fase() {
 
 				for (x = 1; x <= 50; x++) {
@@ -569,39 +574,43 @@ $(document).ready(function(){
 				
 				switch(operador) {
 					case "soma":
-					valor_inicial = valor_inicial+valor;
+						valor_inicial = valor_inicial+valor;
 					break;
 					case "multiplicacao":
-					valor_inicial = valor_inicial*valor;
+						valor_inicial = valor_inicial*valor;
 					break;
 					case "subtracao":
-					valor_inicial = valor_inicial-valor;
+						valor_inicial = valor_inicial-valor;
 					break;
 					case "divisao":
-					valor_inicial = valor_inicial/valor;
+						valor_inicial = valor_inicial/valor;
 					break;
 					case "remover":
-					remove_ultimo_numero();
-					valor_inicial = novo_valor;
+						remove_ultimo_numero();
+						valor_inicial = novo_valor;
 					break;
 					case "agregar":
-					agregar_numero(this);
-					valor_inicial = valor_inicial+valor_juntado;
+						agregar_numero(this);
+						valor_inicial = valor_inicial+valor_juntado;
 					break;
 					case "trocar":
-					trocar(this);
-					valor_inicial = temp2;
+						trocar(this);
+						valor_inicial = temp2;
 					break;
 					case "trocar2":
-					trocar2(this);
-					valor_inicial = temp3;
+						trocar2(this);
+						valor_inicial = temp3;
 					break;
 					case "trocar3":
-					trocar3(this);
-					valor_inicial = temp4;
+						trocar3(this);
+						valor_inicial = temp4;
 					break;
 					case "elevado":
-					valor_inicial = valor_inicial*valor_inicial;
+						valor_inicial = valor_inicial*valor_inicial;
+					break;
+					case "inverter":
+						inverte(this);
+						valor_inicial = temp5;
 					break;
 
 				}
@@ -897,6 +906,9 @@ $(document).ready(function(){
 		    		break;
 		    		case "elevado":
 		    		$("#"+nivel+" .operador-elevado span em").html("x²");
+		    		break;
+		    		case "inverter":
+		    		$("#"+nivel+" .operador-inverter span em").html("inverter");
 		    		break;
 		    	}
 

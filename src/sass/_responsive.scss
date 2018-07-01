@@ -1263,7 +1263,7 @@
 
 						content: "Nível bloqueado";
 						position: absolute;
-						left: -36px;
+						left: -27px;
 						top: 4px;
 						background-color: #000;
 						width: 100px;
@@ -1755,7 +1755,24 @@
 							box-shadow: 0 5px darken(#be18da, 20%);
 						}
 					}
+					
+					.operador-inverter {
 
+						background-color: #b78f40;
+						box-shadow: 0 9px darken(#b78f40, 20%);
+						height: 40px;
+
+						em {
+
+							font-size: 0.8em;
+							font-family: Arial;
+						}
+
+						&:active {
+
+							box-shadow: 0 5px darken(#b78f40, 20%);
+						}
+					}
 					
 
 					.operador-elevado {

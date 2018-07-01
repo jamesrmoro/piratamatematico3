@@ -451,9 +451,9 @@
  	},
  	{
  		"id": 16,
- 		"meta": 2,
+ 		"meta": 24,
  		"valor_inicial": 0,
- 		"jogadas": 5,
+ 		"jogadas": 6,
  		"frase_errou": "Tenta de novo!",
  		"frase_acertou": "Wow! Você conseguiu!",
  		"operador": {
@@ -464,18 +464,18 @@
  			"botao5": "multiplicacao",
  			"botao6": "remover",
  			"botao7": "",
- 			"botao8": "",
+ 			"botao8": "multiplicacao",
  			"botao9": ""
  		},
  		"numeros": {
  			"botao1": "",
- 			"botao2": "4",
+ 			"botao2": "5",
  			"botao3": "",
  			"botao4": "",
- 			"botao5": "9",
+ 			"botao5": "3",
  			"botao6": "",
  			"botao7": "",
- 			"botao8": "",
+ 			"botao8": "5",
  			"botao9": ""
  		}
  	},
@@ -1494,6 +1494,96 @@
  			"botao4": "",
  			"botao5": "9",
  			"botao6": "+ / -",
+ 			"botao7": "",
+ 			"botao8": "",
+ 			"botao9": ""
+ 		}
+ 	},
+ 	{
+ 		"id": 51,
+ 		"meta": 3,
+ 		"valor_inicial": 34,
+ 		"jogadas": 5,
+ 		"frase_errou": "Tenta de novo!",
+ 		"frase_acertou": "Wow! Você conseguiu!",
+ 		"operador": {
+ 			"botao1": "",
+ 			"botao2": "subtracao",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "soma",
+ 			"botao6": "trocar3",
+ 			"botao7": "",
+ 			"botao8": "divisao",
+ 			"botao9": ""
+ 		},
+ 		"numeros": {
+ 			"botao1": "",
+ 			"botao2": "5",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "8",
+ 			"botao6": "+ / -",
+ 			"botao7": "",
+ 			"botao8": "7",
+ 			"botao9": ""
+ 		}
+ 	},
+ 	{
+ 		"id": 52,
+ 		"meta": 4,
+ 		"valor_inicial": 25,
+ 		"jogadas": 5,
+ 		"frase_errou": "Tenta de novo!",
+ 		"frase_acertou": "Wow! Você conseguiu!",
+ 		"operador": {
+ 			"botao1": "",
+ 			"botao2": "subtracao",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "multiplicacao",
+ 			"botao6": "trocar3",
+ 			"botao7": "",
+ 			"botao8": "divisao",
+ 			"botao9": "divisao"
+ 		},
+ 		"numeros": {
+ 			"botao1": "",
+ 			"botao2": "4",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "-4",
+ 			"botao6": "+ / -",
+ 			"botao7": "",
+ 			"botao8": "3",
+ 			"botao9": "8"
+ 		}
+ 	},
+ 	{
+ 		"id": 53,
+ 		"meta": 41,
+ 		"valor_inicial": 12,
+ 		"jogadas": 2,
+ 		"frase_errou": "Tenta de novo!",
+ 		"frase_acertou": "Wow! Você conseguiu!",
+ 		"operador": {
+ 			"botao1": "",
+ 			"botao2": "soma",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "",
+ 			"botao6": "inverter",
+ 			"botao7": "",
+ 			"botao8": "",
+ 			"botao9": ""
+ 		},
+ 		"numeros": {
+ 			"botao1": "",
+ 			"botao2": "2",
+ 			"botao3": "",
+ 			"botao4": "",
+ 			"botao5": "",
+ 			"botao6": "",
  			"botao7": "",
  			"botao8": "",
  			"botao9": ""
