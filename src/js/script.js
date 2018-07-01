@@ -305,6 +305,7 @@ $(document).ready(function(){
 			}
 
 			var tamanho = $(".estrelas i").length;
+			var tamanho_resolvido = $(".status-nivel span i").length;
 
 			function estrela_nivel() {
 
@@ -314,6 +315,17 @@ $(document).ready(function(){
 				teste = cookie_star.split(/,/);  
 				for (j = 0; j <= tamanho; j++) {
 					$("#nivel-"+j+" .estrelas i").html(teste[j-1]);
+				}
+			}
+
+			function estado_resolvido() {
+
+				var array_resolvido = $(".status-nivel span i").map(function() { return $(this).text() }).get();
+				$.cookie("resolvido", array_resolvido);
+				var cookie_resolvido =  $.cookie("resolvido");
+				teste3 = cookie_resolvido.split(/,/);  
+				for (j = 0; j <= tamanho_resolvido; j++) {
+					$("#nivel-"+j+" .status-nivel span i").html(teste3[j-1]);
 				}
 			}
 
@@ -332,12 +344,24 @@ $(document).ready(function(){
 				if (qtd_star == null) {
 					console.log("não existe o cookie setado");
 				} else {
-					console.log("o cookie está setado");
 					teste2 = qtd_star.split(/,/);
 					for (j = 0; j <= tamanho; j++) {
 						$("#nivel-"+j+" .estrelas i").html(teste2[j-1]);
 					}
-				}				
+				}
+				// Total de soluções resolvidas na fase
+				var qtd_solucoes =  $.cookie("resolvido");
+				if (qtd_solucoes == null) {
+					console.log("não existe o cookie setado");
+				} else {
+					teste3 = qtd_solucoes.split(/,/);
+					for (j = 0; j <= tamanho_resolvido; j++) {
+						$("#nivel-"+j+" .status-nivel span i").html(teste3[j-1]);
+						if ($("#nivel-"+j+" .status-nivel span i").html() == "Resolvido") {
+							$("#nivel-"+j+" .status-nivel span i").css("color", "#8BC34A");
+						}
+					}
+				}					
 			}
 
 			atualiza_cookie();
@@ -356,6 +380,7 @@ $(document).ready(function(){
 					exibir_niveis();
 					seta_cookies();
 					estrela_nivel();
+					estado_resolvido();
 					atualiza_cookie();
 					
 					
@@ -370,6 +395,7 @@ $(document).ready(function(){
 					exibir_niveis();
 					seta_cookies();
 					estrela_nivel();
+					estado_resolvido();
 					atualiza_cookie();
 	
 				}
@@ -383,11 +409,9 @@ $(document).ready(function(){
 					exibir_niveis();
 					seta_cookies();
 					estrela_nivel();
+					estado_resolvido();
 					atualiza_cookie();
 				}
-
-				var desb = $("#"+nivel+"").find(".status-nivel").attr("data-status");
-				var n = $(".desbloqueado").closest("body").find("#c-"+nivel+"").addClass("desbloqueado");
 			}
 
 			$(".calculadora li:nth-of-type(3)").text("Limpar").addClass("clear clear-bloqueado");
