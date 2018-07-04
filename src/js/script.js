@@ -819,8 +819,20 @@ $(document).ready(function(){
 				$(".mensagem-1").removeClass("exibe");
 				$(".mensagem-2").removeClass("exibe");
 				console.log("teste");
-				$(".mensagem-2").after("<div class='mensagem-3'>oi</div>");
-			})
+				$(this).closest(".conteudo").find("#controle #"+nivel+" .mensagem-2").after("<div class='mensagem-3'><div class='grupo-msg'><span class='close-msg'></span><div class='conteudo-box'><span title='Jogar novamente' class='jogar-novamente button'>Deseja sair?</span><span title='Sim' class='sair-nivel button'>Sim</span></div></div></div>");
+			});
+
+			$("body").on("click", ".sair-nivel", function() {
+				$(".nivel").fadeOut();
+				para_tempo();
+				setTimeout(function() {
+					$(".mensagem-3").remove();
+				}, 500);
+			});
+
+			$("body").on("click", ".close-msg", function() {
+				$(".mensagem-3").remove();
+			});
 
 			$('body').on('click', ".calculadora li.start-time", function(){
 				inicia_tempo(nivel);

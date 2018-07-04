@@ -1073,6 +1073,34 @@
 			position: fixed;
 			top: 0;
 			left: 0;
+
+			.close-msg {
+
+				width: 30px;
+			    height: 30px;
+			    position: absolute;
+			    top: 0;
+			    right: 0;
+			    background: url(../../src/images/sprite.png) no-repeat;
+			    background-position: -74px -229px;
+			    cursor: pointer;
+			    background-color: #614439;
+			}
+
+			.grupo-msg {
+
+				@include content-center();
+				background: url(../../src/images/sprite.png) no-repeat;
+				background-position: -196px -15px;
+				width: 230px;
+				padding: 10px;
+
+				.conteudo-box {
+
+					padding: 10px;
+					border: 1px dashed #fff;
+				}
+			}
 		}
 
 		.msg-life {
@@ -1191,7 +1219,7 @@
 			font-size: 1.9em;
 			cursor: pointer;
 
-			&.proximo-nivel {
+			&.proximo-nivel, &.sair-nivel {
 
 				border-radius: 20px;
 				background-color: #2fb534;
