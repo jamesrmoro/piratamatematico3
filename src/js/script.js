@@ -802,7 +802,7 @@ $(document).ready(function(){
 				snd.play();
 			}
 
-			$("body").on("click", ".item-left, .item-left img, .close, .close-nivel, .game-over .proximo-nivel", function() {
+			$("body").on("click", ".close, .close-nivel, .game-over .proximo-nivel", function() {
 				sair();
 				$(".nivel").fadeOut();
 				$(".wrapper-calculadora").removeClass("hide");
@@ -812,6 +812,15 @@ $(document).ready(function(){
 				limpa_tempo(nivel)
 				pega_limpa_jogada(nivel);
 			});
+
+			$("body").on("click", "item-left, .item-left img", function() {
+				//$(".nivel").fadeOut();
+				$(".wrapper-calculadora").removeClass("hide");
+				$(".mensagem-1").removeClass("exibe");
+				$(".mensagem-2").removeClass("exibe");
+				console.log("teste");
+				$(".mensagem-2").after("<div class='mensagem-3'>oi</div>");
+			})
 
 			$('body').on('click', ".calculadora li.start-time", function(){
 				inicia_tempo(nivel);

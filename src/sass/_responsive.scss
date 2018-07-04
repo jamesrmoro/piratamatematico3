@@ -1062,6 +1062,19 @@
 			}
 		}
 
+		.mensagem-3 {
+
+			height: 100%;
+			width: 100%;
+			@include transition(0.5s);
+			opacity: 1;
+			background-color: rgba(0, 0, 0, 0.9);
+			z-index: 9;
+			position: fixed;
+			top: 0;
+			left: 0;
+		}
+
 		.msg-life {
 
 			font-size: 1.4em;
