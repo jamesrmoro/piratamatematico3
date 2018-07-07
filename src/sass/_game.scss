@@ -26,6 +26,8 @@ body {
     margin: 0;
 }
 
+
+
 @mixin content-center() {
 
 	transform: translate(-50%, -50%);
@@ -34,6 +36,14 @@ body {
 	top: 50%;
 	position: absolute;
 
+}
+
+.tela-principal {
+
+    width: 350px;
+    @include content-center();
+    height: 100vh;
+    overflow: hidden;
 }
 
 @font-face {
@@ -225,3 +235,2003 @@ body {
 
     
 }
+
+// #html2canvas{
+//     width:150px;
+//     text-align:center;
+//     padding:30px;
+//     font-weight:bolder;
+//     color:#FFF;
+//     font-size:25px;
+//     background:#000;
+// }
+
+// canvas {
+
+//  position: absolute;
+//  right: 0;
+//  top: 0;
+// }
+
+
+
+#game {
+
+    display: block;
+}
+
+.bg-noite {
+
+    display: none;
+}
+
+.logo {
+
+    width: 270px;
+
+    img {
+
+        max-width: 100%;
+    }
+}
+
+.click-down {
+
+    background: rgba(97, 82, 77, 0.6705882352941176);
+    z-index: 91;
+    position: absolute;
+    color: #fff;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 35px;
+    font-size: 1.25em;
+    display: inline-block;
+    height: 100%;
+    padding-top: 130px;
+
+    i {
+
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        right: 25px;
+        top: 95px;
+        font-style: normal;
+        font-size: 1.1em;
+        line-height: 37px;
+        font-family: arial;
+        font-weight: bold;
+        cursor: pointer;
+        color: #FFEB3B
+    }
+
+    strong {
+
+        color: #fff;
+        background-color: #8BC34A;
+        display: inline-block;
+        padding: 9px;
+        margin-top: 10px;
+        font-weight: normal;
+        cursor: pointer;
+        width: 100%;
+    }
+
+}
+
+.button-song {
+
+    position: absolute;
+    bottom: 17px;
+    right: 65px;
+    background: url(../../src/images/sprite.png) no-repeat;
+    width: 34px;
+    height: 40px;
+    border: none;
+    outline: none;
+    background-position: -66px -500px;
+    cursor: pointer;
+
+    &:after {
+
+        content: "Música";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        font-family: arial;
+        font-size: 0.6em;
+        font-weight: bold;
+        text-decoration: line-through;
+        color: #d66868;
+    }
+
+    &.active {
+
+        background-position: -9px -500px;
+
+        &:after {
+
+            color: #000;
+            text-decoration: initial;
+        }
+    }
+}
+
+.ceu-tarde {
+
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fc3232+0,f7b634+100 */
+    background: #fc3232;
+    background: -moz-linear-gradient(top, #fc3232 0%, #f7b634 100%);
+    background: -webkit-linear-gradient(top, #fc3232 0%, #f7b634 100%);
+    background: linear-gradient(to bottom, #fc3232 0%, #f7b634 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fc3232', endColorstr='#f7b634',GradientType=0 );
+    height: 400px;
+    position: absolute;
+    z-index: 9;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    &:before {
+
+        background-color: #fedd33;
+        width: 140px;
+        height: 140px;
+        border-radius: 100%;
+        content: "";
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        bottom: -10px;
+        z-index: 1;
+        position: absolute;
+    }
+}
+
+.noite {
+
+    .bg-noite {
+
+        display: block;
+    }
+}
+
+@keyframes move-twink-back {
+
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-webkit-keyframes move-twink-back {
+
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-moz-keyframes move-twink-back {
+
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+@-ms-keyframes move-twink-back {
+
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+
+.stars, .twinkling {
+
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    width:100%;
+    height:100%;
+    display:block;
+    z-index: 999;
+}
+
+.stars {
+
+    background:#000 url(../../src/images/stars.png) repeat top center;
+    z-index:0;
+}
+
+.twinkling{
+
+    background: transparent url(../../src/images/twinkling.png) repeat top center;
+    z-index:1;
+
+    -moz-animation:move-twink-back 200s linear infinite;
+    -ms-animation:move-twink-back 200s linear infinite;
+    -o-animation:move-twink-back 200s linear infinite;
+    -webkit-animation:move-twink-back 200s linear infinite;
+    animation:move-twink-back 200s linear infinite;
+}
+
+.clouds {
+
+    height: 320px;
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+    overflow: hidden;
+    top: -20px;
+}
+
+.cloud {
+
+    width: 200px;
+    height: 60px;
+    background: #fff;    
+    border-radius: 200px;
+    position: relative;
+    z-index: 9;
+
+    &:before, &:after {
+
+        content: '';
+        position: absolute; 
+        background: #fff;
+        width: 100px;
+        height: 80px;
+        position: absolute;
+        top: -15px;
+        left: 10px;
+        
+        border-radius: 100px;
+        -moz-border-radius: 100px;
+        -webkit-border-radius: 100px;
+        
+        -webkit-transform: rotate(30deg);
+        transform: rotate(30deg);
+        -moz-transform: rotate(30deg);
+    }
+
+    &:after {
+
+        width: 120px;
+        height: 120px;
+        top: -55px;
+        left: auto;
+        right: 15px;
+    }
+}
+
+
+.c1 {
+    -webkit-animation: moveclouds 70s linear infinite;
+    -moz-animation: moveclouds 70s linear infinite;
+    -o-animation: moveclouds 70s linear infinite;
+    top: 185px;
+}
+
+.c2 {
+
+    left: 200px;
+    top: 70px;
+    
+    -webkit-transform: scale(0.6);
+    -moz-transform: scale(0.6);
+    transform: scale(0.6);
+    opacity: 0.6;
+
+    -webkit-animation: moveclouds 65s linear infinite;
+    -moz-animation: moveclouds 65s linear infinite;
+    -o-animation: moveclouds 65s linear infinite;
+}
+
+.c3 {
+
+    left: -250px;
+    top: -300px;
+    
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    transform: scale(0.8);
+    opacity: 0.8;
+    
+    -webkit-animation: moveclouds 60s linear infinite;
+    -moz-animation: moveclouds 60s linear infinite;
+    -o-animation: moveclouds 60s linear infinite;
+}
+
+.c4 {
+
+    left: 470px;
+    top: -250px;
+    
+    -webkit-transform: scale(0.75);
+    -moz-transform: scale(0.75);
+    transform: scale(0.75);
+    opacity: 0.75;
+    
+    -webkit-animation: moveclouds 58s linear infinite;
+    -moz-animation: moveclouds 58s linear infinite;
+    -o-animation: moveclouds 58s linear infinite;
+}
+
+.c5 {
+    left: -150px;
+    top: -110px;
+    
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    transform: scale(0.8);
+    opacity: 0.8;
+    
+    -webkit-animation: moveclouds 60s linear infinite;
+    -moz-animation: moveclouds 60s linear infinite;
+    -o-animation: moveclouds 60s linear infinite;
+}
+
+@-webkit-keyframes moveclouds {
+
+    0% {margin-left: 600px;}
+    100% {margin-left: -600px;}
+}
+
+@-moz-keyframes moveclouds {
+
+    0% {margin-left: 600px;}
+    100% {margin-left: -600px;}
+}
+
+@-o-keyframes moveclouds {
+    0% {margin-left: 600px;}
+    100% {margin-left: -600px;}
+}
+
+#game {
+
+    height: 100vh;
+
+    @font-face {
+        font-family: 'alarmclock';
+        src: url('../fonts/alarmclock.woff') format('woff'),
+        url('../fonts/alarmclock.ttf') format('truetype'),
+        url('../fonts/alarm clock.eot'),
+        url('../fonts/alarmclock.svg#alarmclock') format('svg'),
+        url('../fonts/alarm clock.eot?#iefix') format('embedded-opentype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    .sea {
+
+        overflow: hidden;
+        position: relative;
+        z-index: 9999;
+        width: 100%;
+        bottom: -245px;
+
+        .submarine-wrapper {
+
+            height: 200px;
+            width: 200px;
+            padding: 0;
+            animation: diving 3s ease-in-out infinite, diving-rotate 3s ease-in-out infinite;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+            
+           .submarine-body {
+               
+                width: 175px;
+                height: 100px;
+                position: absolute;
+                margin-top: 50px;
+                left: 0px;
+                background-color: #FFC107;
+                border-radius: 50%;
+                background: linear-gradient(#FFC107, #FF9800);
+                overflow: hidden;
+
+                &:before {
+
+                    width: 30px;
+                    content: "";
+                    left: -10px;
+                    background-color: #000;
+                    height: 100%;
+                    position: absolute;
+                    border-bottom-left-radius: 100%;
+                    border-top-left-radius: 100%;
+                    top: 0;
+                }
+              
+               .janela {
+
+                    width: 37px;
+                    height: 37px;
+                    position: absolute;
+                    margin-top: 31px;
+                    background: linear-gradient(#ffffff, #9ce3ff);
+                    border-radius: 50%;
+                    border: 3px solid #000000;
+
+                    &.janela1 {
+
+                        left: 35px;
+                    }
+
+                    &.janela2 {
+
+                        right: 56px;
+                    }
+                   
+                    &:after {
+
+                        content: "";
+                        position: absolute;
+                        margin-top: 3px;
+                        margin-left: 3px;
+                        width: 25px;
+                        height: 25px;
+                        left: 0;
+                        border-radius: 50%;
+                        background-color: transparent;
+                        opacity: 0.8;
+                        border-top: 3px solid #a0b8c3;
+                        transform: rotate(-45deg);
+                    }
+               }
+               
+               .motor {
+
+                    width: 30px;
+                    height: 30px;
+                    position: absolute;
+                    margin-top: 32px;
+                    right: 20px;
+                    background-color: #1a1a1a;
+                    border-radius: 50%;
+                    border: 5px solid #333;
+                    top: 3px;
+                   
+                    &:after, &:before {
+
+                        position: absolute;
+                        content: "";
+                        border-radius: 2px;
+                        background-color: white;
+                        animation:spin 900ms linear infinite;
+                        opacity:0.8;
+                    }
+
+                    &:after {
+
+                        top:8px;
+                        width: 20px;
+                        height: 4px;
+                        left: 0;
+
+                    }
+
+                    &:before {
+
+                        left:8px;
+                        width: 4px;
+                        height: 20px;
+
+                    }
+               }
+            }
+           
+            .helice {
+
+                width: 30px;
+                height: 48px;
+                position: absolute;
+                margin-top: 75px;
+                right: 0px;
+                background-color: #333;
+                border-radius: 7px;
+                background: linear-gradient(#333, #1a1a1a);
+                overflow: hidden;
+
+                &:after {
+
+                    content: "";
+                    position: absolute;
+                    margin-top: 6px;
+                    margin-left: 7px;
+                    width: 17px;
+                    height: 35px;
+                    left: 0;
+                    border-radius: 3px;
+                    background-color: transparent;
+                    opacity: 0.8;
+                    background: linear-gradient(to bottom, #333, #333 50%, #595959 50%, #595959);
+                    background-size: 100% 20px;
+                    animation: movimento_helice 110ms linear infinite;
+
+                }
+            }
+            
+            .topo-cabine {
+
+                width: 65px;
+                height: 25px;
+                position: absolute;
+                margin-top: 29px;
+                left: 58px;
+                background-color: #333;
+                border-radius: 10px 10px 0 0;
+                background: linear-gradient(#333, #2b2b2b);
+               
+                .cano {
+
+                    position: absolute;
+                    width: 7px;
+                    height: 20px;
+                    background-color: #9e9e9e;
+                    margin-top: -27px;
+                    margin-left: 24px;
+                    border-radius: 5px 5px 0 0;
+                    
+                    &:after, &:before {
+                        content: "";
+                        position: absolute;
+                        width: 15px;
+                        height: 7px;
+                        border-radius: 5px;
+                        background-color: #9e9e9e;
+                    }
+
+                    &:before {
+
+                        right: 4px;
+                    }
+
+                    &:after {
+
+                        right: 0;
+                    }
+                }
+                
+                .luzes-area {
+
+                    width: 53px;
+                    height: 13px;
+                    position: relative;
+                    top:7px;
+                    left:7px;
+                    background-color: #333;
+                    border-radius: 10px;
+                    background: linear-gradient(darken(#333, 12%), darken(#333, 16%));
+                    
+                    .luzes {
+
+                        position: absolute;
+                        margin-top: 4px;
+                        margin-left: 7px;
+                        width: 5px;
+                        height: 5px;
+                        border-radius: 50%;
+                        background-color: #fff;
+                        animation: leds-off 500ms linear infinite;
+
+                        &:after, &:before {
+
+                            content: "";
+                            position: absolute;
+                            width: 5px;
+                            height: 5px;
+                            border-radius: 50%;
+                            background-color: #fff;
+                        }
+
+                        &:after {
+
+                            margin-top:0px;
+                            margin-left:17px;
+                        }
+
+                        &:before {
+
+                            margin-top: 0px;
+                            margin-left: 34px;
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+
+    @keyframes spin {
+
+        100% { 
+            transform:rotate(360deg); 
+        } 
+    }
+
+    @keyframes leds-off {
+
+        100% { 
+            opacity:0.3;
+        } 
+    }
+
+    @keyframes movimento_helice {
+
+        100% {
+            background: linear-gradient(
+              to bottom,
+              lighten(#333, 15%) 50%,
+              lighten(#333, 15%),
+              #333,
+              #333 50%
+            );
+            background-size: 100% 20px;
+        }
+    }
+
+    @keyframes diving {
+
+        0% {
+             margin-top:5px;
+        }
+        50% {
+             margin-top:15px;
+        }
+        
+        100% {
+             margin-top:5px;
+        }
+    }
+
+    @keyframes diving-rotate {
+
+        0% {
+             transform:rotate(0deg); 
+        }
+        50% {
+             transform:rotate(3deg); 
+        }
+        75% {
+            transform:rotate(-2deg); 
+        }
+        100% {
+            transform:rotate(0deg); 
+        }
+    }
+
+    .onda {
+
+        display: block;
+        position: absolute;
+        height: 100px;
+        z-index: 999;
+        width: 100%;
+        top: 275px;
+    }
+
+    .msg {
+
+        width: 130px;
+        display: inline-block;
+        margin: 0 auto;
+        left: -43px;
+        right: 0;
+        line-height: 19px;
+        position: relative;
+        padding: 12px;
+        padding-top: 25px;
+        background: url(../../src/images/sprite.png) no-repeat;
+        background-position: -139px -403px;
+        height: 130px;
+        top: -1px;
+        font-size: 0.8em;
+
+        strong {
+
+            width: 100%;
+            display: inline-block;
+            font-size: 1.3em;
+            color: #009688;
+        }
+    }
+
+    .msg-game-over {
+
+        &.show {
+
+            &:before {
+
+                position: absolute;
+                left: 56px;
+                top: 0;
+                content: "Você não tem vidas ainda para voltar a jogar :(";
+                background: url(../../src/images/sprite.png) no-repeat;
+                background-position: 1px -369px;
+                color: #333;
+                width: 92px;
+                padding: 24px;
+                text-align: left;
+                font-size: 1.2em;
+                height:73px;
+                padding-top: 28px;
+            }
+
+        }
+
+    }
+
+
+    .icon-loose {
+
+        position: relative;
+        padding-top: 56px;
+
+        &:before {
+
+            width: 46px;
+            height: 46px;
+            content: "";
+            left: 0;
+            right: 0;
+            content: "";
+            top: 0;
+            margin: 0 auto;
+            position: absolute;
+            background: url(../../src/images/sprite.png) no-repeat;
+            background-position: -6px -6px;
+        }
+    }
+
+    .icon-win {
+
+        position: relative;
+        padding-top: 56px;
+
+        &:before {
+
+            width: 86px;
+            height: 53px;
+            content: "";
+            left: 0;
+            right: 0;
+            content: "";
+            top: 0;
+            margin: 0 auto;
+            position: absolute;
+            background: url(../../src/images/sprite.png) no-repeat;
+            background-position: -56px -2px;
+        }
+    }
+
+    .star {
+
+        padding: 0;
+        margin: 0;
+        margin-top: 10px;
+        margin-bottom: 10px;
+
+        li {
+
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: url(../../src/images/sprite.png) no-repeat;
+            background-position: -80px -58px;
+
+            &.win {
+
+                background: url(../../src/images/sprite.png) no-repeat;
+                background-position: -50px -58px;
+            }
+        }
+    }
+
+    .close-nivel {
+
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: url(../../src/images/sprite.png) no-repeat;
+        background-position: -74px -229px;
+        cursor: pointer;
+        background-color: #614439;
+    }
+
+    .status-nivel {
+
+        color: #fff;
+        float: left;
+        width: 50%;
+        text-align: left;
+        position: relative;
+        padding-left: 25px;
+        margin-top: 10px;
+
+        i {
+
+            color: #fc6155;
+        }
+
+        &:before {
+
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            content: "";
+            left: 0;
+            top: 0px;
+            background: url(../../src/images/sprite.png) no-repeat;
+            background-position: -5px -340px;
+        }
+
+        &.desbloqueado {
+
+            &:before {
+
+                background-position: -24px -340px;
+            }
+
+            i {
+
+                color: #8BC34A;
+            }
+
+
+        }
+
+        strong {
+
+            font-weight: normal;
+        }
+
+        i {
+
+            font-style: normal;
+        }
+    }
+
+    .estrelas {
+
+        float: right;
+        text-align: right;
+        color: #fff;
+        margin-top: 10px;
+
+        strong {
+
+            font-weight: normal;
+        }
+
+        i {
+
+            font-style: normal;
+        }
+    }
+
+    .mensagem-1 {
+
+        position: absolute;
+        left: 0;
+        bottom: -800px;
+        content: "";
+        width: 100%;
+        height: 178px;
+        @include transition(0.5s);
+        opacity: 1;
+
+        &.exibe {
+
+            opacity: 1;
+            bottom: 217px;
+            @include transition(0.5s);
+        }
+
+        &.acertou {
+
+            background-color: rgba(139, 195, 74, 0.8);
+
+            .status-win-or-loose {
+
+                &:before {
+
+                    background: url(../../src/images/sprite.png) no-repeat;
+                    background-position: -69px -269px;
+                }
+            }
+        }
+
+        &.errou {
+
+            background-color: rgba(244, 67, 54, 0.9);
+
+            .status-win-or-loose {
+
+                &:before {
+
+                    background: url(../../src/images/sprite.png) no-repeat;
+                    background-position: 4px -267px;
+                }
+            }
+        }
+
+        .status-msg {
+
+            color: #fff;
+        }
+
+        .status-win-or-loose {
+
+            @include content-center();
+            color: #fff;
+            font-size: 2em;
+            text-shadow: 1px 1px 1px #626262;
+            position: relative;
+            width: 100%;
+            display: inherit;
+            padding-top: 40px;
+
+            &:before {
+
+                width: 67px;
+                height: 67px;
+                content: "";
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                position: absolute;
+                top: -35px;
+            }
+        }
+
+    }
+
+    .mensagem-2 {
+
+        position: absolute;
+        left: 0;
+        bottom: -800px;
+        content: "";
+        width: 100%;
+        height: 100%;
+        @include transition(0.5s);
+        opacity: 1;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding-top: 25px;
+
+        &.exibe {
+
+            opacity: 1;
+            bottom: 0;
+            @include transition(0.5s);
+        }
+
+        .jogar-novamente {
+
+            text-indent: -9999px;
+            width: 40px;
+            position: relative;
+            background: #4CAF50;
+            padding: 0;
+
+            &:before {
+
+                background: url(../../src/images/sprite.png) no-repeat;
+                background-position: -6px -62px;
+                width: 28px;
+                height: 27px;
+                content: "";
+                left: 0;
+                top: 4px;
+                position: absolute;
+                right: 0;
+                margin: 0 auto;
+            }
+        }
+
+        &.acertou {
+
+        }
+
+        &.errou {
+
+            .proximo-nivel {
+
+                display: none;
+            }
+        }
+
+        .grupo-msg {
+
+            @include content-center();
+            background: url(../../src/images/sprite.png) no-repeat;
+            background-position: -196px -15px;
+            width: 230px;
+            padding: 10px;
+
+            .conteudo-box {
+
+                padding: 10px;
+                border: 1px dashed #fff;
+            }
+        }
+
+        .time-box {
+
+            color: #fff;
+            width: 100%;
+            display: inline-block;
+
+            i {
+
+                font-family: 'alarmclock';
+                font-size: 2em;
+                color: #fff;
+                display: inline-block;
+                font-style: normal;
+                width: 100%;
+            }
+        }
+
+        .status-msg {
+
+            color: #ffe500;
+            display: inline-block;
+            width: 100%;
+            text-shadow: 1px 1px 1px #626262;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            line-height: 25px;
+        }
+
+        .time {
+
+            color: #fff;
+
+            i {
+
+                font-style: normal;
+            }
+        }
+    }
+
+    .mensagem-3 {
+
+        height: 100%;
+        width: 100%;
+        @include transition(0.5s);
+        opacity: 1;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 9;
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        .close-msg {
+
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: url(../../src/images/sprite.png) no-repeat;
+            background-position: -74px -229px;
+            cursor: pointer;
+            background-color: #614439;
+        }
+
+        .grupo-msg {
+
+            @include content-center();
+            background: url(../../src/images/sprite.png) no-repeat;
+            background-position: -196px -15px;
+            width: 230px;
+            padding: 10px;
+
+            .conteudo-box {
+
+                padding: 10px;
+                border: 1px dashed #fff;
+            }
+        }
+    }
+
+    .msg-life {
+
+        font-size: 1.4em;
+        width: 100%;
+        text-align: left;
+        padding-left: 64px;
+        display: inline-block;
+    }
+
+    #controle {
+
+        position: relative;
+        height: 100%;
+    }
+
+    .status-top {
+
+        background-color: #f1f1f1;
+        width: 100%;
+        vertical-align: top;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        top: 0;
+        position: fixed;
+        -webkit-border-bottom-right-radius: 20px;
+        -webkit-border-bottom-left-radius: 20px;
+        -moz-border-radius-bottomright: 20px;
+        -moz-border-radius-bottomleft: 20px;
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        z-index: 999999;
+        display: block;
+        height: 65px;
+        left: 0;
+
+        .item {
+
+            position: absolute;
+            top: 0;
+            width: 55px;
+            height: 65px;
+            background-color: #dcdddf;
+            cursor: pointer;
+
+            img {
+
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                padding-bottom: 20px;
+                padding-left: 14px;
+                padding-top: 22px;
+                width: 100%;
+                padding-right: 14px;
+                height: 100%;
+            }
+        }
+
+        .item-left, .msg-game-over {
+
+            left: 0;
+            -webkit-border-top-right-radius: 20px;
+            -webkit-border-bottom-left-radius: 20px;
+            -moz-border-radius-topright: 20px;
+            -moz-border-radius-bottomleft: 20px;
+            border-top-right-radius: 20px;
+            border-bottom-left-radius: 20px;
+        }
+
+        .item-right {
+
+            -webkit-border-top-left-radius: 20px;
+            -webkit-border-bottom-right-radius: 20px;
+            -moz-border-radius-topleft: 20px;
+            -moz-border-radius-bottomright: 20px;
+            border-top-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            right: 0;
+        }
+    }
+
+    .lifes {
+
+        text-align: left;
+        margin: 0;
+        padding: 0;
+        padding-left: 60px;
+
+        li.heart {
+
+            display: inline-block;
+            background: url(../../src/images/shapes.svg) no-repeat;
+            width: 16px;
+            height: 15px;
+            margin-left: 2px;
+            margin-right: 2px;
+
+            i {
+
+                display: none;
+            }
+        }
+    }
+
+    .content-center {
+
+        @include content-center;
+    }
+
+    .button {
+
+        padding: 10px;
+        display: inline-block;
+        width: 100%;
+        border-radius: 35px;
+        color: #fff;
+        font-size: 1.9em;
+        cursor: pointer;
+
+        &.proximo-nivel, &.sair-nivel {
+
+            border-radius: 20px;
+            background-color: #2fb534;
+            display: inline-block;
+            padding: 5px 10px;
+            color: #fff;
+            font-size: 1.3em;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        &.button-start {
+
+            background-color: #3f51b5;
+        }
+
+        &.button-api {
+
+            background-color: #f44336;
+        }
+    }
+
+    .niveis-controle {
+
+        margin-top: 20px;
+        width: 50px;
+        text-align: center;
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        top: 400px;
+        z-index: 3;
+        padding-bottom: 60px;
+
+        &:before {
+
+            width: 3px;
+            height: 100%;
+            background-color: #ff6b5a;
+            content: "";
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            position: absolute;
+            z-index: 2;
+        }
+
+        li {
+
+            width: 50px;
+            height: 50px;
+            background-color: #f8f5d6;
+            display: inline-block;
+            line-height: 50px;
+            text-align: center;
+            border: 3px solid #ff6b5a;
+            border-radius: 100%;
+            color: #333;
+            margin-top: 63.65%;
+            font-size: 1.5em;
+            position: relative;
+            z-index: 2;
+            cursor: no-drop;
+
+
+            &:after {
+
+                width: 14px;
+                height: 18px;
+                content: "";
+                right: -24px;
+                position: absolute;
+                bottom: 13px;
+                background: url(../../src/images/sprite.png) no-repeat -50px -129px;
+            }
+
+            &.msg-nivel {
+
+                &:before {
+
+                    content: "Nível bloqueado";
+                    position: absolute;
+                    left: -27px;
+                    top: 4px;
+                    background-color: #000;
+                    width: 100px;
+                    margin: 0 auto;
+                    right: 0;
+                    color: #fff;
+                    line-height: 20px;
+                    font-size: 0.7em;
+                    padding: 8px;
+                    z-index: 9;
+                    text-transform: uppercase;
+                    opacity: 1;
+                    @include transition(1s);
+                }
+            }
+
+            &.desbloqueado {
+
+                background-color: #ffc107;
+                color: #fff;
+                cursor: pointer;
+
+                &:before {
+
+                    display: none;
+                }
+
+                &:after {
+
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .msg-load {
+
+        opacity: 0;
+        color: #fff;
+        font-size: 1.8em;
+    }
+
+    .tela {
+
+        height: 100%;
+        display: block;
+        text-align: center;
+        width: 100%;
+        position: relative;
+
+        &.tela-1, &.tela-2 {
+
+            background: url("../../src/images/bg2.jpg");
+            background-position: center center;
+            background-size: 100%;
+
+            &.hide {
+
+                display: none;
+            }
+
+            &:before {
+
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                height: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                content: "";
+            }
+        }
+
+        &.tela-3 {
+            
+            .conteudo {
+
+                height: 100%;
+                overflow: auto;
+                background: #6dafe1 url(../../src/images/bg2.jpg);
+                background-size: 100%;
+                position: relative;
+                background-position: 0 400px;
+                background-repeat: no-repeat;
+
+                &:after {
+
+                    height: 300px;
+                    content: "";
+                    left: 0;
+                    top: 0;
+                    position: absolute;
+                    width: 100%;
+                    background-color: #353b71;
+                }
+            }
+        }
+
+        .wrapper-button {
+
+            @include content-center;
+            width: 70%;
+
+            .button {
+
+                margin-bottom: 10px;
+                margin-top: 10px;
+            }
+        }
+    }
+    
+    .tela-1, .tela-2 {
+
+        position: fixed;
+    }
+
+    .tela-2, .tela-3 {
+
+        display: none;
+    }
+
+    .valor-movimentos {
+
+        position: relative;
+
+
+        &:before {
+
+            opacity: 0;
+        }
+
+        &.explosao {
+
+            &:before {
+
+                width: 30px;
+                height: 30px;
+                position: absolute;
+                content: "";
+                left: -10px;
+                top: -2px;
+                background: url(../../src/images/sprite.png) no-repeat;
+                background-position: -73px -194px;
+                z-index: -1;
+                opacity: 1;
+
+            }
+
+        }
+
+    }
+
+    .nivel {
+
+        display: none;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.85);
+        z-index: 9999;
+        top: 0;
+        padding: 20px;
+        padding-top: 80px;
+
+        .meta {
+
+            width: 39%;
+            float: left;
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            color: #b696ee;
+            text-align: left;
+            font-size: 1.5em;
+            position: relative;
+            padding-left: 33px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+
+            span {
+
+                color: #fff;
+            }
+
+            &:before {
+
+                width: 30px;
+                height: 30px;
+                content: "";
+                left: 0;
+                position: absolute;
+                background: url(../../src/images/sprite.png) no-repeat;
+                background-position: -71px -128px;
+            }
+        }
+
+        .movimento {
+
+            width: 59%;
+            vertical-align: top;
+            display: inline-block;
+            text-transform: uppercase;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            color: orange;
+            text-align: right;
+            font-size: 1.5em;
+            letter-spacing: 1px;
+            position: relative;
+            padding-left: 40px;
+            float: right;
+
+            span {
+
+                color: #fff;
+            }
+
+            i {
+
+                position: relative;
+                font-style: normal;
+
+                &:before {
+
+                    width: 30px;
+                    height: 30px;
+                    content: "";
+                    left: -40px;
+                    position: absolute;
+                    background: url(../../src/images/sprite.png) no-repeat;
+                    background-position: -98px -129px;
+                }
+            }
+        }
+
+        .total {
+
+            width: 100%;
+            display: inline-block;
+            text-align: right;
+            position: relative;
+
+            span {
+
+                font-family: 'alarmclock';
+                color: #3E3D3E;
+                font-size: 4em;
+                text-align: right;
+
+                &:before {
+
+                    content: "8888";
+                    font-family: 'alarmclock';
+                    position: absolute;
+                    left: -40px;
+                    top: 0;
+                    width: 100%;
+                    opacity: 0.1;
+                    letter-spacing: -1px;
+                }
+            }
+        }
+
+        .nome-nivel {
+
+            width: 50%;
+            text-align: left;
+            float: left;
+            color: #fff;
+            font-size: 1.3em;
+            height: 30px;
+        }
+
+        .tempo {
+
+            float: right;
+            width: 50%;
+            display: inline;
+            height: 30px;
+        }
+
+        time {
+
+            position: relative;
+            display: inline-block;
+            height: 100%;
+            width: 100%;
+            padding-right: 10px;
+            text-align: right;
+            
+            i {
+
+                font-family: 'alarmclock';
+                font-weight: bold;
+                color: #fff;
+                font-style: normal;
+                padding-top: 7px;
+                display: inline-block;
+                font-size: 1em;
+                
+                
+            }
+
+
+            &:before {
+
+                width: 110px;
+                background: url(../../src/images/sprite.png) no-repeat;
+                background-position: -26px -92px;
+                position: absolute;
+                content: "";
+                height: 100%;
+                right: 0;
+                z-index: -1;
+                padding-top: 5px;
+                display: inline-block;
+            }
+        }
+
+        .wrapper-calculadora {
+
+            width: 100%;
+            display: inline-block;
+            background-color: #a5b8a2;
+            padding: 10px;
+            text-align: center;
+
+            &:before {
+
+                background-color: rgba(96,125,139,0.96);
+                content: "";
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                z-index: 2;
+            }
+
+            &.hide {
+
+                &:before {
+
+                    display: none;
+                }
+            }
+
+            .calculadora {
+
+                background-color: #e3dbce;
+                text-align: center;
+                display: inline-block;
+                width: 100%;
+                padding-top: 10px;
+                padding-bottom: 10px;
+
+                li {
+
+                    list-style: none;
+                    width: 30%;
+                    display: inline-block;
+                    background-color: #b3afa3;
+                    height: 50px;
+                    margin-bottom: 3px;
+                    border-radius: 10px;
+                    line-height: 40px;
+                    font-size: 1.2em;
+                    color: #fff;
+                    vertical-align: top;
+                    letter-spacing: 1px;
+                    margin: 1%;
+
+                    em {
+
+                        font-style: normal;
+                        font-size: 1.4em;
+                        display: inline-block;
+                        margin-right: 5px;
+                        font-family: arial;
+                        position: relative;
+                        top: -3px;
+                    }
+
+                    i {
+
+                        font-style: normal;
+                        font-size: 1.55em;
+                        display: inline-block;
+                        position: relative;
+                        top: 0px;
+                    }
+
+                    &.disabled {
+
+                        background-color: #aeaeae;
+                        pointer-events: none;
+                        box-shadow: 0 9px #868686;
+
+                        span {
+
+                            color: #4a4a4a;
+                        }
+
+                        &:active {
+
+                            box-shadow: 0 5px #868686;
+                        }
+
+                    }
+
+                    &:active {
+
+                        outline: none;
+                        transform: translateY(4px);
+                    }
+
+                    &.clear {
+
+                        background-color: #c62e2d;
+                        height: 40px;
+                        box-shadow: 0 9px #8f2623;
+
+                        &:active {
+
+                            box-shadow: 0 5px #8f2623;
+                        }
+
+                    }
+
+                    &.clear-bloqueado {
+
+                        background-color: #985b5b;
+                        box-shadow: 0 9px #5d3130;
+
+                        &:active {
+
+                            box-shadow: 0 5px #5d3130;
+                        }
+                    }
+
+                    span {
+
+                        padding: 10px;
+                        display: inline-block;
+                        vertical-align: top;
+                        height: 100%;
+                        border-radius: 10px;
+                        width: 100%;
+                        line-height: 20px;
+                        color: #fff;
+                        cursor: pointer;
+                    }
+
+                }
+
+                [data-operador] {
+
+                    background-color: #44494C;
+                    box-shadow: 0 9px #181a19;
+                    height: 40px;
+
+                    &:active {
+
+                        box-shadow: 0 5px #181a19;
+                    }
+                }
+
+                .operador-remover {
+
+                    background-color: #FF5722;
+                    box-shadow: 0 9px darken(#FF5722, 20%);
+                    height: 40px;
+
+                    &:active {
+
+                        box-shadow: 0 5px darken(#FF5722, 20%);
+                    }
+                }
+
+                .operador-agregar {
+
+                    background-color: #be18da;
+                    box-shadow: 0 9px darken(#be18da, 20%);
+                    height: 40px;
+
+                    &:active {
+
+                        box-shadow: 0 5px darken(#be18da, 20%);
+                    }
+                }
+                
+                .operador-inverter {
+
+                    background-color: #b78f40;
+                    box-shadow: 0 9px darken(#b78f40, 20%);
+                    height: 40px;
+
+                    em {
+
+                        font-size: 0.8em;
+                        font-family: Arial;
+                    }
+
+                    &:active {
+
+                        box-shadow: 0 5px darken(#b78f40, 20%);
+                    }
+                }
+                
+
+                .operador-elevado {
+
+                    background-color: #ff6b5a;
+                    box-shadow: 0 9px darken(#ff6b5a, 20%);
+                    height: 40px;
+
+                    em {
+
+                        margin-right: 0;
+                    }
+
+                    &:active {
+
+                        box-shadow: 0 5px darken(#ff6b5a, 20%);
+                    }
+                }
+
+                .operador-trocar, .operador-trocar2 {
+
+                    background-color: #009688;
+                    box-shadow: 0 9px darken(#009688, 20%);
+                    height: 40px;
+
+                    i {
+
+                        font-size: 1.1em;
+                    }
+
+                    &:active {
+
+                        box-shadow: 0 5px darken(#009688, 20%);
+                    }
+                }
+
+                .operador-trocar3 {
+
+                    background-color: #3e5bff;
+                    box-shadow: 0 9px darken(#3e5bff, 20%);
+                    height: 40px;
+
+                    i {
+
+                        font-size: 1.1em;
+                    }
+
+                    &:active {
+
+                        box-shadow: 0 5px darken(#3e5bff, 20%);
+                    }
+                }
+
+                
+
+            }
+        }
+
+    }
+
+    .show {
+
+        opacity: 1;
+        @include transition(0.5s);
+    }
+
+    .meta-do-jogo {
+
+        @include content-center();
+        z-index: 2;
+        width: 250px;
+        position: absolute;
+
+        .number {
+
+            font-family: 'alarmclock';
+            background-color: #a5b8a2;
+            color: #3E3D3E;
+            padding: 5px 15px;
+            display: inline-block;
+            font-style: normal;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 3.5em;
+        }
+
+        .button-start-nivel {
+
+            border-radius: 10px;
+            background-color: #2fb534;
+            display: inline-block;
+            padding: 10px 25px;
+            color: #fff;
+            font-size: 2em;
+            cursor: pointer;
+
+        }
+
+        .header {
+
+            width: 100%;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #2a346b;
+            -webkit-border-top-left-radius: 10px;
+            -webkit-border-top-right-radius: 10px;
+            -moz-border-radius-topleft: 10px;
+            -moz-border-radius-topright: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            text-align: left;
+            position: relative;
+
+
+            .close {
+
+                position: absolute;
+                right: 10px;
+                top: 11px;
+
+                &:after {
+
+                    width: 28px;
+                    height: 28px;
+                    content: "";
+                    right: 0;
+                    position: absolute;
+                    top: -1px;
+                    cursor: pointer;
+                    background: url(../../src/images/sprite.png) no-repeat;
+                    background-position: -6px -133px;
+                }
+            }
+
+            span {
+
+                color: #fff;
+                font-size: 2em;
+            }
+        }
+
+        .objetivos {
+
+            width: 100%;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f2f2f2;
+
+            span {
+
+                display: inline-block;
+                width: 100%;
+                color: #ababab;
+
+                &.title {
+
+                    color: #333;
+                    font-size: 2em;
+                }
+
+                &.descr {
+
+                    font-size: 0.85em;
+                }
+            }
+        }
+
+        .footer {
+
+            width: 100%;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #2a346b;
+            -webkit-border-bottom-right-radius: 10px;
+            -webkit-border-bottom-left-radius: 10px;
+            -moz-border-radius-bottomright: 10px;
+            -moz-border-radius-bottomleft: 10px;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+
+        }
+    }
+}
+

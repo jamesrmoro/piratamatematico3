@@ -1,7 +1,5 @@
 $(document).ready(function(){
 
-	if($(window).width() < 850) {
-
 		// Instrução para começar o jogo
 
 		function descer_nivel () {
@@ -99,6 +97,7 @@ $(document).ready(function(){
 			$("#"+nivel+"").addClass("remove-msg");
 			$(".meta-do-jogo").css("display", "none");
 			$("#"+nivel+" .wrapper-calculadora").addClass("hide");
+			$(".conteudo").addClass(nivel);
 		});
 
 		// Verifica a hora e muda o background do céu
@@ -558,7 +557,81 @@ $(document).ready(function(){
 				$(".screen-hidden").toggleClass("animated");
 			});
 
+			function vidas() {
+				lifes = $(".lifes li").length;
 
+				if (lifes <= 0) {
+					$(".lifes").append('<li>Suas vidas acabaram!</li>');
+					$(".msg-life").html("Aguarde...");
+					$("#"+nivel+" .grupo-msg").addClass("game-over");
+					$(".item-left").addClass("msg-game-over");
+					$("#"+nivel+" .game-over .status-msg").html("Você ficou sem vida!");
+					$("#"+nivel+" .conteudo-box .jogar-novamente").hide();
+					$("#"+nivel+" .game-over .star").hide();
+					$("#"+nivel+" .game-over .close-nivel").hide();
+					$("#"+nivel+" .game-over .time-box").html("Espere um pouquinho para recarregarmos as pilhas");
+					$("#"+nivel+" .game-over .time-box").append("<i id='time-game-over'></i>segundos restantes");
+
+						// Bloqueia temporariamente para não voltar a trilha do mapa
+						$(".msg-game-over").removeClass("item-left");
+
+						// Mostra mensagem que não há vida se o usuário tenta voltar ao mapa
+						$("body").on("click", ".msg-game-over", function() {
+							$(this).addClass('show').delay(1000).queue(function(next){
+								$(this).removeClass('show');
+								next();
+							});
+						});
+
+						// Ao clicar em next remove a mensagem de pilhas recarregadas
+						$("body").on("click", ".game-over .close-nivel, .game-over .proximo-nivel", function() {
+							$(this).closest(".grupo-msg").removeClass("game-over");
+							$("#"+nivel+" .conteudo-box .jogar-novamente").show();
+							$("#"+nivel+" .star").show();
+							$("#"+nivel+" .close-nivel").show();
+							$("#"+nivel+" .time-box").html("Seu tempo foi de: <i>00:00</i>");
+							$("#"+nivel+" .status-msg").removeClass("icon-win");
+							$("#"+nivel+" .proximo-nivel").html("Avançar");
+						});
+
+						var tempo_vida = 3000;
+						var elem = document.getElementById('time-game-over');
+						var timerId = setInterval(countdown, 1000);
+
+						function vida_volta() {
+							$("#"+nivel+" .game-over .status-msg").html("Pilhas recarregadas");
+							if ($(".grupo-msg").hasClass("game-over")) {
+								$("#"+nivel+" .game-over .time-box").html("Você ganhou 5 novas vidas :)");
+							}
+							$("#"+nivel+" .proximo-nivel").css("display", "block");
+							$("#"+nivel+" .proximo-nivel").html("Voltar ao jogo");
+							$("#"+nivel+" .game-over .status-msg").removeClass("icon-loose").addClass("icon-win");
+							$("#"+nivel+" .close-nivel").show();
+							$(".msg-life").html("Vidas");
+							$(".lifes").html("<li class='heart'></li><li class='heart'></li><li class='heart'></li><li class='heart'></li><li class='heart'></li>");
+
+						    // Desbloqueia para voltar a trilha do mapa
+						    $(".msg-game-over").addClass("item-left");
+						    $(".status-top .item").removeClass("msg-game-over");
+						    function recuperou() {
+						    	var snd = new Audio("musica/recuperou.mp3");  
+						    	snd.play();
+						    }
+
+						    recuperou();
+						}
+
+						function countdown() {
+							if (tempo_vida == -1) {
+								clearTimeout(timerId);
+								vida_volta();
+							} else {
+								elem.innerHTML = ( tempo_vida < 10 ? "00:0" : "00:" ) + tempo_vida;
+								tempo_vida--;
+							}
+						}
+				}
+			}
 
 			// Realiza o cálculo
 
@@ -697,79 +770,7 @@ $(document).ready(function(){
 
 			}
 
-			lifes = $(".lifes li").length;
-
-			if (lifes <= 0) {
-				$(".lifes").append('<li>Suas vidas acabaram!</li>');
-				$(".msg-life").html("Aguarde...");
-				$("#"+nivel+" .grupo-msg").addClass("game-over");
-				$(".item-left").addClass("msg-game-over");
-				$("#"+nivel+" .game-over .status-msg").html("Você ficou sem vida!");
-				$("#"+nivel+" .conteudo-box .jogar-novamente").hide();
-				$("#"+nivel+" .game-over .star").hide();
-				$("#"+nivel+" .game-over .close-nivel").hide();
-				$("#"+nivel+" .game-over .time-box").html("Espere um pouquinho para recarregarmos as pilhas");
-				$("#"+nivel+" .game-over .time-box").append("<i id='time-game-over'></i>segundos restantes");
-
-					// Bloqueia temporariamente para não voltar a trilha do mapa
-					$(".msg-game-over").removeClass("item-left");
-
-					// Mostra mensagem que não há vida se o usuário tenta voltar ao mapa
-					$("body").on("click", ".msg-game-over", function() {
-						$(this).addClass('show').delay(1000).queue(function(next){
-							$(this).removeClass('show');
-							next();
-						});
-					});
-
-					// Ao clicar em next remove a mensagem de pilhas recarregadas
-					$("body").on("click", ".game-over .close-nivel, .game-over .proximo-nivel", function() {
-						$(this).closest(".grupo-msg").removeClass("game-over");
-						$("#"+nivel+" .conteudo-box .jogar-novamente").show();
-						$("#"+nivel+" .star").show();
-						$("#"+nivel+" .close-nivel").show();
-						$("#"+nivel+" .time-box").html("Seu tempo foi de: <i>00:00</i>");
-						$("#"+nivel+" .status-msg").removeClass("icon-win");
-						$("#"+nivel+" .proximo-nivel").html("Avançar");
-					});
-
-					var tempo_vida = 30;
-					var elem = document.getElementById('time-game-over');
-					var timerId = setInterval(countdown, 1000);
-
-					function vida_volta() {
-						$("#"+nivel+" .game-over .status-msg").html("Pilhas recarregadas");
-						if ($(".grupo-msg").hasClass("game-over")) {
-							$("#"+nivel+" .game-over .time-box").html("Você ganhou 5 novas vidas :)");
-						}
-						$("#"+nivel+" .proximo-nivel").css("display", "block");
-						$("#"+nivel+" .proximo-nivel").html("Voltar ao jogo");
-						$("#"+nivel+" .game-over .status-msg").removeClass("icon-loose").addClass("icon-win");
-						$("#"+nivel+" .close-nivel").show();
-						$(".msg-life").html("Vidas");
-						$(".lifes").html("<li class='heart'></li><li class='heart'></li><li class='heart'></li><li class='heart'></li><li class='heart'></li>");
-
-					    // Desbloqueia para voltar a trilha do mapa
-					    $(".msg-game-over").addClass("item-left");
-					    $(".status-top .item").removeClass("msg-game-over");
-					    function recuperou() {
-					    	var snd = new Audio("musica/recuperou.mp3");  
-					    	snd.play();
-					    }
-
-					    recuperou();
-					}
-
-					function countdown() {
-						if (tempo_vida == -1) {
-							clearTimeout(timerId);
-							vida_volta();
-						} else {
-							elem.innerHTML = ( tempo_vida < 10 ? "00:0" : "00:" ) + tempo_vida;
-							tempo_vida--;
-						}
-					}
-				}
+			vidas();
 
 			});
 
@@ -783,9 +784,15 @@ $(document).ready(function(){
 					$(this).closest(".conteudo").find(".niveis-controle #c-"+nivel+".desbloqueado").prev().addClass("desbloqueado");
 					$("#"+nivel).fadeOut();
 					$("#"+nivel).next().fadeIn();
+					var lastClass = $('.conteudo').attr('class').split(' ').pop();
+					$(".conteudo").removeClass(lastClass);
+					var id_next = $("#"+nivel).next().attr("id");
 					$(".meta-do-jogo").fadeIn();
+					$(".conteudo").addClass(id_next);
 				}
+
 				salva_fase();
+				
 			});
 
 			$("body").on("click", ".mensagem-2.acertou .close-nivel", function() {
@@ -826,20 +833,21 @@ $(document).ready(function(){
 				$(".mensagem-1").removeClass("exibe");
 				$(".mensagem-2").removeClass("exibe");
 				$(".wrapper-calculadora").removeClass("hide");
-				para_tempo();
-				limpa_tempo(nivel);
-				pega_limpa_jogada(nivel);
 				setTimeout(function() {
 					$(".mensagem-3").remove();
 				}, 500);
 				$(".lifes li:last-child").remove();
 				var lastClass = $('.conteudo').attr('class').split(' ').pop();
 				$(".conteudo").removeClass(lastClass);
+				vidas();
+				para_tempo();
+				limpa_tempo(nivel);
+				pega_limpa_jogada(nivel);
 
 			});
 
 			$("body").on("click", ".close", function() {
-				lastClass = $('.conteudo').attr('class').split(' ').pop();
+				var lastClass = $('.conteudo').attr('class').split(' ').pop();
 				$(".conteudo").removeClass(lastClass);
 				sair();
 				$(".nivel").fadeOut();
@@ -876,7 +884,7 @@ $(document).ready(function(){
 				$("#"+n+"").removeClass("remove-msg");
 				$(".meta-do-jogo").css("display", "block");
 				$(this).removeClass(".msg-nivel");
-				$(".conteudo").addClass("nivel-"+n+"");
+				$(".conteudo").toggleClass("nivel-"+n+"");
 			});
 
 			var total_estrelas = $(".estrelas").attr("data-estrelas");
@@ -979,7 +987,6 @@ $(document).ready(function(){
 	console.log("Fail");
 });
 
-}
 
 });
 
