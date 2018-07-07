@@ -802,36 +802,57 @@ $(document).ready(function(){
 				snd.play();
 			}
 
-			$("body").on("click", ".close, .close-nivel, .game-over .proximo-nivel", function() {
+			$("body").on("click", ".close-nivel, .game-over .proximo-nivel", function() {
 				sair();
 				$(".nivel").fadeOut();
 				$(".wrapper-calculadora").removeClass("hide");
 				$(".mensagem-1").removeClass("exibe");
 				$(".mensagem-2").removeClass("exibe");
 				para_tempo();
-				limpa_tempo(nivel)
+				limpa_tempo(nivel);
 				pega_limpa_jogada(nivel);
+		
 			});
 
 			$("body").on("click", "item-left, .item-left img", function() {
-				//$(".nivel").fadeOut();
-				$(".wrapper-calculadora").removeClass("hide");
 				$(".mensagem-1").removeClass("exibe");
 				$(".mensagem-2").removeClass("exibe");
-				console.log("teste");
-				$(this).closest(".conteudo").find("#controle #"+nivel+" .mensagem-2").after("<div class='mensagem-3'><div class='grupo-msg'><span class='close-msg'></span><div class='conteudo-box'><span title='Jogar novamente' class='jogar-novamente button'>Deseja sair?</span><span title='Sim' class='sair-nivel button'>Sim</span></div></div></div>");
+				var nivel_d = $(".conteudo").prop("class").split(' ')[2];
+				$(this).closest(".conteudo").find("#controle #"+nivel_d+" .mensagem-2").after("<div class='mensagem-3'><div class='grupo-msg'><span class='close-msg'></span><div class='conteudo-box'><span title='Jogar novamente' class='jogar-novamente button'>Deseja sair?</span><span title='Sim' class='sair-nivel button'>Sim</span></div></div></div>");
 			});
 
 			$("body").on("click", ".sair-nivel", function() {
 				$(".nivel").fadeOut();
+				$(".mensagem-1").removeClass("exibe");
+				$(".mensagem-2").removeClass("exibe");
+				$(".wrapper-calculadora").removeClass("hide");
 				para_tempo();
+				limpa_tempo(nivel);
+				pega_limpa_jogada(nivel);
 				setTimeout(function() {
 					$(".mensagem-3").remove();
 				}, 500);
+				$(".lifes li:last-child").remove();
+				var lastClass = $('.conteudo').attr('class').split(' ').pop();
+				$(".conteudo").removeClass(lastClass);
+
 			});
+
+			$("body").on("click", ".close", function() {
+				lastClass = $('.conteudo').attr('class').split(' ').pop();
+				$(".conteudo").removeClass(lastClass);
+				sair();
+				$(".nivel").fadeOut();
+				$(".wrapper-calculadora").removeClass("hide");
+				$(".mensagem-1").removeClass("exibe");
+				$(".mensagem-2").removeClass("exibe");
+			});
+
+
 
 			$("body").on("click", ".close-msg", function() {
 				$(".mensagem-3").remove();
+				
 			});
 
 			$('body').on('click', ".calculadora li.start-time", function(){
@@ -855,6 +876,7 @@ $(document).ready(function(){
 				$("#"+n+"").removeClass("remove-msg");
 				$(".meta-do-jogo").css("display", "block");
 				$(this).removeClass(".msg-nivel");
+				$(".conteudo").addClass("nivel-"+n+"");
 			});
 
 			var total_estrelas = $(".estrelas").attr("data-estrelas");
