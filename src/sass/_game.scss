@@ -5,6 +5,14 @@
     font-family: 'Mouse Memoirs', sans-serif;
 }
 
+.criador {
+
+    color: #fff;
+    font-family: Arial;
+    font-size: 0.8em;
+    font-style: normal;
+}
+
 html.introducao, body.intro {
 
     height: 100%;
@@ -20,7 +28,7 @@ html.introducao, body.intro {
 
 body {
 
-	//background: url(../../src/images/bg-principal.png) repeat;
+	background: url(../../src/images/bg-principal.png) repeat;
 	background-size: cover;
     padding: 0;
     margin: 0;
@@ -40,10 +48,15 @@ body {
 
 .tela-principal {
 
-    width: 350px;
-    @include content-center();
-    height: 100vh;
+    width: 300px;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    height: 95%;
     overflow: hidden;
+    border-radius: 25px;
 }
 
 @font-face {
@@ -142,7 +155,7 @@ body {
 
 .screen-hidden {
 
-    width: 350px;
+    width: 100%;
     height: 100%;
     position: fixed;
     right: -350px;
@@ -1627,6 +1640,19 @@ body {
                 background-position: 0 400px;
                 background-repeat: no-repeat;
 
+                &::-webkit-scrollbar {
+                  width: 10px;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                  background: url(../../src/images/barra.png) repeat;
+                  background-size: 100%;
+                }
+
+                &::-webkit-scrollbar-track {
+                   background-color: brown;
+                }
+
                 &:after {
 
                     height: 300px;
@@ -1794,7 +1820,7 @@ body {
 
                 &:before {
 
-                    content: "8888";
+                    content: "88888";
                     font-family: 'alarmclock';
                     position: absolute;
                     left: -40px;
