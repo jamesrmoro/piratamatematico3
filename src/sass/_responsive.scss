@@ -1,20 +1,5 @@
 @media screen and (max-width: 800px) {
 
-	#game {
-
-	    .tela {
-
-	        &.tela-3 {
-	            
-	            .conteudo {
-
-	                height: 1900px;
-	            }
-
-	        }
-		}
-	}
-
 	.screen-hidden {
 
 	    width: 350px;
@@ -36,6 +21,7 @@
 	    position: inherit;
 	    height: inherit;
 	    overflow: hidden;
+	    border-radius: 0;
 	}
 
 }

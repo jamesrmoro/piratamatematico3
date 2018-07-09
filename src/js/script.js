@@ -1,12 +1,24 @@
 $(document).ready(function(){
 
-		// Instrução para começar o jogo
+		if($(window).width() < 800) {
 
-		function descer_nivel () {
-			var $elem = $('.conteudo');
-			$('html, body').animate({scrollTop: $elem.height()}, 900);
-			var scroll = $('#c-nivel-1').offset();
-			$('.conteudo').animate({ scrollTop: scroll.top }, 900);
+			function descer_nivel () {
+				var $elem = $('.conteudo');
+				$('html, body').animate({scrollTop: $elem.height()}, 900);
+				var scroll = $('#c-nivel-1').offset();
+				$('.conteudo').animate({ scrollTop: scroll.top }, 900);
+				console.log(scroll);
+			}
+
+		}
+
+		if($(window).width() > 801) {
+
+			function descer_nivel () {
+				var scroll = $('#c-nivel-1').offset();
+				$('#game').animate({ scrollTop: scroll.top }, 900);
+			}
+
 		}
 
 		$("body").on("click", ".click-down", function() {

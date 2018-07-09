@@ -7,7 +7,7 @@ canvas.height = window.innerHeight;
 function draw(delta) {
 	requestAnimationFrame(draw);
 	canvas.width = canvas.width;
-	ctx.fillStyle = "#6dafe1";
+	ctx.fillStyle = "#353B71";
 
 	var randomLeft = Math.abs(Math.pow( Math.sin(delta/1000), 2 )) * 100;
 	var randomRight = Math.abs(Math.pow( Math.sin((delta/1000) + 10), 2 )) * 100;

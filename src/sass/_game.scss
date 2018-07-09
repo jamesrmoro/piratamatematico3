@@ -80,6 +80,21 @@ body {
 
 #game {
 
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: url(../../src/images/barra.png) repeat;
+      background-size: 100%;
+    }
+
+    &::-webkit-scrollbar-track {
+       background-color: brown;
+    }
+
     .numero-niveis {
 
         width: 100%;
@@ -316,7 +331,12 @@ body {
         font-family: arial;
         font-weight: bold;
         cursor: pointer;
-        color: #FFEB3B
+        color: #FFEB3B;
+
+        &:hover {
+
+            color: darken(#FFEB3B, 25%);
+        }
     }
 
     strong {
@@ -329,6 +349,11 @@ body {
         font-weight: normal;
         cursor: pointer;
         width: 100%;
+
+        &:hover {
+
+            background-color: darken(#8BC34A, 5%);
+        }
     }
 
 }
@@ -1358,12 +1383,6 @@ body {
         display: inline-block;
     }
 
-    #controle {
-
-        position: relative;
-        height: 100%;
-    }
-
     .status-top {
 
         background-color: #f1f1f1;
@@ -1504,7 +1523,7 @@ body {
         margin: 0 auto;
         top: 400px;
         z-index: 3;
-        padding-bottom: 60px;
+        padding-bottom: 85px;
 
         &:before {
 
@@ -1525,7 +1544,7 @@ body {
             height: 50px;
             background-color: #f8f5d6;
             display: inline-block;
-            line-height: 50px;
+            line-height: 45px;
             text-align: center;
             border: 3px solid #ff6b5a;
             border-radius: 100%;
@@ -1576,6 +1595,11 @@ body {
                 background-color: #ffc107;
                 color: #fff;
                 cursor: pointer;
+
+                &:hover {
+
+                    background-color: darken(#ffc107, 10%);
+                }
 
                 &:before {
 
@@ -1632,26 +1656,11 @@ body {
             
             .conteudo {
 
-                height: 100%;
-                overflow: auto;
-                background: #6dafe1 url(../../src/images/bg2.jpg);
+                height: 6295px;
+                background: #353B71 url(../../src/images/bg2.jpg);
                 background-size: 100%;
-                position: relative;
-                background-position: 0 400px;
+                background-position: 0px bottom;
                 background-repeat: no-repeat;
-
-                &::-webkit-scrollbar {
-                  width: 10px;
-                }
-
-                &::-webkit-scrollbar-thumb {
-                  background: url(../../src/images/barra.png) repeat;
-                  background-size: 100%;
-                }
-
-                &::-webkit-scrollbar-track {
-                   background-color: brown;
-                }
 
                 &:after {
 
