@@ -26,6 +26,20 @@ $(document).ready(function(){
 			$(this).fadeOut();
 		});
 
+		$("body").on("click", ".close-comment", function() {
+			$(".msg-feedback").fadeOut();
+			$("#game .status-top").fadeIn();
+		});
+
+		
+
+		$("body").on("click", ".modal-feedback", function() {
+			$(".msg-feedback").fadeIn();
+			$("#game .status-top").fadeOut();
+			$("body #disqus_thread_parent iframe").css("height", "100%");
+			$("body #disqus_thread_parent iframe").css("width", "100%");
+		});
+
 		// Música do jogo
 
 		var audio = document.getElementById("player");
@@ -37,6 +51,12 @@ $(document).ready(function(){
 				audio.pause();
 			}
 
+		});
+
+		$("body").on("click", ".status-jogo ul.share-social li a, .modal-feedback", function() {
+			if(audio.play){
+				audio.pause();
+			}
 		});
 
 		function beep() {
@@ -204,6 +224,8 @@ $(document).ready(function(){
 			$("#number").html("Níveis do jogo: "+game);
 		})
 		.then(function(data){
+
+
 
 			function pega_nivel(a) {
 				nivel = $(a).closest('.nivel').attr("id");
@@ -879,6 +901,11 @@ $(document).ready(function(){
 				inicia_tempo(nivel);
 			});
 
+			// Mostra aúdio de trilha sonora do jogo desabilitado
+
+			$("body").not( ".intro").addClass("no-music");
+			$("body.no-music .button-song").removeClass("active");
+
 			// Exibe mensagem que nível da trilha está bloqueado
 
 			$("body").on("click", ".niveis-controle li", function() {
@@ -977,16 +1004,6 @@ $(document).ready(function(){
 		    		break;
 		    	}
 
-		    });
-
-		    $("body").on("click", "#compartilhar", function(){
-		    	html2canvas($("#html2canvas"), {
-		    		onrendered: function(canvas) {
-		    			$(".imagem-compartilhada").append(canvas);
-		    			var img = canvas.toDataURL();
-		    			$('#calendar_to_canvas').attr('src', img);
-		    		}
-		    	});
 		    });
 
 

@@ -250,6 +250,80 @@ body {
     }
 }
 
+body {
+
+    .comment__header .author a {
+
+        color: #fff !important;
+    }
+}
+
+
+.msg-feedback {
+
+    background-color: #333;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    z-index: 999;
+    display: none;
+
+    .wrapper {
+
+        @include content-center();
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        display: inline-block;
+        padding-top: 60px;
+        overflow: auto;
+    }
+}
+
+.modal-feedback {
+
+    color: #fff;
+    padding-left: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+
+    &:before {
+
+        content: "";
+        width: 32px;
+        height: 32px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: url(../../src/images/sprite.png) no-repeat;
+        background-position: -259px -541px;
+
+    }
+
+    &:hover {
+
+        color: #fac917;
+    }
+}
+
+.close-comment {
+
+    width: 30px;
+    height: 30px;
+    top: 20px;
+    position: absolute;
+    right: 20px;
+    background: url(../../src/images/sprite.png) no-repeat;
+    background-position: -303px -542px;
+    cursor: pointer;
+
+}
+
 .screen-hidden {
 
     width: 100%;
@@ -263,7 +337,7 @@ body {
     @include transition(1s);
     background: #565A6F url(../../src/images/lado.png) no-repeat right bottom;
     background-size: cover;
-    padding-top: 165px;
+    padding-top: 120px;
 
     &.animated {
 
@@ -283,6 +357,14 @@ body {
             &:before {
 
                 content: "Rede social"
+            }
+        }
+
+        &.feedback {
+
+            &:before {
+
+                content: "Deixe seu feedback"
             }
         }
 
@@ -354,24 +436,6 @@ body {
 
     
 }
-
-// #html2canvas{
-//     width:150px;
-//     text-align:center;
-//     padding:30px;
-//     font-weight:bolder;
-//     color:#FFF;
-//     font-size:25px;
-//     background:#000;
-// }
-
-// canvas {
-
-//  position: absolute;
-//  right: 0;
-//  top: 0;
-// }
-
 
 
 #game {
