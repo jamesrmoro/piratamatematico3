@@ -6,6 +6,35 @@
 
 	}
 
+	body {
+
+	    background: #353B71 url(../../src/images/bg2.jpg);
+
+	}
+
+	#game {
+
+		.tela.tela-3 {
+
+			.conteudo {
+
+			    height: 8640px;
+			    background-position: center bottom;
+			    background-size: 100%;
+
+			}
+		}
+
+		.niveis-controle {
+
+			li {
+
+			   	margin-top: 130.18%;
+
+			}
+		}
+	}
+
 	.slider-container {
 
 		display: block;
