@@ -28,8 +28,8 @@
     <meta property="article:published_time" content="2017-08-05T14:42:54+00:00" />
     <meta property="og:image" content="https://www.piratamatematico.com.br/src/images/share.png" />
     <meta property="og:image:secure_url" content="https://www.piratamatematico.com.br/src/images/share.png" />
-    <meta property="og:image:width" content="765" />
-    <meta property="og:image:height" content="350" />
+    <meta property="og:image:width" content="828" />
+    <meta property="og:image:height" content="433" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:description" content="Um jogo para você exercitar sua mente" />
     <meta name="twitter:title" content="Resolva cálculos e escape da ilha!" />
@@ -46,6 +46,8 @@
 	</script>
 
 </head>
+
+
 <body class="intro">
 	<div class="tela-principal">
 	<div class="slider-container">
